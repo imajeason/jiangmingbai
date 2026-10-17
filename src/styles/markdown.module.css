@@ -1,0 +1,107 @@
+.markdownBody {
+  color: #334155;
+  font-size: 0.975rem;
+  line-height: 1.85;
+}
+
+.markdownBody h1,
+.markdownBody h2,
+.markdownBody h3,
+.markdownBody h4 {
+  color: var(--color-text-main);
+  font-weight: 700;
+  margin-top: 28px;
+  margin-bottom: 14px;
+  line-height: 1.35;
+}
+
+.markdownBody h1 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 8px;
+}
+
+.markdownBody h2 {
+  font-size: 1.35rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 6px;
+}
+
+.markdownBody h3 {
+  font-size: 1.15rem;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.markdownBody h3::before {
+  content: "●";
+  font-size: 0.75rem;
+  color: var(--color-primary);
+}
+
+.markdownBody h4 {
+  font-size: 1.05rem;
+}
+
+.markdownBody p {
+  margin-bottom: 16px;
+}
+
+.markdownBody strong {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.markdownBody em {
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.markdownBody ul,
+.markdownBody ol {
+  margin-bottom: 18px;
+  padding-left: 24px;
+}
+
+.markdownBody li {
+  margin-bottom: 8px;
+}
+
+.markdownBody hr {
+  border: none;
+  border-top: 1px dashed var(--color-border);
+  margin: 28px 0;
+}
+
+.markdownBody blockquote {
+  border-left: 4px solid var(--color-primary);
+  background: var(--color-bg-card-subtle);
+  padding: 12px 18px;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin: 18px 0;
+  color: var(--color-text-muted);
+}
+
+.markdownBody code {
+  font-family: var(--font-mono);
+  background: #f1f5f9;
+  color: #2563eb;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.markdownBody :global(.math-inline) {
+  font-family: var(--font-mono), 'Cambria Math', 'Times New Roman', serif;
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.95em;
+  font-weight: 700;
+  border: 1px solid #dbeafe;
+}
+

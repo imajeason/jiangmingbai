@@ -8,6 +8,9 @@ import Sidebar from '@/components/layout/Sidebar';
 import AnimationPlayer from '@/components/animations/AnimationPlayer';
 import ParentGuideBox from '@/components/common/ParentGuideBox';
 import { ChevronRight, Clock, Award, BookCheck, Share2 } from 'lucide-react';
+import { parseMarkdown } from '@/lib/markdown';
+import markdownStyles from '@/styles/markdown.module.css';
+
 
 interface PageProps {
   params: Promise<{
@@ -91,6 +94,8 @@ export default async function TopicDetailPage({ params }: PageProps) {
     })),
   };
 
+  const contentHtml = topic.content ? parseMarkdown(topic.content) : '';
+
   return (
     <>
       {/* 注入 SEO 结构化数据 */}
@@ -170,17 +175,22 @@ export default async function TopicDetailPage({ params }: PageProps) {
             {/* 3. 家长辅导锦囊（核心受众专区） */}
             <ParentGuideBox topic={topic} />
 
-            {/* 4. 深度拓展与思维延伸 (来自独立 Markdown 正文) */}
-            {topic.content && (
-              <div style={{ background: '#ffffff', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', padding: '28px', boxShadow: 'var(--shadow-sm)', marginTop: '32px' }}>
-                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '16px', color: 'var(--color-text-main)' }}>
-                  📖 知识深度解析与历史背景
-                </h3>
-                <div style={{ fontSize: '0.95rem', color: '#334155', lineHeight: 1.8, whiteSpace: 'pre-line' }}>
-                  {topic.content}
+            {/* 4. 深度拓展与思维延伸 (来自独立 Markdown 正文，经过富文本与公式渲染) */}
+            {contentHtml && (
+              <div style={{ background: '#ffffff', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', padding: '28px 32px', boxShadow: 'var(--shadow-sm)', marginTop: '32px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px', paddingBottom: '14px', borderBottom: '1px solid var(--color-border)' }}>
+                  <span style={{ fontSize: '1.25rem' }}>📖</span>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 700, margin: 0, color: 'var(--color-text-main)' }}>
+                    知识深度解析与原理背景
+                  </h3>
                 </div>
+                <div
+                  className={markdownStyles.markdownBody}
+                  dangerouslySetInnerHTML={{ __html: contentHtml }}
+                />
               </div>
             )}
+
           </div>
         </div>
       </div>
