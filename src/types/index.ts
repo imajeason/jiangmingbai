@@ -42,6 +42,6 @@ export interface TopicItem {
     keyTakeaway: string;
   };
   tags: string[];
-  animationType: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes';
+  animationType: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | string;
   content?: string;
 }

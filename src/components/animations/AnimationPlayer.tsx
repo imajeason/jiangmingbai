@@ -4,9 +4,10 @@ import React from 'react';
 import CircleAreaLab from './CircleAreaLab';
 import PythagoreanTheoremLab from './PythagoreanTheoremLab';
 import BuoyancyArchimedesLab from './BuoyancyArchimedesLab';
+import ClockReadingLab from './ClockReadingLab';
 
 interface AnimationPlayerProps {
-  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes';
+  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | string;
 }
 
 export default function AnimationPlayer({ type }: AnimationPlayerProps) {
@@ -17,7 +18,13 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
       return <PythagoreanTheoremLab />;
     case 'buoyancy-archimedes':
       return <BuoyancyArchimedesLab />;
+    case 'clock-reading':
+      return <ClockReadingLab />;
     default:
-      return <div>该动画正在制作中</div>;
+      return (
+        <div style={{ padding: '60px 20px', textAlign: 'center', background: '#f8fafc', borderRadius: 'var(--radius-lg)' }}>
+          <p style={{ color: '#64748b' }}>该知识点动画正在紧锣密鼓制作中...</p>
+        </div>
+      );
   }
 }

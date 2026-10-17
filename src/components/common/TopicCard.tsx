@@ -50,6 +50,20 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="102" y="50" fontSize="11" fill="#059669" fontWeight="700">G排</text>
           </svg>
         )}
+
+        {topic.animationType === 'clock-reading' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <circle cx="80" cy="50" r="38" fill="#ffffff" stroke="#334155" strokeWidth="2" />
+            <circle cx="80" cy="50" r="3" fill="#0f172a" />
+            {/* 7点55分指针：时针指到接近8，分针指到11 */}
+            <line x1="80" y1="50" x2="62" y2="65" stroke="#ef4444" strokeWidth="3" strokeLinecap="round" />
+            <line x1="80" y1="50" x2="63" y2="22" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" />
+            <text x="80" y="22" textAnchor="middle" fontSize="9" fontWeight="700" fill="#64748b">12</text>
+            <text x="80" y="85" textAnchor="middle" fontSize="9" fontWeight="700" fill="#64748b">6</text>
+            <text x="110" y="53" textAnchor="middle" fontSize="9" fontWeight="700" fill="#64748b">3</text>
+            <text x="50" y="53" textAnchor="middle" fontSize="9" fontWeight="700" fill="#64748b">9</text>
+          </svg>
+        )}
       </div>
 
       <div className={styles.cardBody}>
