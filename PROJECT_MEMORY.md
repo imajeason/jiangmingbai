@@ -138,20 +138,59 @@ src/
 
 ---
 
-## 🚀 六、 新增一个知识点动画的标准流程（只需 3 步）
+## 🚀 六、 新增一个知识点动画的标准流程（独立 Markdown 驱动）
+
+知识点内容已与程序代码彻底解耦，存放在 `content/topics/` 目录下的独立 `.md` 文件中。
 
 1. **第 1 步：创建动画组件**
    - 在 `src/components/animations/` 新建组件（如 `ClockReadingLab.tsx`）。
    - 在 `src/components/animations/AnimationPlayer.tsx` 增加对应的类型分支与映射。
-2. **第 2 步：注册元数据与家长辅导指南**
-   - 在 `src/data/topics.ts` 的 `TOPICS` 数组末尾添加数据项：
-     - 学段、学科、年级
-     - `parentGuide`：痛点剖析、启发提问三步法、生活原型类比、一句话核心金句
-     - 动画类型名称匹配
+
+2. **第 2 步：新建独立的知识点 Markdown 文件**
+   - 在 `content/topics/` 目录下新建 `<slug>.md`（如 `clock-reading.md`）。
+   - 文件结构包含 **YAML Frontmatter 元数据** 与 **正文图文解析**：
+   ```markdown
+   ---
+   id: clock-reading
+   slug: clock-reading
+   title: 认识钟表：时针与分针的齿轮联动
+   subtitle: 为什么 7:55 不是 8:55？看懂时针在半点和接近整点的悄悄移动
+   stage: xiaoxue
+   grade: 小学一年级上册
+   subject: math
+   difficulty: 1
+   durationMinutes: 3
+   summary: 通过自由拨动分针，观察时针按 1:12 悄悄滑移。专门辨析 7:55 与 8:55 等易错时间点。
+   coreFormula: 1小时 = 60分，分针走一圈，时针走一大格
+   tags:
+     - 认识钟表
+     - 时间启蒙
+     - 易错题辨析
+   animationType: clock-reading
+   parentGuide:
+     painPoint: 看到 7:55 时，时针已经快指到 8 了，孩子极容易看成 8:55。
+     steps:
+       - stepNumber: 1
+         question: “宝贝，短针是时针，长针是分针，我们把分针转一圈，时针走了多少？”
+         guide: 引导孩子观察时针从 1 挪到 2，体会分针走得快、时针走得慢。
+       - stepNumber: 2
+         question: “现在分针指到 11（55分），时针快要碰到 8 了，但它敲开 8 点的大门了吗？”
+         guide: 提示孩子看放大镜：时针还在 7 的房间里没踏入 8，所以还是 7 点 55 分！
+       - stepNumber: 3
+         question: “如果是 3 点半（3:30），时针应该指在哪里？”
+         guide: 时针在 3 和 4 的正中间，因为半小时走了一半的路。
+     realLifeExample: 家里挂钟的齿轮咬合；每天早上上学打铃的时间刻度。
+     keyTakeaway: “时针没踏过下一个数，就还是前一个小时的领地！”
+   ---
+
+   ### 课标要点与辅导延伸
+   这里可以继续写长篇的图文解析、课堂思考题与拓展训练...
+   ```
+
 3. **第 3 步：一键推送到线上**
    ```bash
    git add .
-   git commit -m "feat(topic): add clock reading lab for grade 1"
+   git commit -m "feat(topic): add clock reading markdown and lab"
    git push
    ```
    Cloudflare Pages 会在 30 秒内自动打包生成新的静态网页并完成全站 CDN 更新！

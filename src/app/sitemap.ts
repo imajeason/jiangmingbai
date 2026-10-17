@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
-import { TOPICS, STAGES, SUBJECTS } from '@/data/topics';
+import { STAGES, SUBJECTS } from '@/data/constants';
+import { getAllTopics } from '@/lib/topics';
 import { StageKey, SubjectKey } from '@/types';
 
 export const dynamic = 'force-static';
@@ -46,7 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // 4. 所有知识点详情页
-  TOPICS.forEach((topic) => {
+  getAllTopics().forEach((topic) => {
     routes.push({
       url: `${baseUrl}/${topic.stage}/${topic.subject}/${topic.slug}/`,
       lastModified: new Date(),

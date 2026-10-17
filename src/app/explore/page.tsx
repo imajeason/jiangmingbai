@@ -1,7 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { STAGES, SUBJECTS, TOPICS } from '@/data/topics';
+import { STAGES, SUBJECTS } from '@/data/constants';
+import { getAllTopics } from '@/lib/topics';
 import { StageKey, SubjectKey } from '@/types';
 import { Compass, BookOpen, ArrowRight } from 'lucide-react';
 import styles from '@/styles/home.module.css';
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function ExplorePage() {
+  const allTopics = getAllTopics();
   const stages = Object.keys(STAGES) as StageKey[];
   const subjects = Object.keys(SUBJECTS) as SubjectKey[];
 
@@ -47,7 +49,7 @@ export default function ExplorePage() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px' }}>
               {subjects.map((subKey) => {
                 const sub = SUBJECTS[subKey];
-                const count = TOPICS.filter((t) => t.stage === stageKey && t.subject === subKey).length;
+                const count = allTopics.filter((t) => t.stage === stageKey && t.subject === subKey).length;
 
                 return (
                   <Link

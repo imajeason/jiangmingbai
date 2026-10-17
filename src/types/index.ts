@@ -43,4 +43,5 @@ export interface TopicItem {
   };
   tags: string[];
   animationType: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes';
+  content?: string;
 }

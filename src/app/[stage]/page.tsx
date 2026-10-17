@@ -2,7 +2,8 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { STAGES, SUBJECTS, getTopicsByFilter } from '@/data/topics';
+import { STAGES, SUBJECTS } from '@/data/constants';
+import { getTopicsByFilter, getAllTopics } from '@/lib/topics';
 import { StageKey, SubjectKey } from '@/types';
 import Sidebar from '@/components/layout/Sidebar';
 import TopicCard from '@/components/common/TopicCard';
@@ -40,6 +41,7 @@ export default async function StagePage({ params }: PageProps) {
     notFound();
   }
 
+  const allTopics = getAllTopics();
   const topics = getTopicsByFilter(stage.key);
 
   return (
@@ -53,7 +55,7 @@ export default async function StagePage({ params }: PageProps) {
 
       <div style={{ display: 'flex', gap: '32px' }}>
         {/* 侧边栏知识树 */}
-        <Sidebar currentStage={stage.key} />
+        <Sidebar currentStage={stage.key} topics={allTopics} />
 
         {/* 主内容区 */}
         <div style={{ flex: 1, minWidth: 0 }}>

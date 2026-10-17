@@ -2,7 +2,8 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { TOPICS, STAGES, SUBJECTS, getTopicBySlug } from '@/data/topics';
+import { STAGES, SUBJECTS } from '@/data/constants';
+import { getAllTopics, getTopicBySlug } from '@/lib/topics';
 import Sidebar from '@/components/layout/Sidebar';
 import AnimationPlayer from '@/components/animations/AnimationPlayer';
 import ParentGuideBox from '@/components/common/ParentGuideBox';
@@ -17,7 +18,8 @@ interface PageProps {
 }
 
 export function generateStaticParams() {
-  return TOPICS.map((topic) => ({
+  const topics = getAllTopics();
+  return topics.map((topic) => ({
     stage: topic.stage,
     subject: topic.subject,
     slug: topic.slug,
@@ -115,7 +117,7 @@ export default async function TopicDetailPage({ params }: PageProps) {
 
         <div style={{ display: 'flex', gap: '32px' }}>
           {/* 左侧侧边栏知识树 */}
-          <Sidebar currentStage={stage.key} currentSubject={subject.key} currentSlug={topic.slug} />
+          <Sidebar currentStage={stage.key} currentSubject={subject.key} currentSlug={topic.slug} topics={getAllTopics()} />
 
           {/* 右侧主工作台 */}
           <div style={{ flex: 1, minWidth: 0 }}>
@@ -167,6 +169,18 @@ export default async function TopicDetailPage({ params }: PageProps) {
 
             {/* 3. 家长辅导锦囊（核心受众专区） */}
             <ParentGuideBox topic={topic} />
+
+            {/* 4. 深度拓展与思维延伸 (来自独立 Markdown 正文) */}
+            {topic.content && (
+              <div style={{ background: '#ffffff', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', padding: '28px', boxShadow: 'var(--shadow-sm)', marginTop: '32px' }}>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '16px', color: 'var(--color-text-main)' }}>
+                  📖 知识深度解析与历史背景
+                </h3>
+                <div style={{ fontSize: '0.95rem', color: '#334155', lineHeight: 1.8, whiteSpace: 'pre-line' }}>
+                  {topic.content}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

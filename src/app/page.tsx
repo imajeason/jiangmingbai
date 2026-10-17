@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAllTopics } from '@/data/topics';
+import { getAllTopics } from '@/lib/topics';
 import HomeFilterSection from '@/components/home/HomeFilterSection';
 import { Sparkles, BrainCircuit, HeartHandshake, Eye } from 'lucide-react';
 import styles from '@/styles/home.module.css';

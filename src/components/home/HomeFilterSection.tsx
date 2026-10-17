@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { StageKey, SubjectKey, TopicItem } from '@/types';
-import { STAGES, SUBJECTS } from '@/data/topics';
+import { STAGES, SUBJECTS } from '@/data/constants';
 import TopicCard from '@/components/common/TopicCard';
 import { Search, Filter, Sparkles, BookOpen, RotateCcw } from 'lucide-react';
 import styles from '@/styles/home.module.css';

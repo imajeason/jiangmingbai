@@ -1,18 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
-import { TOPICS, STAGES, SUBJECTS } from '@/data/topics';
-import { StageKey, SubjectKey } from '@/types';
+import { STAGES, SUBJECTS } from '@/data/constants';
+import { StageKey, SubjectKey, TopicItem } from '@/types';
 import styles from '@/styles/layout.module.css';
 
 interface SidebarProps {
   currentStage?: StageKey;
   currentSubject?: SubjectKey;
   currentSlug?: string;
+  topics?: TopicItem[];
 }
 
-export default function Sidebar({ currentStage, currentSubject, currentSlug }: SidebarProps) {
+export default function Sidebar({ currentStage, currentSubject, currentSlug, topics = [] }: SidebarProps) {
   // 过滤出当前分类或相关的知识点
-  const filteredTopics = TOPICS.filter((t) => {
+  const filteredTopics = topics.filter((t) => {
     if (currentStage && t.stage !== currentStage) return false;
     if (currentSubject && t.subject !== currentSubject) return false;
     return true;

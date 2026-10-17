@@ -99,15 +99,19 @@ Cloudflare Pages 会在 1 分钟内自动触发构建，并完成全球全球 CD
 
 ---
 
-## 📂 如何新增一个知识点动画？
+## 📂 如何新增一个知识点？（纯 Markdown 驱动）
 
-仅需两步：
-1. **编写动画组件**：在 `src/components/animations/` 目录下创建一个新的 React/Canvas/SVG 组件（可参考 `CircleAreaLab.tsx`）。
-2. **注册数据与家长指南**：在 `src/data/topics.ts` 中追加条目，包含：
-   - 学段与学科归属
-   - 孩子常卡点、提问三步法、生活原型举例
-   - 对应动画类型。
-3. 系统在下一次构建时会自动生成对应的分类页面和独立静态详情页，并将其包含在 `sitemap.xml` 中！
+知识点内容已与程序代码彻底解耦，全部使用独立的 Markdown 文件存放在 `content/topics/` 目录下：
+
+1. **编写动画组件**：在 `src/components/animations/` 目录下创建一个新的 React/Canvas/SVG 组件（如 `ClockReadingLab.tsx`），并在 `AnimationPlayer.tsx` 注册。
+2. **编写知识点 Markdown 文件**：在 `content/topics/` 目录下新建 `<slug>.md`（如 `clock-reading.md`），头部填写 Frontmatter（学段、学科、家长提问三步法、卡点、公式），正文可自由编写长篇图文解析。
+3. **推送到 GitHub**：
+   ```bash
+   git add .
+   git commit -m "add new topic: clock-reading"
+   git push
+   ```
+   系统会自动生成对应的独立静态页面、分类索引页并自动加入 `sitemap.xml`，Cloudflare 会在 30 秒内完成全站部署！
 
 ---
 

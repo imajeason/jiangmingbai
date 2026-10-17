@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { TopicItem } from '@/types';
-import { STAGES, SUBJECTS } from '@/data/topics';
+import { STAGES, SUBJECTS } from '@/data/constants';
 import { PlayCircle, Clock, Lightbulb, ArrowRight } from 'lucide-react';
 import styles from '@/styles/home.module.css';
 
