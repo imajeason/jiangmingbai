@@ -8,9 +8,11 @@ import ClockReadingLab from './ClockReadingLab';
 import TenFrameLab from './TenFrameLab';
 import TransferBalanceLab from './TransferBalanceLab';
 import LineUpOrderingLab from './LineUpOrderingLab';
+import FrontBackLeftRightLab from './FrontBackLeftRightLab';
+import CompassDirectionsLab from './CompassDirectionsLab';
 
 interface AnimationPlayerProps {
-  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | string;
+  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | string;
 }
 
 export default function AnimationPlayer({ type }: AnimationPlayerProps) {
@@ -29,6 +31,12 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
       return <TransferBalanceLab />;
     case 'line-up-ordering':
       return <LineUpOrderingLab />;
+    case 'front-back-left-right':
+      return <FrontBackLeftRightLab />;
+    case 'compass-directions':
+      return <CompassDirectionsLab />;
+
+
 
 
     default:

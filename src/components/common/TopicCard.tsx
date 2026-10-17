@@ -124,7 +124,44 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="80" textAnchor="middle" fontSize="8" fill="#64748b" fontWeight="600">4 + 5 - 1 = 8</text>
           </svg>
         )}
+
+        {topic.animationType === 'front-back-left-right' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 左右两侧物品 */}
+            <circle cx="30" cy="50" r="14" fill="#fee2e2" />
+            <text x="30" y="55" textAnchor="middle" fontSize="12">🍎</text>
+            <circle cx="130" cy="50" r="14" fill="#fef9c3" />
+            <text x="130" y="55" textAnchor="middle" fontSize="12">🍌</text>
+            {/* 中间转身小人 */}
+            <circle cx="80" cy="38" r="12" fill="#fed7aa" />
+            <rect x="70" y="50" width="20" height="24" rx="4" fill="#3b82f6" />
+            {/* 蓝色左手和红色右手 */}
+            <line x1="70" y1="56" x2="52" y2="44" stroke="#2563eb" strokeWidth="3" strokeLinecap="round" />
+            <line x1="90" y1="56" x2="108" y2="44" stroke="#dc2626" strokeWidth="3" strokeLinecap="round" />
+            <text x="80" y="88" textAnchor="middle" fontSize="9" fill="#1e40af" fontWeight="700">面对面左右互换</text>
+          </svg>
+        )}
+
+        {topic.animationType === 'compass-directions' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 罗盘圆盘 */}
+            <circle cx="80" cy="50" r="34" fill="#f8fafc" stroke="#94a3b8" strokeWidth="1.5" />
+            <line x1="80" y1="20" x2="80" y2="80" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="2 2" />
+            <line x1="50" y1="50" x2="110" y2="50" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="2 2" />
+            {/* 指针：红指北，蓝指南 */}
+            <polygon points="80,24 84,50 76,50" fill="#ef4444" />
+            <polygon points="80,76 84,50 76,50" fill="#3b82f6" />
+            <circle cx="80" cy="50" r="3" fill="#1e293b" />
+            {/* 四向标签 */}
+            <text x="80" y="18" textAnchor="middle" fontSize="9" fill="#dc2626" fontWeight="800">北</text>
+            <text x="80" y="89" textAnchor="middle" fontSize="9" fill="#2563eb" fontWeight="800">南</text>
+            <text x="42" y="53" textAnchor="middle" fontSize="9" fill="#6b21a8" fontWeight="800">西</text>
+            <text x="118" y="53" textAnchor="middle" fontSize="9" fill="#d97706" fontWeight="800">东</text>
+          </svg>
+        )}
       </div>
+
+
 
 
 
