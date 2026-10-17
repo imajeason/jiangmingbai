@@ -45,6 +45,8 @@
   - 各组件使用专属 `*.module.css` 避免污染。
   - **禁止未经确认引入重型 UI 框架或切换 Tailwind**，保持原生 CSS 的精细、自由与极致轻量。
 - **图标体系**：统一使用 `lucide-react`。
+- **数学与物理公式渲染**：采用 **KaTeX** 在 SSG 构建期将 Markdown 中的 `$inline$` 与 `$$block$$` 直接编译为专业的数学排版 HTML/MathML，配备 `katex/dist/katex.min.css`，排版媲美印刷级教材且无客户端加载闪烁。
+
 
 ### 2. JS 交互动画开发准则
 - **核心原则**：优先采用 **React 原生状态驱动 + SVG / HTML5 Canvas / requestAnimationFrame**。
