@@ -5,9 +5,10 @@ import CircleAreaLab from './CircleAreaLab';
 import PythagoreanTheoremLab from './PythagoreanTheoremLab';
 import BuoyancyArchimedesLab from './BuoyancyArchimedesLab';
 import ClockReadingLab from './ClockReadingLab';
+import TenFrameLab from './TenFrameLab';
 
 interface AnimationPlayerProps {
-  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | string;
+  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | string;
 }
 
 export default function AnimationPlayer({ type }: AnimationPlayerProps) {
@@ -20,6 +21,8 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
       return <BuoyancyArchimedesLab />;
     case 'clock-reading':
       return <ClockReadingLab />;
+    case 'ten-frame':
+      return <TenFrameLab />;
     default:
       return (
         <div style={{ padding: '60px 20px', textAlign: 'center', background: '#f8fafc', borderRadius: 'var(--radius-lg)' }}>

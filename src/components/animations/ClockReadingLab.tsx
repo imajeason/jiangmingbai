@@ -223,48 +223,116 @@ export default function ClockReadingLab() {
             <g transform="translate(0, 252)">
               <text x="0" y="0" fontSize="12" fill="#64748b" fontWeight="600">经典期末考点快速体验：</text>
               
+              {/* 第 1 排：7:55 与 3:30 */}
               <g transform="translate(0, 12)">
-                <rect
-                  x="0" y="0" width="118" height="34" rx="6"
-                  fill="#fee2e2" stroke="#f87171" cursor="pointer"
-                  onClick={() => { setIsAutoPlaying(false); setTotalMinutes(475); }}
-                />
-                <text x="59" y="22" textAnchor="middle" fill="#991b1b" fontSize="12" fontWeight="700" cursor="pointer"
-                  onClick={() => { setIsAutoPlaying(false); setTotalMinutes(475); }}>
-                  7:55 (快到8点)
-                </text>
+                {/* 7:55 */}
+                {(() => {
+                  const isActive = totalMinutes === 475;
+                  return (
+                    <g
+                      cursor="pointer"
+                      onClick={() => { setIsAutoPlaying(false); setTotalMinutes(475); }}
+                    >
+                      <rect
+                        x="0" y="0" width="118" height="34" rx="6"
+                        fill={isActive ? '#fee2e2' : '#f8fafc'}
+                        stroke={isActive ? '#ef4444' : '#cbd5e1'}
+                        strokeWidth={isActive ? '2' : '1'}
+                      />
+                      <text
+                        x="59" y="22" textAnchor="middle"
+                        fill={isActive ? '#991b1b' : '#334155'}
+                        fontSize="12"
+                        fontWeight={isActive ? '800' : '600'}
+                      >
+                        7:55 (快到8点)
+                      </text>
+                    </g>
+                  );
+                })()}
 
-                <rect
-                  x="130" y="0" width="118" height="34" rx="6"
-                  fill="#f1f5f9" stroke="#cbd5e1" cursor="pointer"
-                  onClick={() => { setIsAutoPlaying(false); setTotalMinutes(210); }}
-                />
-                <text x="189" y="22" textAnchor="middle" fill="#334155" fontSize="12" fontWeight="600" cursor="pointer"
-                  onClick={() => { setIsAutoPlaying(false); setTotalMinutes(210); }}>
-                  3:30 (半点居中)
-                </text>
+                {/* 3:30 */}
+                {(() => {
+                  const isActive = totalMinutes === 210;
+                  return (
+                    <g
+                      cursor="pointer"
+                      transform="translate(130, 0)"
+                      onClick={() => { setIsAutoPlaying(false); setTotalMinutes(210); }}
+                    >
+                      <rect
+                        x="0" y="0" width="118" height="34" rx="6"
+                        fill={isActive ? '#dbeafe' : '#f8fafc'}
+                        stroke={isActive ? '#2563eb' : '#cbd5e1'}
+                        strokeWidth={isActive ? '2' : '1'}
+                      />
+                      <text
+                        x="59" y="22" textAnchor="middle"
+                        fill={isActive ? '#1e40af' : '#334155'}
+                        fontSize="12"
+                        fontWeight={isActive ? '800' : '600'}
+                      >
+                        3:30 (半点居中)
+                      </text>
+                    </g>
+                  );
+                })()}
               </g>
 
+              {/* 第 2 排：11:58 与 9:00 */}
               <g transform="translate(0, 54)">
-                <rect
-                  x="0" y="0" width="118" height="34" rx="6"
-                  fill="#f1f5f9" stroke="#cbd5e1" cursor="pointer"
-                  onClick={() => { setIsAutoPlaying(false); setTotalMinutes(718); }}
-                />
-                <text x="59" y="22" textAnchor="middle" fill="#334155" fontSize="12" fontWeight="600" cursor="pointer"
-                  onClick={() => { setIsAutoPlaying(false); setTotalMinutes(718); }}>
-                  11:58 (差2分12点)
-                </text>
+                {/* 11:58 */}
+                {(() => {
+                  const isActive = totalMinutes === 718;
+                  return (
+                    <g
+                      cursor="pointer"
+                      onClick={() => { setIsAutoPlaying(false); setTotalMinutes(718); }}
+                    >
+                      <rect
+                        x="0" y="0" width="118" height="34" rx="6"
+                        fill={isActive ? '#ffedd5' : '#f8fafc'}
+                        stroke={isActive ? '#f97316' : '#cbd5e1'}
+                        strokeWidth={isActive ? '2' : '1'}
+                      />
+                      <text
+                        x="59" y="22" textAnchor="middle"
+                        fill={isActive ? '#c2410c' : '#334155'}
+                        fontSize="12"
+                        fontWeight={isActive ? '800' : '600'}
+                      >
+                        11:58 (差2分12点)
+                      </text>
+                    </g>
+                  );
+                })()}
 
-                <rect
-                  x="130" y="0" width="118" height="34" rx="6"
-                  fill="#f1f5f9" stroke="#cbd5e1" cursor="pointer"
-                  onClick={() => { setIsAutoPlaying(false); setTotalMinutes(540); }}
-                />
-                <text x="189" y="22" textAnchor="middle" fill="#334155" fontSize="12" fontWeight="600" cursor="pointer"
-                  onClick={() => { setIsAutoPlaying(false); setTotalMinutes(540); }}>
-                  9:00 (标准整点)
-                </text>
+                {/* 9:00 */}
+                {(() => {
+                  const isActive = totalMinutes === 540;
+                  return (
+                    <g
+                      cursor="pointer"
+                      transform="translate(130, 0)"
+                      onClick={() => { setIsAutoPlaying(false); setTotalMinutes(540); }}
+                    >
+                      <rect
+                        x="0" y="0" width="118" height="34" rx="6"
+                        fill={isActive ? '#dcfce7' : '#f8fafc'}
+                        stroke={isActive ? '#16a34a' : '#cbd5e1'}
+                        strokeWidth={isActive ? '2' : '1'}
+                      />
+                      <text
+                        x="59" y="22" textAnchor="middle"
+                        fill={isActive ? '#166534' : '#334155'}
+                        fontSize="12"
+                        fontWeight={isActive ? '800' : '600'}
+                      >
+                        9:00 (标准整点)
+                      </text>
+                    </g>
+                  );
+                })()}
               </g>
             </g>
           </g>

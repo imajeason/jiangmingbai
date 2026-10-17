@@ -64,6 +64,29 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="50" y="53" textAnchor="middle" fontSize="9" fontWeight="700" fill="#64748b">9</text>
           </svg>
         )}
+
+        {topic.animationType === 'ten-frame' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 十格阵微缩盒子 */}
+            <rect x="18" y="30" width="80" height="40" fill="#f8fafc" stroke="#3b82f6" strokeWidth="1.5" rx="3" />
+            <line x1="18" y1="50" x2="98" y2="50" stroke="#bfdbfe" strokeWidth="1" />
+            <line x1="34" y1="30" x2="34" y2="70" stroke="#bfdbfe" strokeWidth="1" />
+            <line x1="50" y1="30" x2="50" y2="70" stroke="#bfdbfe" strokeWidth="1" />
+            <line x1="66" y1="30" x2="66" y2="70" stroke="#bfdbfe" strokeWidth="1" />
+            <line x1="82" y1="30" x2="82" y2="70" stroke="#bfdbfe" strokeWidth="1" />
+            {/* 里面放满小蓝球 */}
+            <circle cx="26" cy="40" r="5" fill="#3b82f6" />
+            <circle cx="42" cy="40" r="5" fill="#3b82f6" />
+            <circle cx="58" cy="40" r="5" fill="#3b82f6" />
+            <circle cx="74" cy="40" r="5" fill="#3b82f6" />
+            <circle cx="90" cy="40" r="5" fill="#f59e0b" />
+            {/* 散装黄色球 */}
+            <circle cx="120" cy="40" r="5" fill="#f59e0b" />
+            <circle cx="135" cy="40" r="5" fill="#f59e0b" />
+            <circle cx="128" cy="55" r="5" fill="#f59e0b" />
+            <text x="58" y="22" textAnchor="middle" fontSize="9" fill="#2563eb" fontWeight="700">十格阵凑10</text>
+          </svg>
+        )}
       </div>
 
       <div className={styles.cardBody}>
