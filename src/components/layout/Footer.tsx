@@ -70,12 +70,12 @@ export default function Footer() {
 
       <div className={`container ${styles.footerBottom}`}>
         <div>
-          © {new Date().getFullYear()} 讲明白 (JiangMingBai.com) · 中小学知识点可视化互动平台
+          © {new Date().getFullYear()} 讲明白 (JiangMingBai.com) · 代码遵循 MIT 协议 · 内容遵循 CC BY-NC-SA 4.0
         </div>
         <div style={{ display: 'flex', gap: '16px' }}>
           <span>纯静态 SSG 架构</span>
           <span>·</span>
-          <span>SEO 优选静态预渲染</span>
+          <span>SEO 静态预渲染</span>
           <span>·</span>
           <span>Cloudflare Edge 毫秒分发</span>
         </div>
