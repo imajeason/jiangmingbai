@@ -87,12 +87,13 @@ export default function MultiplicationArrayLab() {
         </button>
       </div>
 
-      <div className={styles.canvasWrapper} style={{ padding: '28px 20px', background: 'linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)' }}>
+      <div className={styles.canvasWrapper} style={{ display: 'flex', flexDirection: 'column', width: '100%', padding: '28px 20px', background: 'linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)' }}>
         {/* 动态双重视角算式高亮卡 */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
           gap: '16px',
+          width: '100%',
           maxWidth: '620px',
           margin: '0 auto 24px',
         }}>
@@ -142,7 +143,9 @@ export default function MultiplicationArrayLab() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          width: '100%',
           minHeight: '260px',
+
           perspective: '1000px',
         }}>
           <div
@@ -205,6 +208,7 @@ export default function MultiplicationArrayLab() {
 
         {/* 旋转 90 度结论说明卡 */}
         <div style={{
+          width: '100%',
           maxWidth: '580px',
           margin: '24px auto 0',
           padding: '16px 20px',
@@ -213,6 +217,7 @@ export default function MultiplicationArrayLab() {
           borderRadius: '14px',
           textAlign: 'center',
         }}>
+
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontWeight: 800, color: '#92400e', marginBottom: '6px' }}>
             <Sparkles size={16} color="#d97706" />
             <span>核心视觉顿悟：一颗球也没多，一颗球也没少！</span>
