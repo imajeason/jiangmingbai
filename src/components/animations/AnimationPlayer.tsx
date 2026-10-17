@@ -10,9 +10,10 @@ import TransferBalanceLab from './TransferBalanceLab';
 import LineUpOrderingLab from './LineUpOrderingLab';
 import FrontBackLeftRightLab from './FrontBackLeftRightLab';
 import CompassDirectionsLab from './CompassDirectionsLab';
+import MultiplicationArrayLab from './MultiplicationArrayLab';
 
 interface AnimationPlayerProps {
-  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | string;
+  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | string;
 }
 
 export default function AnimationPlayer({ type }: AnimationPlayerProps) {
@@ -35,6 +36,9 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
       return <FrontBackLeftRightLab />;
     case 'compass-directions':
       return <CompassDirectionsLab />;
+    case 'multiplication-array':
+      return <MultiplicationArrayLab />;
+
 
 
 

@@ -159,7 +159,26 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="118" y="53" textAnchor="middle" fontSize="9" fill="#d97706" fontWeight="800">东</text>
           </svg>
         )}
+
+        {topic.animationType === 'multiplication-array' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 3行4列点阵微缩图 */}
+            {Array.from({ length: 3 }).map((_, r) =>
+              Array.from({ length: 4 }).map((_, c) => (
+                <circle
+                  key={`${r}-${c}`}
+                  cx={45 + c * 24}
+                  cy={30 + r * 18}
+                  r="6"
+                  fill="#3b82f6"
+                />
+              ))
+            )}
+            <text x="80" y="88" textAnchor="middle" fontSize="9" fill="#1e40af" fontWeight="700">3×4 = 4×3 = 12</text>
+          </svg>
+        )}
       </div>
+
 
 
 
