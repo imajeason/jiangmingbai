@@ -91,7 +91,10 @@ src/
 │   │   └── Sidebar.tsx                # 分类知识树侧边栏 (支持当前项高亮)
 │   ├── common/                        # 通用业务组件
 │   │   ├── TopicCard.tsx              # 知识点卡片 (带SVG动态微缩预览)
-│   │   └── ParentGuideBox.tsx         # 家长辅导锦囊 (痛点、三步提问法、生活类比)
+│   │   ├── ParentGuideBox.tsx         # 家长辅导锦囊 (痛点、三步提问法、生活类比)
+│   │   ├── TopicNavigation.tsx        # 详情页底部上一篇/下一篇知识点翻页导航
+│   │   └── PaginatedTopicList.tsx     # 列表页纯静态分页控制器 (数字页码/上一页/下一页)
+
 │   ├── home/                          # 首页专属组件
 │   │   └── HomeFilterSection.tsx      # 首页学段/学科/搜索无刷新即时筛选器
 │   └── animations/                    # 知识点交互动画实验室库
