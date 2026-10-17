@@ -109,7 +109,23 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="22" textAnchor="middle" fontSize="9" fill="#2563eb" fontWeight="700">移多补少天平</text>
           </svg>
         )}
+
+        {topic.animationType === 'line-up-ordering' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 排队小朋友队列 */}
+            <circle cx="25" cy="55" r="9" fill="#3b82f6" />
+            <circle cx="50" cy="55" r="9" fill="#10b981" />
+            <circle cx="80" cy="55" r="12" fill="#fbbf24" stroke="#d97706" strokeWidth="2" />
+            <circle cx="110" cy="55" r="9" fill="#8b5cf6" />
+            <circle cx="135" cy="55" r="9" fill="#ec4899" />
+            {/* 小明头顶上的星星 */}
+            <polygon points="80,30 82,35 87,35 83,38 85,43 80,40 75,43 77,38 73,35 78,35" fill="#f59e0b" />
+            <text x="80" y="22" textAnchor="middle" fontSize="9" fill="#b45309" fontWeight="700">小明(被数2次)</text>
+            <text x="80" y="80" textAnchor="middle" fontSize="8" fill="#64748b" fontWeight="600">4 + 5 - 1 = 8</text>
+          </svg>
+        )}
       </div>
+
 
 
       <div className={styles.cardBody}>

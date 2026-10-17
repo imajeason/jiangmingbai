@@ -7,9 +7,10 @@ import BuoyancyArchimedesLab from './BuoyancyArchimedesLab';
 import ClockReadingLab from './ClockReadingLab';
 import TenFrameLab from './TenFrameLab';
 import TransferBalanceLab from './TransferBalanceLab';
+import LineUpOrderingLab from './LineUpOrderingLab';
 
 interface AnimationPlayerProps {
-  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | string;
+  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | string;
 }
 
 export default function AnimationPlayer({ type }: AnimationPlayerProps) {
@@ -26,6 +27,9 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
       return <TenFrameLab />;
     case 'transfer-and-balance':
       return <TransferBalanceLab />;
+    case 'line-up-ordering':
+      return <LineUpOrderingLab />;
+
 
     default:
       return (
