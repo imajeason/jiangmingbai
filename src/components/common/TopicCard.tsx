@@ -177,7 +177,27 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="88" textAnchor="middle" fontSize="9" fill="#1e40af" fontWeight="700">3×4 = 4×3 = 12</text>
           </svg>
         )}
+
+        {topic.animationType === 'hidden-cubes-counting' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 3D 正方体阶梯立体微缩图 */}
+            {/* 底层左 */}
+            <polygon points="50,45 65,37 80,45 65,53" fill="#93c5fd" stroke="#fff" strokeWidth="0.8" />
+            <polygon points="50,45 65,53 65,70 50,62" fill="#3b82f6" stroke="#fff" strokeWidth="0.8" />
+            <polygon points="65,53 80,45 80,62 65,70" fill="#1d4ed8" stroke="#fff" strokeWidth="0.8" />
+            {/* 底层右 */}
+            <polygon points="80,45 95,37 110,45 95,53" fill="#93c5fd" stroke="#fff" strokeWidth="0.8" />
+            <polygon points="80,45 95,53 95,70 80,62" fill="#3b82f6" stroke="#fff" strokeWidth="0.8" />
+            <polygon points="95,53 110,45 110,62 95,70" fill="#1d4ed8" stroke="#fff" strokeWidth="0.8" />
+            {/* 第二层 (叠在左上) */}
+            <polygon points="50,28 65,20 80,28 65,36" fill="#fde047" stroke="#fff" strokeWidth="0.8" />
+            <polygon points="50,28 65,36 65,53 50,45" fill="#eab308" stroke="#fff" strokeWidth="0.8" />
+            <polygon points="65,36 80,28 80,45 65,53" fill="#ca8a04" stroke="#fff" strokeWidth="0.8" />
+            <text x="80" y="88" textAnchor="middle" fontSize="9" fill="#1e40af" fontWeight="700">立体数积木(透视暗块)</text>
+          </svg>
+        )}
       </div>
+
 
 
 

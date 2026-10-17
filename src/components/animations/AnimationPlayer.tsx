@@ -11,9 +11,10 @@ import LineUpOrderingLab from './LineUpOrderingLab';
 import FrontBackLeftRightLab from './FrontBackLeftRightLab';
 import CompassDirectionsLab from './CompassDirectionsLab';
 import MultiplicationArrayLab from './MultiplicationArrayLab';
+import HiddenCubesLab from './HiddenCubesLab';
 
 interface AnimationPlayerProps {
-  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | string;
+  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | string;
 }
 
 export default function AnimationPlayer({ type }: AnimationPlayerProps) {
@@ -38,6 +39,9 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
       return <CompassDirectionsLab />;
     case 'multiplication-array':
       return <MultiplicationArrayLab />;
+    case 'hidden-cubes-counting':
+      return <HiddenCubesLab />;
+
 
 
 
