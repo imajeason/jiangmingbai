@@ -7,7 +7,9 @@ import { getTopicsByFilter, getAllTopics } from '@/lib/topics';
 import { StageKey, SubjectKey } from '@/types';
 import Sidebar from '@/components/layout/Sidebar';
 import TopicCard from '@/components/common/TopicCard';
+import PaginatedTopicList from '@/components/common/PaginatedTopicList';
 import { Sparkles, BookOpen, ChevronRight } from 'lucide-react';
+
 import styles from '@/styles/home.module.css';
 
 interface PageProps {
@@ -91,13 +93,10 @@ export default async function StagePage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* 动画卡片列表 */}
-          <div className={styles.grid}>
-            {topics.map((topic) => (
-              <TopicCard key={topic.id} topic={topic} />
-            ))}
-          </div>
+          {/* 动画卡片列表（支持分页） */}
+          <PaginatedTopicList topics={topics} pageSize={6} />
         </div>
+
       </div>
     </div>
   );

@@ -7,7 +7,9 @@ import { getTopicsByFilter, getAllTopics } from '@/lib/topics';
 import { StageKey, SubjectKey } from '@/types';
 import Sidebar from '@/components/layout/Sidebar';
 import TopicCard from '@/components/common/TopicCard';
+import PaginatedTopicList from '@/components/common/PaginatedTopicList';
 import { ChevronRight } from 'lucide-react';
+
 import styles from '@/styles/home.module.css';
 
 interface PageProps {
@@ -96,12 +98,9 @@ export default async function SubjectCategoryPage({ params }: PageProps) {
           </div>
 
           {topics.length > 0 ? (
-            <div className={styles.grid}>
-              {topics.map((topic) => (
-                <TopicCard key={topic.id} topic={topic} />
-              ))}
-            </div>
+            <PaginatedTopicList topics={topics} pageSize={6} />
           ) : (
+
             <div style={{ background: '#ffffff', padding: '48px 24px', textAlign: 'center', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)' }}>
               <h3 style={{ fontSize: '1.1rem', marginBottom: '8px' }}>该学科更多精彩动画正在制作中</h3>
               <p style={{ color: '#64748b', fontSize: '0.875rem', marginBottom: '20px' }}>

@@ -4,7 +4,9 @@ import React, { useState, useMemo } from 'react';
 import { StageKey, SubjectKey, TopicItem } from '@/types';
 import { STAGES, SUBJECTS } from '@/data/constants';
 import TopicCard from '@/components/common/TopicCard';
+import PaginatedTopicList from '@/components/common/PaginatedTopicList';
 import { Search, Filter, Sparkles, BookOpen, RotateCcw } from 'lucide-react';
+
 import styles from '@/styles/home.module.css';
 
 interface HomeFilterSectionProps {
@@ -137,14 +139,11 @@ export default function HomeFilterSection({ initialTopics }: HomeFilterSectionPr
         </div>
       </div>
 
-      {/* 知识点卡片网格列表 */}
+      {/* 知识点卡片网格列表（支持分页） */}
       {filteredTopics.length > 0 ? (
-        <div className={styles.grid}>
-          {filteredTopics.map((topic) => (
-            <TopicCard key={topic.id} topic={topic} />
-          ))}
-        </div>
+        <PaginatedTopicList topics={filteredTopics} pageSize={6} />
       ) : (
+
         <div
           style={{
             textAlign: 'center',

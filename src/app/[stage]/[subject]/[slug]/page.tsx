@@ -10,6 +10,8 @@ import ParentGuideBox from '@/components/common/ParentGuideBox';
 import { ChevronRight, Clock, Award, BookCheck, Share2 } from 'lucide-react';
 import { parseMarkdown } from '@/lib/markdown';
 import markdownStyles from '@/styles/markdown.module.css';
+import TopicNavigation from '@/components/common/TopicNavigation';
+
 
 
 interface PageProps {
@@ -191,7 +193,10 @@ export default async function TopicDetailPage({ params }: PageProps) {
               </div>
             )}
 
+            {/* 5. 上一篇 / 下一篇 知识点进阶翻页导航 */}
+            <TopicNavigation currentTopic={topic} allTopics={getAllTopics()} />
           </div>
+
         </div>
       </div>
     </>
