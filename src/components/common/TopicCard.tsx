@@ -87,7 +87,30 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="58" y="22" textAnchor="middle" fontSize="9" fill="#2563eb" fontWeight="700">十格阵凑10</text>
           </svg>
         )}
+
+        {topic.animationType === 'transfer-and-balance' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 天平微缩图 */}
+            <polygon points="80,45 72,82 88,82" fill="#94a3b8" />
+            <rect x="65" y="82" width="30" height="5" rx="2" fill="#64748b" />
+            <circle cx="80" cy="45" r="4" fill="#334155" />
+            {/* 横梁 */}
+            <line x1="25" y1="45" x2="135" y2="45" stroke="#2563eb" strokeWidth="3" strokeLinecap="round" />
+            {/* 左右托盘 */}
+            <line x1="35" y1="45" x2="25" y2="65" stroke="#94a3b8" strokeWidth="1.2" />
+            <line x1="35" y1="45" x2="45" y2="65" stroke="#94a3b8" strokeWidth="1.2" />
+            <path d="M 20 65 Q 35 72 50 65 Z" fill="#3b82f6" />
+            <line x1="125" y1="45" x2="115" y2="65" stroke="#94a3b8" strokeWidth="1.2" />
+            <line x1="125" y1="45" x2="135" y2="65" stroke="#94a3b8" strokeWidth="1.2" />
+            <path d="M 110 65 Q 125 72 140 65 Z" fill="#ef4444" />
+            {/* 托盘上的小球 */}
+            <circle cx="35" cy="60" r="3.5" fill="#60a5fa" />
+            <circle cx="125" cy="60" r="3.5" fill="#f87171" />
+            <text x="80" y="22" textAnchor="middle" fontSize="9" fill="#2563eb" fontWeight="700">移多补少天平</text>
+          </svg>
+        )}
       </div>
+
 
       <div className={styles.cardBody}>
         <div className={styles.cardMeta}>
