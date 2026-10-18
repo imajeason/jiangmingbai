@@ -213,6 +213,20 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="88" textAnchor="middle" fontSize="9" fill="#15803d" fontWeight="700">吹哨抬腿法(金鸡独立)</text>
           </svg>
         )}
+
+        {topic.animationType === 'triangle-area-parallelogram' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 三角形1（蓝色） */}
+            <polygon points="25,75 95,75 55,30" fill="#3b82f6" stroke="#1d4ed8" strokeWidth="1.5" />
+            {/* 三角形2（绿色，旋转180°合体拼成平行四边形） */}
+            <polygon points="95,75 125,30 55,30" fill="#10b981" stroke="#047857" strokeWidth="1.5" strokeDasharray="2 2" />
+            {/* 高度虚线 */}
+            <line x1="55" y1="30" x2="55" y2="75" stroke="#ef4444" strokeWidth="1.2" strokeDasharray="2 2" />
+            <text x="50" y="55" textAnchor="end" fontSize="8" fill="#dc2626" fontWeight="700">h</text>
+            <text x="60" y="85" textAnchor="middle" fontSize="8" fill="#1e293b" fontWeight="700">底 a</text>
+            <text x="80" y="18" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">S = a × h ÷ 2</text>
+          </svg>
+        )}
       </div>
 
 
