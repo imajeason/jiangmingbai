@@ -196,7 +196,25 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="88" textAnchor="middle" fontSize="9" fill="#1e40af" fontWeight="700">立体数积木(透视暗块)</text>
           </svg>
         )}
+
+        {topic.animationType === 'chicken-rabbit-cage' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 鸡兔同笼微缩示意图 */}
+            {/* 笼子边框 */}
+            <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0fdf4" stroke="#86efac" strokeWidth="1.5" />
+            <line x1="25" y1="35" x2="135" y2="35" stroke="#bbf7d0" strokeWidth="1" strokeDasharray="3 3" />
+            {/* 鸡 */}
+            <circle cx="55" cy="48" r="14" fill="#fef08a" stroke="#f59e0b" strokeWidth="1.5" />
+            <text x="55" y="53" textAnchor="middle" fontSize="13">🐥</text>
+            {/* 兔 */}
+            <circle cx="105" cy="48" r="14" fill="#eff6ff" stroke="#3b82f6" strokeWidth="1.5" />
+            <text x="105" y="53" textAnchor="middle" fontSize="13">🐰</text>
+            {/* 哨子和抬腿文字 */}
+            <text x="80" y="88" textAnchor="middle" fontSize="9" fill="#15803d" fontWeight="700">吹哨抬腿法(金鸡独立)</text>
+          </svg>
+        )}
       </div>
+
 
 
 
