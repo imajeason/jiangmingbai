@@ -16,6 +16,24 @@ tags:
   - 极限转化
   - 几何图形
 animationType: circle-area
+prerequisites:
+  - slug: triangle-area-parallelogram
+    title: 三角形与多边形面积割补转化
+    reason: 必须先理解平面图形通过“割开、重组”保持面积守恒的转化思想
+    strength: hard
+  - title: 圆的周长公式：C = 2πr
+    reason: 拼成长方形的长边等于圆周长的一半（πr），必须先理解周长与圆周率的关系
+    strength: hard
+nextSteps:
+  - title: 圆柱表面积与体积推导
+    reason: 由二维圆面积自然延伸到三维圆柱体的等底等高体积计算
+  - title: 高中微积分初步（微元极限累加思想）
+    reason: 割圆术切细拼长方形是人类微积分极限思想的最早原型
+evidence:
+  - 能准确指认拼出来的近似长方形中，“长”是半个圆周长（πr），“宽”是圆的半径（r）。
+  - 能用自己的话解释为什么“切分得越细，拼出来的图形就越接近长方形”。
+  - 遇到圆环面积或半圆周长应用题时，不再死记硬背公式，能结合长方形或扇形独立推演。
+assessmentPrompt: 为什么圆切开拼成长方形后，它的长是 πr 而不是 2πr？它的宽为什么正好是 r？
 parentGuide:
   painPoint: 孩子死记硬背 S = πr²，做应用题时不知道为什么半径平方要乘以 3.14，一旦题目稍微变形（如求环形或半圆展开）就乱了阵脚。
   steps:

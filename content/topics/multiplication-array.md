@@ -28,6 +28,27 @@ tags:
   - 点阵模型
   - 乘法口诀表
 animationType: multiplication-array
+prerequisites:
+  - slug: ten-frame-addition-subtraction
+    title: 十格阵与相同加数累加
+    reason: 乘法是相同加数相加的简便运算，必须先建立整十成组与连续加法直觉
+    strength: hard
+  - slug: line-up-ordering
+    title: 排队问题（队列行列感知）
+    reason: 理解二维队伍中的“排（行）”与“列”的空间对应关系
+    strength: soft
+nextSteps:
+  - slug: triangle-area-parallelogram
+    title: 三角形与平行四边形面积公式
+    reason: 点阵矩阵直接衍生为几何图形的“底×高”与面积二维量度
+  - slug: chicken-rabbit-cage
+    title: 鸡兔同笼应用题
+    reason: 必须熟练掌握乘法口诀与乘法倍数关系，才能自如运用假设法
+evidence:
+  - 能分别从“按行看”和“按列看”说出两道不同的加法算式与对应的乘法算式。
+  - 能亲手旋转点阵 90 度，并用自己的话说出“总数为什么不变”。
+  - 背九九乘法表时，能意识到背了“三七二十一”就等于已经会了“七三二十一”。
+assessmentPrompt: 一盒巧克力横着看有 3 排，每排 5 块；如果把盒子转个方向竖着看，一共有多少块？算式怎么列？
 ---
 
 ### 乘法的本质：从“数数”到“组块（Chunking）”的思维大跨越

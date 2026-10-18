@@ -4,8 +4,9 @@ import Link from 'next/link';
 import { STAGES, SUBJECTS } from '@/data/constants';
 import { getAllTopics } from '@/lib/topics';
 import { StageKey, SubjectKey } from '@/types';
-import { Compass, BookOpen, ArrowRight } from 'lucide-react';
+import { Compass, BookOpen, ArrowRight, Network } from 'lucide-react';
 import styles from '@/styles/home.module.css';
+import LearningSkillTree from '@/components/explore/LearningSkillTree';
 
 export const metadata: Metadata = {
   title: '全部分类与知识图谱浏览 - 讲明白',
@@ -19,16 +20,29 @@ export default function ExplorePage() {
 
   return (
     <div className="container" style={{ paddingTop: '40px' }}>
-      <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+      <div style={{ textAlign: 'center', marginBottom: '24px' }}>
         <div className="badge badge-blue" style={{ marginBottom: '12px' }}>
           <Compass size={14} />
-          <span>全站知识地图</span>
+          <span>全站知识地图与认知图谱</span>
         </div>
         <h1 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '12px' }}>
-          按学段与学科系统化探索
+          中小学数理思维技能树 & 前置拓扑图谱
         </h1>
-        <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', maxWidth: '600px', margin: '0 auto' }}>
-          从小学直观图形，到初中力学与几何，再到高中微观模型，随时随地开启动画实验。
+        <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', maxWidth: '640px', margin: '0 auto' }}>
+          每一个难点都有其前置根基。点击图中任意知识点，实时排查前置短板与进阶路径，看透数理能力的生长脉络。
+        </p>
+      </div>
+
+      {/* 核心亮点：交互式认知技能树 */}
+      <LearningSkillTree topics={allTopics} />
+
+      {/* 下方：按学段与学科分类矩阵 */}
+      <div style={{ marginTop: '48px', marginBottom: '32px' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '8px' }}>
+          按学段与学科系统化索引
+        </h2>
+        <p style={{ color: '#64748b', fontSize: '0.9rem', marginBottom: '28px' }}>
+          覆盖小学、初中经典考点与核心定理，支持按学科分门别类探索。
         </p>
       </div>
 

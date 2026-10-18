@@ -43,6 +43,10 @@ export function getAllTopics(): TopicItem[] {
       },
       tags: Array.isArray(data.tags) ? data.tags : [],
       animationType: data.animationType,
+      prerequisites: Array.isArray(data.prerequisites) ? data.prerequisites : undefined,
+      nextSteps: Array.isArray(data.nextSteps) ? data.nextSteps : undefined,
+      evidence: Array.isArray(data.evidence) ? data.evidence : undefined,
+      assessmentPrompt: typeof data.assessmentPrompt === 'string' ? data.assessmentPrompt : undefined,
       content: content.trim(),
     };
 

@@ -23,6 +23,13 @@ export interface ParentGuideStep {
   guide: string;
 }
 
+export interface PrerequisiteRef {
+  slug?: string;
+  title: string;
+  reason: string;
+  strength?: 'hard' | 'soft';
+}
+
 export interface TopicItem {
   id: string;
   slug: string;
@@ -43,5 +50,9 @@ export interface TopicItem {
   };
   tags: string[];
   animationType: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | string;
+  prerequisites?: PrerequisiteRef[];
+  nextSteps?: PrerequisiteRef[];
+  evidence?: string[];
+  assessmentPrompt?: string;
   content?: string;
 }
