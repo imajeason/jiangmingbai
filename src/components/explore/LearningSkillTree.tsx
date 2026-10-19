@@ -23,10 +23,11 @@ const NODE_POSITIONS: Record<string, { x: number; y: number; tier: number }> = {
   'line-up-ordering': { x: 800, y: 80, tier: 1 },
 
   // Tier 2: 二三四年级：模型建立与转化 (y ~ 220)
-  'transfer-and-balance': { x: 180, y: 220, tier: 2 },
-  'multiplication-array': { x: 380, y: 220, tier: 2 },
-  'perimeter-vs-area': { x: 580, y: 220, tier: 2 },
-  'hidden-cubes-counting': { x: 780, y: 220, tier: 2 },
+  'transfer-and-balance': { x: 120, y: 220, tier: 2 },
+  'fractions-basics': { x: 300, y: 220, tier: 2 },
+  'multiplication-array': { x: 480, y: 220, tier: 2 },
+  'perimeter-vs-area': { x: 670, y: 220, tier: 2 },
+  'hidden-cubes-counting': { x: 840, y: 220, tier: 2 },
 
   // Tier 3: 四五六年级：几何割补与复杂应用 (y ~ 360)
   'speed-meeting-chasing': { x: 140, y: 360, tier: 3 },
@@ -49,9 +50,11 @@ const EDGES: { from: string; to: string; label: string }[] = [
   { from: 'line-up-ordering', to: 'multiplication-array', label: '行列队列感知' },
   { from: 'transfer-and-balance', to: 'chicken-rabbit-cage', label: '差量补偿思想' },
   { from: 'transfer-and-balance', to: 'speed-meeting-chasing', label: '差距缩小与平衡' },
+  { from: 'multiplication-array', to: 'fractions-basics', label: '等分除法到分数' },
   { from: 'multiplication-array', to: 'speed-meeting-chasing', label: '速度路程模型' },
   { from: 'multiplication-array', to: 'chicken-rabbit-cage', label: '乘除倍数与假设法' },
   { from: 'multiplication-array', to: 'perimeter-vs-area', label: '长宽乘积即面积' },
+  { from: 'fractions-basics', to: 'perimeter-vs-area', label: '图形面积等分' },
   { from: 'perimeter-vs-area', to: 'triangle-area-parallelogram', label: '长方形面积基础' },
   { from: 'hidden-cubes-counting', to: 'triangle-area-parallelogram', label: '几何空间透视' },
   { from: 'hidden-cubes-counting', to: 'cube-nets-folding', label: '空间积木到折叠' },

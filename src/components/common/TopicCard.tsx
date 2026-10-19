@@ -323,6 +323,27 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="88" textAnchor="middle" fontSize="8" fill="#1e40af" fontWeight="800">等底等高 3次倒满</text>
           </svg>
         )}
+
+        {topic.animationType === 'fractions-basics' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 披萨盘底 */}
+            <circle cx="50" cy="48" r="30" fill="#d97706" stroke="#b45309" strokeWidth="2" />
+            <circle cx="50" cy="48" r="27" fill="#fef08a" />
+            {/* 4等分切线 */}
+            <line x1="23" y1="48" x2="77" y2="48" stroke="#b45309" strokeWidth="1.2" />
+            <line x1="50" y1="21" x2="50" y2="75" stroke="#b45309" strokeWidth="1.2" />
+            {/* 突出的 1/4 块 */}
+            <path d="M 52 46 L 77 46 A 27 27 0 0 0 52 21 Z" fill="#f59e0b" stroke="#b45309" strokeWidth="1.2" />
+            <circle cx="62" cy="34" r="2" fill="#ef4444" />
+            {/* 右侧分数展示 */}
+            <g transform="translate(110, 48)">
+              <text x="0" y="-8" textAnchor="middle" fontSize="16" fontWeight="900" fill="#ef4444">1</text>
+              <line x1="-14" y1="-3" x2="14" y2="-3" stroke="#0f172a" strokeWidth="2" />
+              <text x="0" y="15" textAnchor="middle" fontSize="16" fontWeight="900" fill="#2563eb">4</text>
+            </g>
+            <text x="80" y="90" textAnchor="middle" fontSize="8" fill="#15803d" fontWeight="800">必须“平均分”</text>
+          </svg>
+        )}
       </div>
 
 
