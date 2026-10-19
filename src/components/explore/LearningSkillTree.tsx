@@ -23,9 +23,10 @@ const NODE_POSITIONS: Record<string, { x: number; y: number; tier: number }> = {
   'line-up-ordering': { x: 800, y: 80, tier: 1 },
 
   // Tier 2: 二三四年级：模型建立与转化 (y ~ 220)
-  'transfer-and-balance': { x: 240, y: 220, tier: 2 },
-  'multiplication-array': { x: 480, y: 220, tier: 2 },
-  'hidden-cubes-counting': { x: 740, y: 220, tier: 2 },
+  'transfer-and-balance': { x: 180, y: 220, tier: 2 },
+  'multiplication-array': { x: 380, y: 220, tier: 2 },
+  'perimeter-vs-area': { x: 580, y: 220, tier: 2 },
+  'hidden-cubes-counting': { x: 780, y: 220, tier: 2 },
 
   // Tier 3: 四五六年级：几何割补与复杂应用 (y ~ 360)
   'chicken-rabbit-cage': { x: 300, y: 360, tier: 3 },
@@ -45,7 +46,8 @@ const EDGES: { from: string; to: string; label: string }[] = [
   { from: 'line-up-ordering', to: 'multiplication-array', label: '行列队列感知' },
   { from: 'transfer-and-balance', to: 'chicken-rabbit-cage', label: '差量补偿思想' },
   { from: 'multiplication-array', to: 'chicken-rabbit-cage', label: '乘除倍数与假设法' },
-  { from: 'multiplication-array', to: 'triangle-area-parallelogram', label: '矩阵乘积到面积' },
+  { from: 'multiplication-array', to: 'perimeter-vs-area', label: '长宽乘积即面积' },
+  { from: 'perimeter-vs-area', to: 'triangle-area-parallelogram', label: '长方形面积基础' },
   { from: 'hidden-cubes-counting', to: 'triangle-area-parallelogram', label: '几何空间透视' },
   { from: 'triangle-area-parallelogram', to: 'circle-area', label: '割补转化思想' },
   { from: 'triangle-area-parallelogram', to: 'pythagorean-theorem', label: '直角三角形面积' },

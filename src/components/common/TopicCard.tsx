@@ -227,6 +227,20 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="18" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">S = a × h ÷ 2</text>
           </svg>
         )}
+
+        {topic.animationType === 'perimeter-vs-area' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 扁长方形对比 (10x2) */}
+            <rect x="15" y="24" width="60" height="15" rx="3" fill="#fee2e2" stroke="#ef4444" strokeWidth="1.2" strokeDasharray="3 2" />
+            <text x="45" y="35" textAnchor="middle" fontSize="7.5" fill="#991b1b" fontWeight="700">10×2 = 20</text>
+            {/* 正方形 (6x6) */}
+            <rect x="85" y="24" width="55" height="55" rx="4" fill="#dcfce7" stroke="#10b981" strokeWidth="1.8" />
+            <text x="112" y="55" textAnchor="middle" fontSize="11" fill="#047857" fontWeight="900">6×6 = 36</text>
+            <text x="112" y="70" textAnchor="middle" fontSize="7.5" fill="#15803d" fontWeight="700">正方形最大</text>
+            {/* 底部周长相同说明 */}
+            <text x="80" y="92" textAnchor="middle" fontSize="8" fill="#2563eb" fontWeight="800">同周长 (24cm) 面积相差近一倍</text>
+          </svg>
+        )}
       </div>
 
 
