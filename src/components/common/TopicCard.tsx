@@ -267,6 +267,33 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="88" textAnchor="middle" fontSize="8.5" fill="#1e40af" fontWeight="800">11种展开图 3D折叠</text>
           </svg>
         )}
+
+        {topic.animationType === 'speed-meeting-chasing' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 公路轨道 */}
+            <rect x="15" y="38" width="130" height="24" rx="4" fill="#334155" />
+            <line x1="15" y1="50" x2="145" y2="50" stroke="#facc15" strokeWidth="1.5" strokeDasharray="6 4" />
+            {/* 红车从左向右 */}
+            <g transform="translate(25, 41)">
+              <rect x="0" y="0" width="22" height="10" rx="3" fill="#ef4444" />
+              <circle cx="5" cy="11" r="3" fill="#0f172a" />
+              <circle cx="17" cy="11" r="3" fill="#0f172a" />
+              <path d="M 25 5 L 34 5 M 30 2 L 34 5 L 30 8" stroke="#ef4444" strokeWidth="1.5" strokeLinecap="round" />
+            </g>
+            {/* 蓝车从右向左相向而行 */}
+            <g transform="translate(112, 41)">
+              <rect x="0" y="0" width="22" height="10" rx="3" fill="#3b82f6" />
+              <circle cx="5" cy="11" r="3" fill="#0f172a" />
+              <circle cx="17" cy="11" r="3" fill="#0f172a" />
+              <path d="M -3 5 L -12 5 M -8 2 L -12 5 L -8 8" stroke="#3b82f6" strokeWidth="1.5" strokeLinecap="round" />
+            </g>
+            {/* 中间相遇星号 */}
+            <circle cx="80" cy="50" r="8" fill="#fef08a" opacity="0.8" />
+            <text x="80" y="53" textAnchor="middle" fontSize="10">💥</text>
+            <text x="80" y="24" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">相遇(和) · 追及(差)</text>
+            <text x="80" y="85" textAnchor="middle" fontSize="8" fill="#475569" fontWeight="700">双车动态时间轴</text>
+          </svg>
+        )}
       </div>
 
 

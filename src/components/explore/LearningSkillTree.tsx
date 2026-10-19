@@ -29,9 +29,10 @@ const NODE_POSITIONS: Record<string, { x: number; y: number; tier: number }> = {
   'hidden-cubes-counting': { x: 780, y: 220, tier: 2 },
 
   // Tier 3: 四五六年级：几何割补与复杂应用 (y ~ 360)
-  'chicken-rabbit-cage': { x: 260, y: 360, tier: 3 },
-  'triangle-area-parallelogram': { x: 500, y: 360, tier: 3 },
-  'cube-nets-folding': { x: 760, y: 360, tier: 3 },
+  'speed-meeting-chasing': { x: 140, y: 360, tier: 3 },
+  'chicken-rabbit-cage': { x: 350, y: 360, tier: 3 },
+  'triangle-area-parallelogram': { x: 570, y: 360, tier: 3 },
+  'cube-nets-folding': { x: 790, y: 360, tier: 3 },
 
   // Tier 4: 六年级与初中：极限与公理证明 (y ~ 490)
   'circle-area': { x: 440, y: 490, tier: 4 },
@@ -46,6 +47,8 @@ const EDGES: { from: string; to: string; label: string }[] = [
   { from: 'ten-frame-addition-subtraction', to: 'multiplication-array', label: '相同加数累加' },
   { from: 'line-up-ordering', to: 'multiplication-array', label: '行列队列感知' },
   { from: 'transfer-and-balance', to: 'chicken-rabbit-cage', label: '差量补偿思想' },
+  { from: 'transfer-and-balance', to: 'speed-meeting-chasing', label: '差距缩小与平衡' },
+  { from: 'multiplication-array', to: 'speed-meeting-chasing', label: '速度路程模型' },
   { from: 'multiplication-array', to: 'chicken-rabbit-cage', label: '乘除倍数与假设法' },
   { from: 'multiplication-array', to: 'perimeter-vs-area', label: '长宽乘积即面积' },
   { from: 'perimeter-vs-area', to: 'triangle-area-parallelogram', label: '长方形面积基础' },
