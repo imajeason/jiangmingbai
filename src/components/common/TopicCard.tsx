@@ -294,6 +294,35 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="85" textAnchor="middle" fontSize="8" fill="#475569" fontWeight="700">双车动态时间轴</text>
           </svg>
         )}
+
+        {topic.animationType === 'cylinder-cone-volume' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 左侧圆锥杯 */}
+            <g transform="translate(18, 20)">
+              <polygon points="5,8 45,8 25,58" fill="#38bdf8" opacity="0.85" />
+              <line x1="5" y1="8" x2="25" y2="58" stroke="#0284c7" strokeWidth="1.2" />
+              <line x1="45" y1="8" x2="25" y2="58" stroke="#0284c7" strokeWidth="1.2" />
+              <ellipse cx="25" cy="8" rx="20" ry="4" fill="#bae6fd" stroke="#0284c7" strokeWidth="1" />
+              <text x="25" y="70" textAnchor="middle" fontSize="7.5" fill="#0369a1" fontWeight="700">V=⅓Sh</text>
+            </g>
+            {/* 倒水箭头与水滴 */}
+            <path d="M 68 35 Q 78 28 88 40" fill="none" stroke="#38bdf8" strokeWidth="2" strokeDasharray="3 2" />
+            <text x="78" y="26" textAnchor="middle" fontSize="9">💧×3</text>
+            {/* 右侧圆柱桶 */}
+            <g transform="translate(95, 20)">
+              <rect x="5" y="8" width="40" height="50" fill="#f1f5f9" stroke="#64748b" strokeWidth="1.2" />
+              {/* 1/3, 2/3 水线 */}
+              <line x1="5" y1="41.3" x2="45" y2="41.3" stroke="#94a3b8" strokeWidth="0.8" strokeDasharray="2 2" />
+              <line x1="5" y1="24.6" x2="45" y2="24.6" stroke="#94a3b8" strokeWidth="0.8" strokeDasharray="2 2" />
+              {/* 满水 */}
+              <rect x="5" y="8" width="40" height="50" fill="#38bdf8" opacity="0.75" />
+              <ellipse cx="25" cy="8" rx="20" ry="4" fill="#bae6fd" stroke="#64748b" strokeWidth="1" />
+              <ellipse cx="25" cy="58" rx="20" ry="4" fill="none" stroke="#64748b" strokeWidth="1" />
+              <text x="25" y="70" textAnchor="middle" fontSize="7.5" fill="#15803d" fontWeight="700">V=Sh</text>
+            </g>
+            <text x="80" y="88" textAnchor="middle" fontSize="8" fill="#1e40af" fontWeight="800">等底等高 3次倒满</text>
+          </svg>
+        )}
       </div>
 
 

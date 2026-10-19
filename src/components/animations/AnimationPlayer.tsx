@@ -17,9 +17,10 @@ import TriangleAreaLab from './TriangleAreaLab';
 import PerimeterVsAreaLab from './PerimeterVsAreaLab';
 import CubeNetsLab from './CubeNetsLab';
 import SpeedMeetingLab from './SpeedMeetingLab';
+import CylinderConeLab from './CylinderConeLab';
 
 interface AnimationPlayerProps {
-  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | string;
+  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | string;
 }
 
 export default function AnimationPlayer({ type }: AnimationPlayerProps) {
@@ -56,6 +57,8 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
       return <CubeNetsLab />;
     case 'speed-meeting-chasing':
       return <SpeedMeetingLab />;
+    case 'cylinder-cone-volume':
+      return <CylinderConeLab />;
 
 
 

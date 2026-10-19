@@ -35,9 +35,10 @@ const NODE_POSITIONS: Record<string, { x: number; y: number; tier: number }> = {
   'cube-nets-folding': { x: 790, y: 360, tier: 3 },
 
   // Tier 4: 六年级与初中：极限与公理证明 (y ~ 490)
-  'circle-area': { x: 440, y: 490, tier: 4 },
-  'pythagorean-theorem': { x: 700, y: 490, tier: 4 },
-  'buoyancy-archimedes': { x: 180, y: 490, tier: 4 },
+  'buoyancy-archimedes': { x: 160, y: 490, tier: 4 },
+  'circle-area': { x: 370, y: 490, tier: 4 },
+  'cylinder-cone-volume': { x: 570, y: 490, tier: 4 },
+  'pythagorean-theorem': { x: 790, y: 490, tier: 4 },
 };
 
 // 知识点前置依赖边连接 (source -> target: 学了 source 是 target 的前置)
@@ -55,6 +56,9 @@ const EDGES: { from: string; to: string; label: string }[] = [
   { from: 'hidden-cubes-counting', to: 'triangle-area-parallelogram', label: '几何空间透视' },
   { from: 'hidden-cubes-counting', to: 'cube-nets-folding', label: '空间积木到折叠' },
   { from: 'triangle-area-parallelogram', to: 'circle-area', label: '割补转化思想' },
+  { from: 'triangle-area-parallelogram', to: 'cylinder-cone-volume', label: '从二分之一到三分之一' },
+  { from: 'circle-area', to: 'cylinder-cone-volume', label: '底面积到立体柱锥' },
+  { from: 'cylinder-cone-volume', to: 'buoyancy-archimedes', label: '柱体体积与排水量' },
   { from: 'triangle-area-parallelogram', to: 'pythagorean-theorem', label: '直角三角形面积' },
 ];
 
