@@ -399,6 +399,22 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="86" textAnchor="middle" fontSize="8" fill="#475569" fontWeight="700">总差 ÷ 单人差 = 人数</text>
           </svg>
         )}
+
+        {topic.animationType === 'work-rate-problem' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 施工槽背景 */}
+            <rect x="20" y="40" width="120" height="18" rx="4" fill="#f1f5f9" stroke="#64748b" strokeWidth="1" />
+            {/* 甲贡献 (蓝) */}
+            <rect x="20" y="40" width="60" height="18" rx="4" fill="#3b82f6" />
+            {/* 乙贡献 (橙) */}
+            <rect x="80" y="40" width="40" height="18" rx="4" fill="#f59e0b" />
+            <text x="50" y="52" textAnchor="middle" fontSize="7.5" fill="#fff" fontWeight="700">甲 1/10</text>
+            <text x="100" y="52" textAnchor="middle" fontSize="7.5" fill="#fff" fontWeight="700">乙 1/15</text>
+            {/* 顶部标语 */}
+            <text x="80" y="24" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">合做天数不是平均！</text>
+            <text x="80" y="86" textAnchor="middle" fontSize="8" fill="#15803d" fontWeight="800">1 ÷ (1/10 + 1/15) = 6天</text>
+          </svg>
+        )}
       </div>
 
 
