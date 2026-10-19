@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import '@/styles/globals.css';
@@ -22,11 +23,11 @@ export const metadata: Metadata = {
     '阿基米德浮力',
   ],
   authors: [{ name: '讲明白团队' }],
-  metadataBase: new URL('https://jiangmingbai.pages.dev'),
+  metadataBase: new URL('https://jiang.dongvps.com'),
   openGraph: {
     title: '讲明白 - 中小学知识点 JS 交互实验室',
     description: '把抽象枯燥的数理化公式，变成好玩的互动实验，让家长轻松讲透，孩子一秒看懂。',
-    url: 'https://jiangmingbai.pages.dev',
+    url: 'https://jiang.dongvps.com',
     siteName: '讲明白 (JiangMingBai)',
     locale: 'zh_CN',
     type: 'website',
@@ -44,6 +45,24 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body>
+        {/* Google tag (gtag.js) */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-Z4KQG2HF51"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-Z4KQG2HF51');
+          `}
+        </Script>
+
         <Header />
         <main style={{ minHeight: 'calc(100vh - var(--header-height) - 300px)' }}>
           {children}
