@@ -31,11 +31,12 @@ const NODE_POSITIONS: Record<string, { x: number; y: number; tier: number }> = {
   'hidden-cubes-counting': { x: 880, y: 220, tier: 2 },
 
   // Tier 3: 四五六年级：几何割补与复杂应用 (y ~ 360)
-  'speed-meeting-chasing': { x: 120, y: 360, tier: 3 },
-  'tree-planting-intervals': { x: 300, y: 360, tier: 3 },
-  'chicken-rabbit-cage': { x: 480, y: 360, tier: 3 },
-  'triangle-area-parallelogram': { x: 670, y: 360, tier: 3 },
-  'cube-nets-folding': { x: 840, y: 360, tier: 3 },
+  'speed-meeting-chasing': { x: 100, y: 360, tier: 3 },
+  'tree-planting-intervals': { x: 260, y: 360, tier: 3 },
+  'surplus-and-deficiency': { x: 420, y: 360, tier: 3 },
+  'chicken-rabbit-cage': { x: 580, y: 360, tier: 3 },
+  'triangle-area-parallelogram': { x: 740, y: 360, tier: 3 },
+  'cube-nets-folding': { x: 880, y: 360, tier: 3 },
 
   // Tier 4: 六年级与初中：极限与公理证明 (y ~ 490)
   'buoyancy-archimedes': { x: 160, y: 490, tier: 4 },
@@ -56,7 +57,9 @@ const EDGES: { from: string; to: string; label: string }[] = [
   { from: 'transfer-and-balance', to: 'chicken-rabbit-cage', label: '差量补偿思想' },
   { from: 'transfer-and-balance', to: 'speed-meeting-chasing', label: '差距缩小与平衡' },
   { from: 'multiplication-array', to: 'sum-difference-multiple', label: '倍数与一份量' },
+  { from: 'sum-difference-multiple', to: 'surplus-and-deficiency', label: '一份量到分配差' },
   { from: 'sum-difference-multiple', to: 'chicken-rabbit-cage', label: '一份量到假设法' },
+  { from: 'surplus-and-deficiency', to: 'chicken-rabbit-cage', label: '双重假设补偿' },
   { from: 'multiplication-array', to: 'fractions-basics', label: '等分除法到分数' },
   { from: 'multiplication-array', to: 'speed-meeting-chasing', label: '速度路程模型' },
   { from: 'multiplication-array', to: 'chicken-rabbit-cage', label: '乘除倍数与假设法' },

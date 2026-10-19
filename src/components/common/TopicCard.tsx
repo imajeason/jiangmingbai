@@ -381,6 +381,24 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="86" textAnchor="middle" fontSize="8" fill="#1e40af" fontWeight="800">去差双小 · 补差双大</text>
           </svg>
         )}
+
+        {topic.animationType === 'surplus-and-deficiency' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 盘子与糖果 */}
+            <ellipse cx="45" cy="50" rx="20" ry="7" fill="#f1f5f9" stroke="#94a3b8" strokeWidth="1.2" />
+            <circle cx="38" cy="48" r="3" fill="#ef4444" />
+            <circle cx="45" cy="48" r="3" fill="#ef4444" />
+            <circle cx="52" cy="48" r="3" fill="#ef4444" />
+            {/* 托盘余量（多出） */}
+            <rect x="80" y="32" width="40" height="16" rx="4" fill="#dcfce7" stroke="#16a34a" strokeWidth="1" />
+            <text x="100" y="43" textAnchor="middle" fontSize="7.5" fill="#15803d" fontWeight="700">+8 (盈)</text>
+            {/* 托盘缺量（倒欠） */}
+            <rect x="80" y="52" width="40" height="16" rx="4" fill="#fee2e2" stroke="#dc2626" strokeWidth="1" strokeDasharray="2 2" />
+            <text x="100" y="63" textAnchor="middle" fontSize="7.5" fill="#b91c1c" fontWeight="700">-4 (亏)</text>
+            <text x="80" y="22" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">一盈一亏要相加</text>
+            <text x="80" y="86" textAnchor="middle" fontSize="8" fill="#475569" fontWeight="700">总差 ÷ 单人差 = 人数</text>
+          </svg>
+        )}
       </div>
 
 
