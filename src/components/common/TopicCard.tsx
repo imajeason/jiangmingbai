@@ -415,6 +415,25 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="86" textAnchor="middle" fontSize="8" fill="#15803d" fontWeight="800">1 ÷ (1/10 + 1/15) = 6天</text>
           </svg>
         )}
+
+        {topic.animationType === 'newton-cow-pasture' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 牧场绿地 */}
+            <rect x="15" y="48" width="130" height="32" rx="4" fill="#86efac" stroke="#15803d" strokeWidth="1" />
+            {/* 动态生长嫩草芽 */}
+            <path d="M 25 48 L 28 42 L 31 48 M 45 48 L 48 40 L 51 48 M 120 48 L 123 41 L 126 48" stroke="#16a34a" strokeWidth="1.5" fill="none" />
+            {/* 吃草小黄牛 */}
+            <ellipse cx="80" cy="54" rx="14" ry="9" fill="#f59e0b" stroke="#b45309" strokeWidth="1.2" />
+            <ellipse cx="94" cy="56" rx="5" ry="4" fill="#f59e0b" stroke="#b45309" strokeWidth="1" />
+            <line x1="72" y1="62" x2="72" y2="70" stroke="#b45309" strokeWidth="2" strokeLinecap="round" />
+            <line x1="76" y1="62" x2="76" y2="70" stroke="#b45309" strokeWidth="2" strokeLinecap="round" />
+            <line x1="84" y1="62" x2="84" y2="70" stroke="#b45309" strokeWidth="2" strokeLinecap="round" />
+            <line x1="88" y1="62" x2="88" y2="70" stroke="#b45309" strokeWidth="2" strokeLinecap="round" />
+            {/* 标语 */}
+            <text x="80" y="24" textAnchor="middle" fontSize="8.5" fill="#15803d" fontWeight="800">牛吃草是追及问题！</text>
+            <text x="80" y="90" textAnchor="middle" fontSize="7.5" fill="#1e40af" fontWeight="700">专职吃新草 · 攻坚啃老草</text>
+          </svg>
+        )}
       </div>
 
 

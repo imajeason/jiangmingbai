@@ -39,10 +39,11 @@ const NODE_POSITIONS: Record<string, { x: number; y: number; tier: number }> = {
   'cube-nets-folding': { x: 880, y: 360, tier: 3 },
 
   // Tier 4: 六年级与初中：极限与公理证明 (y ~ 490)
-  'buoyancy-archimedes': { x: 140, y: 490, tier: 4 },
-  'work-rate-problem': { x: 320, y: 490, tier: 4 },
-  'circle-area': { x: 500, y: 490, tier: 4 },
-  'cylinder-cone-volume': { x: 680, y: 490, tier: 4 },
+  'buoyancy-archimedes': { x: 100, y: 490, tier: 4 },
+  'newton-cow-pasture': { x: 240, y: 490, tier: 4 },
+  'work-rate-problem': { x: 390, y: 490, tier: 4 },
+  'circle-area': { x: 540, y: 490, tier: 4 },
+  'cylinder-cone-volume': { x: 700, y: 490, tier: 4 },
   'pythagorean-theorem': { x: 860, y: 490, tier: 4 },
 };
 
@@ -61,9 +62,12 @@ const EDGES: { from: string; to: string; label: string }[] = [
   { from: 'sum-difference-multiple', to: 'surplus-and-deficiency', label: '一份量到分配差' },
   { from: 'sum-difference-multiple', to: 'chicken-rabbit-cage', label: '一份量到假设法' },
   { from: 'surplus-and-deficiency', to: 'chicken-rabbit-cage', label: '双重假设补偿' },
+  { from: 'surplus-and-deficiency', to: 'newton-cow-pasture', label: '双重差量到新生率' },
   { from: 'multiplication-array', to: 'fractions-basics', label: '等分除法到分数' },
   { from: 'fractions-basics', to: 'work-rate-problem', label: '几分之一到工作工效' },
   { from: 'speed-meeting-chasing', to: 'work-rate-problem', label: '速度和到合作效率' },
+  { from: 'speed-meeting-chasing', to: 'newton-cow-pasture', label: '追及模型到牛吃草' },
+  { from: 'newton-cow-pasture', to: 'work-rate-problem', label: '动态增长到单位1速率' },
   { from: 'multiplication-array', to: 'speed-meeting-chasing', label: '速度路程模型' },
   { from: 'multiplication-array', to: 'chicken-rabbit-cage', label: '乘除倍数与假设法' },
   { from: 'multiplication-array', to: 'perimeter-vs-area', label: '长宽乘积即面积' },

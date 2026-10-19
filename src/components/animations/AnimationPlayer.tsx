@@ -23,9 +23,10 @@ import TreePlantingLab from './TreePlantingLab';
 import SumDifferenceMultipleLab from './SumDifferenceMultipleLab';
 import SurplusDeficiencyLab from './SurplusDeficiencyLab';
 import WorkRateLab from './WorkRateLab';
+import NewtonCowPastureLab from './NewtonCowPastureLab';
 
 interface AnimationPlayerProps {
-  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | 'sum-difference-multiple' | 'surplus-and-deficiency' | 'work-rate-problem' | string;
+  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | 'sum-difference-multiple' | 'surplus-and-deficiency' | 'work-rate-problem' | 'newton-cow-pasture' | string;
 }
 
 export default function AnimationPlayer({ type }: AnimationPlayerProps) {
@@ -74,6 +75,8 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
       return <SurplusDeficiencyLab />;
     case 'work-rate-problem':
       return <WorkRateLab />;
+    case 'newton-cow-pasture':
+      return <NewtonCowPastureLab />;
 
 
 
