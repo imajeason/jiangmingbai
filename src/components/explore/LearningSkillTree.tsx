@@ -29,8 +29,9 @@ const NODE_POSITIONS: Record<string, { x: number; y: number; tier: number }> = {
   'hidden-cubes-counting': { x: 780, y: 220, tier: 2 },
 
   // Tier 3: 四五六年级：几何割补与复杂应用 (y ~ 360)
-  'chicken-rabbit-cage': { x: 300, y: 360, tier: 3 },
-  'triangle-area-parallelogram': { x: 600, y: 360, tier: 3 },
+  'chicken-rabbit-cage': { x: 260, y: 360, tier: 3 },
+  'triangle-area-parallelogram': { x: 500, y: 360, tier: 3 },
+  'cube-nets-folding': { x: 760, y: 360, tier: 3 },
 
   // Tier 4: 六年级与初中：极限与公理证明 (y ~ 490)
   'circle-area': { x: 440, y: 490, tier: 4 },
@@ -49,6 +50,7 @@ const EDGES: { from: string; to: string; label: string }[] = [
   { from: 'multiplication-array', to: 'perimeter-vs-area', label: '长宽乘积即面积' },
   { from: 'perimeter-vs-area', to: 'triangle-area-parallelogram', label: '长方形面积基础' },
   { from: 'hidden-cubes-counting', to: 'triangle-area-parallelogram', label: '几何空间透视' },
+  { from: 'hidden-cubes-counting', to: 'cube-nets-folding', label: '空间积木到折叠' },
   { from: 'triangle-area-parallelogram', to: 'circle-area', label: '割补转化思想' },
   { from: 'triangle-area-parallelogram', to: 'pythagorean-theorem', label: '直角三角形面积' },
 ];

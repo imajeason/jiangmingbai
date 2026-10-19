@@ -241,6 +241,32 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="92" textAnchor="middle" fontSize="8" fill="#2563eb" fontWeight="800">同周长 (24cm) 面积相差近一倍</text>
           </svg>
         )}
+
+        {topic.animationType === 'cube-nets-folding' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 左侧展开十字图 (1-4-1) */}
+            <g transform="translate(18, 25)">
+              <rect x="14" y="0" width="14" height="14" fill="#f97316" stroke="#fff" strokeWidth="0.8" />
+              <rect x="0" y="14" width="14" height="14" fill="#10b981" stroke="#fff" strokeWidth="0.8" />
+              <rect x="14" y="14" width="14" height="14" fill="#475569" stroke="#fff" strokeWidth="0.8" />
+              <rect x="28" y="14" width="14" height="14" fill="#8b5cf6" stroke="#fff" strokeWidth="0.8" />
+              <rect x="42" y="14" width="14" height="14" fill="#0284c7" stroke="#fff" strokeWidth="0.8" />
+              <rect x="14" y="28" width="14" height="14" fill="#ef4444" stroke="#fff" strokeWidth="0.8" />
+            </g>
+            {/* 中间旋转折叠箭头 */}
+            <path d="M 85 45 L 95 45 M 92 41 L 96 45 L 92 49" stroke="#2563eb" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            {/* 右侧立体的正方体 */}
+            <g transform="translate(120, 48)">
+              {/* 顶面 */}
+              <polygon points="0,-18 18,-27 0,-36 -18,-27" fill="#38bdf8" stroke="#0284c7" strokeWidth="1" />
+              {/* 左面 */}
+              <polygon points="-18,-27 0,-18 0,14 -18,5" fill="#34d399" stroke="#059669" strokeWidth="1" />
+              {/* 右面 */}
+              <polygon points="0,-18 18,-27 18,5 0,14" fill="#f87171" stroke="#dc2626" strokeWidth="1" />
+            </g>
+            <text x="80" y="88" textAnchor="middle" fontSize="8.5" fill="#1e40af" fontWeight="800">11种展开图 3D折叠</text>
+          </svg>
+        )}
       </div>
 
 
