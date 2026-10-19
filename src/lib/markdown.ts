@@ -71,3 +71,21 @@ export function parseMarkdown(content: string): string {
 
   return rawHtml;
 }
+
+/**
+ * 将公式字符串直接渲染为 KaTeX 数学 HTML
+ * 适用于元数据 coreFormula 等独立公式展示
+ */
+export function renderFormula(formula: string, displayMode: boolean = false): string {
+  if (!formula) return '';
+  try {
+    const tex = formula.trim().startsWith('\\displaystyle') ? formula : `\\displaystyle ${formula}`;
+    return katex.renderToString(tex, {
+      displayMode,
+      throwOnError: false,
+      strict: 'ignore',
+    });
+  } catch {
+    return formula;
+  }
+}

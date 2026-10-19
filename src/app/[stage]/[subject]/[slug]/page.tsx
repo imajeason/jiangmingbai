@@ -9,7 +9,7 @@ import AnimationPlayer from '@/components/animations/AnimationPlayer';
 import ParentGuideBox from '@/components/common/ParentGuideBox';
 import TopicPrerequisitesBox from '@/components/common/TopicPrerequisitesBox';
 import { ChevronRight, Clock, Award, BookCheck, Share2 } from 'lucide-react';
-import { parseMarkdown } from '@/lib/markdown';
+import { parseMarkdown, renderFormula } from '@/lib/markdown';
 import markdownStyles from '@/styles/markdown.module.css';
 import TopicNavigation from '@/components/common/TopicNavigation';
 
@@ -166,11 +166,12 @@ export default async function TopicDetailPage({ params }: PageProps) {
                 {topic.summary}
               </p>
               {topic.coreFormula && (
-                <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-md)', padding: '12px 18px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 600 }}>核心公式：</span>
-                  <code style={{ fontSize: '1.15rem', color: '#2563eb', fontWeight: 800, fontFamily: 'var(--font-mono)' }}>
-                    {topic.coreFormula}
-                  </code>
+                <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-md)', padding: '12px 18px', display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
+                  <span style={{ fontSize: '0.85rem', color: '#64748b', fontWeight: 600, flexShrink: 0 }}>核心公式：</span>
+                  <div
+                    style={{ fontSize: '1.25rem', color: '#1d4ed8', fontWeight: 700, overflowX: 'auto', display: 'inline-flex', alignItems: 'center' }}
+                    dangerouslySetInnerHTML={{ __html: renderFormula(topic.coreFormula) }}
+                  />
                 </div>
               )}
             </div>
