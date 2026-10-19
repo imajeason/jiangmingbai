@@ -344,6 +344,26 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="90" textAnchor="middle" fontSize="8" fill="#15803d" fontWeight="800">必须“平均分”</text>
           </svg>
         )}
+
+        {topic.animationType === 'tree-planting-intervals' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 道路地面 */}
+            <rect x="15" y="45" width="130" height="15" rx="3" fill="#64748b" />
+            {/* 4 棵树 */}
+            {[25, 60, 95, 130].map((tx, idx) => (
+              <g key={idx} transform={`translate(${tx}, 44)`}>
+                <rect x="-2" y="0" width="4" height="12" fill="#78350f" />
+                <circle cx="0" cy="-6" r="8" fill="#16a34a" stroke="#14532d" strokeWidth="1" />
+              </g>
+            ))}
+            {/* 3 个指缝间隔标注 */}
+            <line x1="25" y1="67" x2="60" y2="67" stroke="#ef4444" strokeWidth="1.2" />
+            <line x1="60" y1="67" x2="95" y2="67" stroke="#ef4444" strokeWidth="1.2" />
+            <line x1="95" y1="67" x2="130" y2="67" stroke="#ef4444" strokeWidth="1.2" />
+            <text x="80" y="24" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">5指4缝 · 树比缝多1</text>
+            <text x="80" y="86" textAnchor="middle" fontSize="8" fill="#15803d" fontWeight="800">4棵树 = 3个间隔 + 1</text>
+          </svg>
+        )}
       </div>
 
 

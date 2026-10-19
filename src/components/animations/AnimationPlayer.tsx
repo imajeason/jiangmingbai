@@ -19,9 +19,10 @@ import CubeNetsLab from './CubeNetsLab';
 import SpeedMeetingLab from './SpeedMeetingLab';
 import CylinderConeLab from './CylinderConeLab';
 import FractionsLab from './FractionsLab';
+import TreePlantingLab from './TreePlantingLab';
 
 interface AnimationPlayerProps {
-  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | string;
+  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | string;
 }
 
 export default function AnimationPlayer({ type }: AnimationPlayerProps) {
@@ -62,6 +63,8 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
       return <CylinderConeLab />;
     case 'fractions-basics':
       return <FractionsLab />;
+    case 'tree-planting-intervals':
+      return <TreePlantingLab />;
 
 
 
