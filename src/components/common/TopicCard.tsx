@@ -364,6 +364,23 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="86" textAnchor="middle" fontSize="8" fill="#15803d" fontWeight="800">4棵树 = 3个间隔 + 1</text>
           </svg>
         )}
+
+        {topic.animationType === 'sum-difference-multiple' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 大数条 */}
+            <rect x="20" y="32" width="65" height="14" rx="3" fill="#3b82f6" />
+            <rect x="85" y="32" width="30" height="14" rx="3" fill="#ef4444" />
+            <text x="100" y="42" textAnchor="middle" fontSize="7.5" fill="#fff" fontWeight="700">差</text>
+            {/* 小数条 */}
+            <rect x="20" y="52" width="65" height="14" rx="3" fill="#3b82f6" />
+            {/* 虚线对齐 */}
+            <line x1="85" y1="28" x2="85" y2="70" stroke="#94a3b8" strokeWidth="1" strokeDasharray="2 2" />
+            {/* 剪刀剪差 */}
+            <text x="120" y="44" fontSize="11">✂️</text>
+            <text x="80" y="22" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">线段图找“一份量”</text>
+            <text x="80" y="86" textAnchor="middle" fontSize="8" fill="#1e40af" fontWeight="800">去差双小 · 补差双大</text>
+          </svg>
+        )}
       </div>
 
 

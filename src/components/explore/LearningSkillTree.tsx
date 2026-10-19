@@ -23,11 +23,12 @@ const NODE_POSITIONS: Record<string, { x: number; y: number; tier: number }> = {
   'line-up-ordering': { x: 800, y: 80, tier: 1 },
 
   // Tier 2: 二三四年级：模型建立与转化 (y ~ 220)
-  'transfer-and-balance': { x: 120, y: 220, tier: 2 },
-  'fractions-basics': { x: 300, y: 220, tier: 2 },
-  'multiplication-array': { x: 480, y: 220, tier: 2 },
-  'perimeter-vs-area': { x: 670, y: 220, tier: 2 },
-  'hidden-cubes-counting': { x: 840, y: 220, tier: 2 },
+  'transfer-and-balance': { x: 100, y: 220, tier: 2 },
+  'sum-difference-multiple': { x: 260, y: 220, tier: 2 },
+  'fractions-basics': { x: 420, y: 220, tier: 2 },
+  'multiplication-array': { x: 580, y: 220, tier: 2 },
+  'perimeter-vs-area': { x: 740, y: 220, tier: 2 },
+  'hidden-cubes-counting': { x: 880, y: 220, tier: 2 },
 
   // Tier 3: 四五六年级：几何割补与复杂应用 (y ~ 360)
   'speed-meeting-chasing': { x: 120, y: 360, tier: 3 },
@@ -51,8 +52,11 @@ const EDGES: { from: string; to: string; label: string }[] = [
   { from: 'line-up-ordering', to: 'multiplication-array', label: '行列队列感知' },
   { from: 'line-up-ordering', to: 'tree-planting-intervals', label: '排队计数到间隔' },
   { from: 'tree-planting-intervals', to: 'speed-meeting-chasing', label: '离散间隔到连续路程' },
+  { from: 'transfer-and-balance', to: 'sum-difference-multiple', label: '移多补少到和差' },
   { from: 'transfer-and-balance', to: 'chicken-rabbit-cage', label: '差量补偿思想' },
   { from: 'transfer-and-balance', to: 'speed-meeting-chasing', label: '差距缩小与平衡' },
+  { from: 'multiplication-array', to: 'sum-difference-multiple', label: '倍数与一份量' },
+  { from: 'sum-difference-multiple', to: 'chicken-rabbit-cage', label: '一份量到假设法' },
   { from: 'multiplication-array', to: 'fractions-basics', label: '等分除法到分数' },
   { from: 'multiplication-array', to: 'speed-meeting-chasing', label: '速度路程模型' },
   { from: 'multiplication-array', to: 'chicken-rabbit-cage', label: '乘除倍数与假设法' },

@@ -20,9 +20,10 @@ import SpeedMeetingLab from './SpeedMeetingLab';
 import CylinderConeLab from './CylinderConeLab';
 import FractionsLab from './FractionsLab';
 import TreePlantingLab from './TreePlantingLab';
+import SumDifferenceMultipleLab from './SumDifferenceMultipleLab';
 
 interface AnimationPlayerProps {
-  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | string;
+  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | 'sum-difference-multiple' | string;
 }
 
 export default function AnimationPlayer({ type }: AnimationPlayerProps) {
@@ -65,6 +66,8 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
       return <FractionsLab />;
     case 'tree-planting-intervals':
       return <TreePlantingLab />;
+    case 'sum-difference-multiple':
+      return <SumDifferenceMultipleLab />;
 
 
 
