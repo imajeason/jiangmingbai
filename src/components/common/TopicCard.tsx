@@ -434,6 +434,34 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="90" textAnchor="middle" fontSize="7.5" fill="#1e40af" fontWeight="700">专职吃新草 · 攻坚啃老草</text>
           </svg>
         )}
+
+        {topic.animationType === 'algebraic-equations-basics' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 天平立柱与横梁 */}
+            <line x1="80" y1="36" x2="80" y2="75" stroke="#475569" strokeWidth="3" />
+            <rect x="70" y="74" width="20" height="6" rx="2" fill="#334155" />
+            <circle cx="80" cy="36" r="3.5" fill="#1e293b" />
+            <line x1="30" y1="36" x2="130" y2="36" stroke="#475569" strokeWidth="2.5" />
+            {/* 左盘吊绳与托盘 */}
+            <line x1="45" y1="36" x2="35" y2="60" stroke="#94a3b8" strokeWidth="1" />
+            <line x1="45" y1="36" x2="55" y2="60" stroke="#94a3b8" strokeWidth="1" />
+            <ellipse cx="45" cy="60" rx="16" ry="3" fill="#cbd5e1" stroke="#64748b" strokeWidth="1" />
+            {/* 左盘物品: x 盒 + 小砝码 */}
+            <rect x="37" y="44" width="10" height="14" rx="2" fill="#3b82f6" stroke="#1d4ed8" strokeWidth="1" />
+            <text x="42" y="55" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="800">x</text>
+            <rect x="49" y="50" width="7" height="8" rx="1.5" fill="#eab308" stroke="#ca8a04" strokeWidth="0.8" />
+            {/* 右盘吊绳与托盘 */}
+            <line x1="115" y1="36" x2="105" y2="60" stroke="#94a3b8" strokeWidth="1" />
+            <line x1="115" y1="36" x2="125" y2="60" stroke="#94a3b8" strokeWidth="1" />
+            <ellipse cx="115" cy="60" rx="16" ry="3" fill="#cbd5e1" stroke="#64748b" strokeWidth="1" />
+            {/* 右盘砝码堆 */}
+            <rect x="109" y="46" width="12" height="12" rx="2" fill="#eab308" stroke="#ca8a04" strokeWidth="1" />
+            <text x="115" y="55" textAnchor="middle" fontSize="6.5" fill="#713f12" fontWeight="700">18g</text>
+            {/* 标语 */}
+            <text x="80" y="20" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">方程本质是天平</text>
+            <text x="80" y="90" textAnchor="middle" fontSize="7.5" fill="#1e40af" fontWeight="700">两边同加同减 · 同乘同除</text>
+          </svg>
+        )}
       </div>
 
 

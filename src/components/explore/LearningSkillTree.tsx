@@ -31,12 +31,13 @@ const NODE_POSITIONS: Record<string, { x: number; y: number; tier: number }> = {
   'hidden-cubes-counting': { x: 880, y: 220, tier: 2 },
 
   // Tier 3: 四五六年级：几何割补与复杂应用 (y ~ 360)
-  'speed-meeting-chasing': { x: 100, y: 360, tier: 3 },
-  'tree-planting-intervals': { x: 260, y: 360, tier: 3 },
-  'surplus-and-deficiency': { x: 420, y: 360, tier: 3 },
-  'chicken-rabbit-cage': { x: 580, y: 360, tier: 3 },
-  'triangle-area-parallelogram': { x: 740, y: 360, tier: 3 },
-  'cube-nets-folding': { x: 880, y: 360, tier: 3 },
+  'speed-meeting-chasing': { x: 80, y: 360, tier: 3 },
+  'tree-planting-intervals': { x: 210, y: 360, tier: 3 },
+  'surplus-and-deficiency': { x: 350, y: 360, tier: 3 },
+  'algebraic-equations-basics': { x: 490, y: 360, tier: 3 },
+  'chicken-rabbit-cage': { x: 630, y: 360, tier: 3 },
+  'triangle-area-parallelogram': { x: 770, y: 360, tier: 3 },
+  'cube-nets-folding': { x: 890, y: 360, tier: 3 },
 
   // Tier 4: 六年级与初中：极限与公理证明 (y ~ 490)
   'buoyancy-archimedes': { x: 100, y: 490, tier: 4 },
@@ -56,9 +57,12 @@ const EDGES: { from: string; to: string; label: string }[] = [
   { from: 'line-up-ordering', to: 'tree-planting-intervals', label: '排队计数到间隔' },
   { from: 'tree-planting-intervals', to: 'speed-meeting-chasing', label: '离散间隔到连续路程' },
   { from: 'transfer-and-balance', to: 'sum-difference-multiple', label: '移多补少到和差' },
+  { from: 'transfer-and-balance', to: 'algebraic-equations-basics', label: '天平平衡到等式性质' },
   { from: 'transfer-and-balance', to: 'chicken-rabbit-cage', label: '差量补偿思想' },
   { from: 'transfer-and-balance', to: 'speed-meeting-chasing', label: '差距缩小与平衡' },
   { from: 'multiplication-array', to: 'sum-difference-multiple', label: '倍数与一份量' },
+  { from: 'sum-difference-multiple', to: 'algebraic-equations-basics', label: '一份量到未知数x' },
+  { from: 'algebraic-equations-basics', to: 'chicken-rabbit-cage', label: '方程代数法解鸡兔' },
   { from: 'sum-difference-multiple', to: 'surplus-and-deficiency', label: '一份量到分配差' },
   { from: 'sum-difference-multiple', to: 'chicken-rabbit-cage', label: '一份量到假设法' },
   { from: 'surplus-and-deficiency', to: 'chicken-rabbit-cage', label: '双重假设补偿' },
