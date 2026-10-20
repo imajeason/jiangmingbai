@@ -6,7 +6,7 @@ import { StageKey, SubjectKey } from '@/types';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://jiangmingbai.pages.dev';
+  const baseUrl = 'https://jiangmb.com';
 
   // 1. 首页
   const routes: MetadataRoute.Sitemap = [

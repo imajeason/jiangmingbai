@@ -23,11 +23,11 @@ export const metadata: Metadata = {
     '阿基米德浮力',
   ],
   authors: [{ name: '讲明白团队' }],
-  metadataBase: new URL('https://jiang.dongvps.com'),
+  metadataBase: new URL('https://jiangmb.com'),
   openGraph: {
     title: '讲明白 - 中小学知识点 JS 交互实验室',
     description: '把抽象枯燥的数理化公式，变成好玩的互动实验，让家长轻松讲透，孩子一秒看懂。',
-    url: 'https://jiang.dongvps.com',
+    url: 'https://jiangmb.com',
     siteName: '讲明白 (JiangMingBai)',
     locale: 'zh_CN',
     type: 'website',

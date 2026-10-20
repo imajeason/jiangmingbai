@@ -9,7 +9,7 @@
 
 - **网站名称**：讲明白 (JiangMingBai)
 - **核心定位**：中小学知识点 JS 交互可视化实验室 & 家长辅导指南
-- **线上生产地址**：[https://jiang.dongvps.com/](https://jiang.dongvps.com/)
+- **线上生产地址**：[https://jiangmb.com/](https://jiangmb.com/)
 - **代码仓库**：
   - GitHub: `git@github.com:imajeason/jiangmingbai.git` (主源，用于触发 Cloudflare 持续部署)
   - 局域网 Git: `ssh://git@192.168.199.9:9022/imajeason/jangmingbai.git`
