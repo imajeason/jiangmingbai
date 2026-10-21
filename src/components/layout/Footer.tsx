@@ -34,6 +34,7 @@ export default function Footer() {
             <li><Link href="/chuzhong">初中专区 (7-9年级)</Link></li>
             <li><Link href="/gaozhong">高中专区 (高一至高三)</Link></li>
             <li><Link href="/explore">全部分类检索</Link></li>
+            <li><Link href="/sitemap">网站地图 (Sitemap)</Link></li>
           </ul>
         </div>
 
@@ -73,6 +74,8 @@ export default function Footer() {
           © {new Date().getFullYear()} 讲明白 (JiangMingBai.com) · 代码遵循 MIT 协议 · 内容遵循 CC BY-NC-SA 4.0
         </div>
         <div style={{ display: 'flex', gap: '16px' }}>
+          <Link href="/sitemap" style={{ color: 'inherit', textDecoration: 'none' }}>网站地图</Link>
+          <span>·</span>
           <span>纯静态 SSG 架构</span>
           <span>·</span>
           <span>SEO 静态预渲染</span>
