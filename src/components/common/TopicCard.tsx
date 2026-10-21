@@ -462,6 +462,25 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="90" textAnchor="middle" fontSize="7.5" fill="#1e40af" fontWeight="700">两边同加同减 · 同乘同除</text>
           </svg>
         )}
+
+        {topic.animationType === 'river-boat-motion' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 河水背景 */}
+            <rect x="15" y="32" width="130" height="48" rx="6" fill="#cffafe" stroke="#06b6d4" strokeWidth="1" />
+            {/* 水流向右波纹 */}
+            <path d="M 25 45 Q 40 40 55 45 T 85 45 T 115 45 T 135 45" stroke="#0284c7" strokeWidth="1.2" fill="none" opacity="0.6" />
+            <path d="M 20 68 Q 35 63 50 68 T 80 68 T 110 68 T 130 68" stroke="#0284c7" strokeWidth="1.2" fill="none" opacity="0.6" />
+            {/* 航行小汽艇 */}
+            <path d="M 50 56 L 95 56 Q 105 55 110 47 L 58 47 Z" fill="#ffffff" stroke="#0284c7" strokeWidth="1.2" />
+            <rect x="65" y="40" width="22" height="8" rx="2" fill="#38bdf8" />
+            <polygon points="62,40 68,36 62,32" fill="#ef4444" />
+            {/* 顺水水流助推箭头 */}
+            <line x1="40" y1="58" x2="115" y2="58" stroke="#06b6d4" strokeWidth="2" strokeDasharray="3 2" />
+            {/* 标语 */}
+            <text x="80" y="22" textAnchor="middle" fontSize="8.5" fill="#0369a1" fontWeight="800">顺水加水速 · 逆水减水速</text>
+            <text x="80" y="90" textAnchor="middle" fontSize="7.5" fill="#0891b2" fontWeight="700">顺逆速度差 = 2 倍水速</text>
+          </svg>
+        )}
       </div>
 
 
