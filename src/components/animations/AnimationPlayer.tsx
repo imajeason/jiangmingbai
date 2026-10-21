@@ -26,9 +26,10 @@ import WorkRateLab from './WorkRateLab';
 import NewtonCowPastureLab from './NewtonCowPastureLab';
 import AlgebraicEquationsLab from './AlgebraicEquationsLab';
 import RiverBoatMotionLab from './RiverBoatMotionLab';
+import TrainBridgeCrossingLab from './TrainBridgeCrossingLab';
 
 interface AnimationPlayerProps {
-  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | 'sum-difference-multiple' | 'surplus-and-deficiency' | 'work-rate-problem' | 'newton-cow-pasture' | 'algebraic-equations-basics' | 'river-boat-motion' | string;
+  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | 'sum-difference-multiple' | 'surplus-and-deficiency' | 'work-rate-problem' | 'newton-cow-pasture' | 'algebraic-equations-basics' | 'river-boat-motion' | 'train-bridge-crossing' | string;
 }
 
 export default function AnimationPlayer({ type }: AnimationPlayerProps) {
@@ -83,6 +84,8 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
       return <AlgebraicEquationsLab />;
     case 'river-boat-motion':
       return <RiverBoatMotionLab />;
+    case 'train-bridge-crossing':
+      return <TrainBridgeCrossingLab />;
 
 
 

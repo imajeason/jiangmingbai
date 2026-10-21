@@ -481,6 +481,25 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="90" textAnchor="middle" fontSize="7.5" fill="#0891b2" fontWeight="700">顺逆速度差 = 2 倍水速</text>
           </svg>
         )}
+
+        {topic.animationType === 'train-bridge-crossing' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 大桥桁架与桥墩 */}
+            <rect x="35" y="55" width="90" height="4" fill="#475569" />
+            <line x1="60" y1="59" x2="60" y2="72" stroke="#64748b" strokeWidth="2" />
+            <line x1="100" y1="59" x2="100" y2="72" stroke="#64748b" strokeWidth="2" />
+            <path d="M 35 55 L 50 42 L 65 55 L 80 42 L 95 55 L 110 42 L 125 55" stroke="#64748b" strokeWidth="1" fill="none" />
+            {/* 正在过桥的火车 (车头已出桥) */}
+            <rect x="75" y="46" width="45" height="9" rx="1.5" fill="#22c55e" stroke="#15803d" strokeWidth="0.8" />
+            <circle cx="82" cy="56" r="1.5" fill="#0f172a" />
+            <circle cx="112" cy="56" r="1.5" fill="#0f172a" />
+            {/* 车头红旗 */}
+            <polygon points="120,44 125,47 120,50" fill="#ef4444" />
+            {/* 标语 */}
+            <text x="80" y="22" textAnchor="middle" fontSize="8.5" fill="#15803d" fontWeight="800">过桥路程 = 桥长 + 车长</text>
+            <text x="80" y="90" textAnchor="middle" fontSize="7.5" fill="#b45309" fontWeight="700">车身长度也是位移！</text>
+          </svg>
+        )}
       </div>
 
 
