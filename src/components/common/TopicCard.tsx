@@ -500,6 +500,24 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="90" textAnchor="middle" fontSize="7.5" fill="#b45309" fontWeight="700">车身长度也是位移！</text>
           </svg>
         )}
+
+        {topic.animationType === 'average-benchmark' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 基底 */}
+            <rect x="25" y="72" width="110" height="3" fill="#64748b" />
+            {/* 5 根高低水柱 */}
+            <rect x="32" y="48" width="14" height="24" rx="1" fill="#38bdf8" />
+            <rect x="54" y="32" width="14" height="40" rx="1" fill="#60a5fa" />
+            <rect x="76" y="58" width="14" height="14" rx="1" fill="#38bdf8" />
+            <rect x="98" y="28" width="14" height="44" rx="1" fill="#60a5fa" />
+            <rect x="120" y="42" width="14" height="30" rx="1" fill="#38bdf8" />
+            {/* 红色平均虚线 */}
+            <line x1="20" y1="44" x2="140" y2="44" stroke="#dc2626" strokeWidth="1.5" strokeDasharray="3 2" />
+            {/* 标语 */}
+            <text x="80" y="20" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">移多补少 · 削峰填谷</text>
+            <text x="80" y="88" textAnchor="middle" fontSize="7.5" fill="#dc2626" fontWeight="700">基准数秒算 · 平均非真数</text>
+          </svg>
+        )}
       </div>
 
 

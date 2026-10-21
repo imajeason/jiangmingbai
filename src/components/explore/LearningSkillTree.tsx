@@ -23,10 +23,11 @@ const NODE_POSITIONS: Record<string, { x: number; y: number; tier: number }> = {
   'line-up-ordering': { x: 800, y: 80, tier: 1 },
 
   // Tier 2: 二三四年级：模型建立与转化 (y ~ 220)
-  'transfer-and-balance': { x: 100, y: 220, tier: 2 },
-  'sum-difference-multiple': { x: 260, y: 220, tier: 2 },
-  'fractions-basics': { x: 420, y: 220, tier: 2 },
-  'multiplication-array': { x: 580, y: 220, tier: 2 },
+  'transfer-and-balance': { x: 90, y: 220, tier: 2 },
+  'average-benchmark': { x: 200, y: 220, tier: 2 },
+  'sum-difference-multiple': { x: 330, y: 220, tier: 2 },
+  'fractions-basics': { x: 470, y: 220, tier: 2 },
+  'multiplication-array': { x: 600, y: 220, tier: 2 },
   'perimeter-vs-area': { x: 740, y: 220, tier: 2 },
   'hidden-cubes-counting': { x: 880, y: 220, tier: 2 },
 
@@ -60,6 +61,8 @@ const EDGES: { from: string; to: string; label: string }[] = [
   { from: 'tree-planting-intervals', to: 'speed-meeting-chasing', label: '离散间隔到连续路程' },
   { from: 'speed-meeting-chasing', to: 'train-bridge-crossing', label: '质点位移到车长路程' },
   { from: 'train-bridge-crossing', to: 'river-boat-motion', label: '实体相遇到流水行船' },
+  { from: 'transfer-and-balance', to: 'average-benchmark', label: '两数平衡到多元均摊' },
+  { from: 'average-benchmark', to: 'surplus-and-deficiency', label: '基准数到盈亏差量' },
   { from: 'transfer-and-balance', to: 'sum-difference-multiple', label: '移多补少到和差' },
   { from: 'transfer-and-balance', to: 'algebraic-equations-basics', label: '天平平衡到等式性质' },
   { from: 'transfer-and-balance', to: 'chicken-rabbit-cage', label: '差量补偿思想' },
