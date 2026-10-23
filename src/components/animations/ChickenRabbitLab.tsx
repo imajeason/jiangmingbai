@@ -138,28 +138,32 @@ export default function ChickenRabbitLab() {
                 <div
                   key={`c-${i}`}
                   style={{
-                    width: '44px',
-                    height: '52px',
-                    background: '#fef08a',
-                    border: '2px solid #facc15',
+                    width: '46px',
+                    height: '56px',
+                    background: whistleStep === 2 ? '#fef9c3' : '#fef08a',
+                    border: whistleStep === 2 ? '2px dashed #f59e0b' : '2px solid #facc15',
                     borderRadius: '12px',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
                     position: 'relative',
-                    transition: 'all 0.4s ease',
-                    transform: whistleStep === 2 ? 'translateY(-6px) rotate(-6deg)' : whistleStep === 1 ? 'translateY(-3px)' : 'none',
+                    transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                    transform: whistleStep === 2 ? 'translateY(-10px) rotate(-8deg) scale(1.05)' : whistleStep === 1 ? 'translateY(-4px)' : 'none',
+                    boxShadow: whistleStep === 2 ? '0 8px 16px rgba(234,179,8,0.25)' : 'none',
                   }}
                 >
-                  <span style={{ fontSize: '1.2rem' }}>🐥</span>
+                  <span style={{ fontSize: '1.25rem' }}>🐥</span>
                   <div style={{
                     fontSize: '0.65rem',
                     fontWeight: 800,
-                    color: whistleStep === 2 ? '#dc2626' : '#854d0e',
+                    color: whistleStep === 2 ? '#b91c1c' : '#854d0e',
+                    background: whistleStep === 2 ? '#fee2e2' : 'transparent',
+                    padding: whistleStep === 2 ? '1px 4px' : '0',
+                    borderRadius: '4px',
                     marginTop: '2px',
                   }}>
-                    {whistleStep === 0 ? '2脚' : whistleStep === 1 ? '1脚' : '0脚!'}
+                    {whistleStep === 0 ? '2脚着地' : whistleStep === 1 ? '独脚 1' : '悬空 0!'}
                   </div>
                 </div>
               ))}
@@ -187,28 +191,32 @@ export default function ChickenRabbitLab() {
                 <div
                   key={`r-${i}`}
                   style={{
-                    width: '44px',
-                    height: '52px',
-                    background: '#ffffff',
-                    border: '2px solid #bfdbfe',
+                    width: '46px',
+                    height: '56px',
+                    background: whistleStep === 2 ? '#eff6ff' : '#ffffff',
+                    border: whistleStep === 2 ? '2px solid #3b82f6' : '2px solid #bfdbfe',
                     borderRadius: '12px',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
                     position: 'relative',
-                    transition: 'all 0.4s ease',
-                    boxShadow: whistleStep === 2 ? '0 0 10px rgba(59,130,246,0.3)' : 'none',
+                    transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                    boxShadow: whistleStep === 2 ? '0 0 12px rgba(59,130,246,0.35)' : 'none',
+                    transform: whistleStep === 2 ? 'scale(1.05)' : 'none',
                   }}
                 >
-                  <span style={{ fontSize: '1.2rem' }}>🐰</span>
+                  <span style={{ fontSize: '1.25rem' }}>🐰</span>
                   <div style={{
                     fontSize: '0.65rem',
                     fontWeight: 800,
-                    color: whistleStep === 2 ? '#2563eb' : '#64748b',
+                    color: whistleStep === 2 ? '#1d4ed8' : '#64748b',
+                    background: whistleStep === 2 ? '#dbeafe' : 'transparent',
+                    padding: whistleStep === 2 ? '1px 4px' : '0',
+                    borderRadius: '4px',
                     marginTop: '2px',
                   }}>
-                    {whistleStep === 0 ? '4脚' : whistleStep === 1 ? '3脚' : '剩2腿'}
+                    {whistleStep === 0 ? '4脚着地' : whistleStep === 1 ? '抬爪 3' : '立踩 2!'}
                   </div>
                 </div>
               ))}
@@ -290,18 +298,54 @@ export default function ChickenRabbitLab() {
           </div>
         </div>
 
+        {/* 自定义调节鸡兔数量 */}
+        <div className={styles.controlItem}>
+          <div className={styles.controlLabel}>
+            <span>🐥 小鸡只数：</span>
+            <span className={styles.controlValue}>{chickenCount} 只</span>
+          </div>
+          <input
+            type="range"
+            min="1"
+            max="12"
+            value={chickenCount}
+            onChange={(e) => {
+              setChickenCount(Number(e.target.value));
+              setWhistleStep(0);
+            }}
+            className={styles.slider}
+          />
+        </div>
+
+        <div className={styles.controlItem}>
+          <div className={styles.controlLabel}>
+            <span>🐰 小兔只数：</span>
+            <span className={styles.controlValue}>{rabbitCount} 只</span>
+          </div>
+          <input
+            type="range"
+            min="1"
+            max="12"
+            value={rabbitCount}
+            onChange={(e) => {
+              setRabbitCount(Number(e.target.value));
+              setWhistleStep(0);
+            }}
+            className={styles.slider}
+          />
+        </div>
+
         {/* 吹哨与复位操作 */}
         <div style={{ gridColumn: '1 / -1', display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center', paddingTop: '10px', borderTop: '1px solid #f1f5f9' }}>
           <button
-            onClick={handleWhistle}
-            disabled={whistleStep >= 2}
+            onClick={whistleStep >= 2 ? handleReset : handleWhistle}
             className="btn btn-primary"
             style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '8px 20px', fontSize: '0.9rem' }}
           >
             <Volume2 size={18} />
             {whistleStep === 0 && '吹第 1 声哨（每只抬 1 脚）'}
             {whistleStep === 1 && '吹第 2 声哨（鸡全悬空，秒破兔子！）'}
-            {whistleStep === 2 && '✨ 已完成 2 次吹哨！'}
+            {whistleStep === 2 && '🔄 动物双脚放平（再试一次）'}
           </button>
 
           <button

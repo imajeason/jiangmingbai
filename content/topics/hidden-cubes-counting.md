@@ -28,6 +28,27 @@ tags:
   - 升降机分层法
   - 俯视标数法
 animationType: hidden-cubes-counting
+prerequisites:
+  - slug: front-back-left-right
+    title: 认识前后左右与三维空间相对方位
+    reason: 掌握立体遮挡与视线前后方向的基本空间感知
+    strength: soft
+  - slug: ten-frame-addition-subtraction
+    title: 连加与多数字求和计算
+    reason: 掌握分层各层数量与俯视各列数字的平稳快速加法
+    strength: hard
+nextSteps:
+  - slug: cube-nets-folding
+    title: 正方体展开图与折叠空间立体感
+    reason: 从外部堆叠进阶到正方体本身的表面与内部几何空间对应
+  - slug: cylinder-cone-volume
+    title: 三维立体图形体积与空间结构
+    reason: 空间几何从离散积木点数进阶到连续立体体积的计算
+evidence:
+  - 能独立指认出图中哪几块是“完全被挡住的地基暗块”并说明理由（重力支撑原理：空中不能凭空悬浮）。
+  - 能熟练运用“升降机分层法”分别数出第1层、第2层和第3层，并列式计算。
+  - 能独立在俯视方格图中按列正确标出各柱高度并求和验证。
+assessmentPrompt: 试卷上看到一个阶梯积木，最高处叠到了 3 层，第 1 层只看得到露在外面的 2 块，那么整个造型至少有多少块积木？为什么？
 ---
 
 ### 为什么低年级孩子总会“无视”隐藏的积木？

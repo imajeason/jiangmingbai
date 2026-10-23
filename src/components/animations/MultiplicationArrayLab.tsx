@@ -144,32 +144,31 @@ export default function MultiplicationArrayLab() {
           justifyContent: 'center',
           alignItems: 'center',
           width: '100%',
-          minHeight: '260px',
-
+          minHeight: '380px',
           perspective: '1000px',
         }}>
           <div
             style={{
               display: 'inline-grid',
-              gridTemplateRows: `repeat(${displayRows}, 48px)`,
-              gridTemplateColumns: `repeat(${displayCols}, 48px)`,
+              gridTemplateRows: `repeat(${rows}, 48px)`,
+              gridTemplateColumns: `repeat(${cols}, 48px)`,
               gap: '12px',
               padding: '24px',
               background: '#ffffff',
               borderRadius: '20px',
               border: '2px solid #e2e8f0',
               boxShadow: '0 8px 24px rgba(0,0,0,0.06)',
-              transition: 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
+              transition: 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
               transform: isRotated ? 'rotate(90deg)' : 'none',
             }}
           >
-            {Array.from({ length: displayRows }).map((_, rIdx) =>
-              Array.from({ length: displayCols }).map((_, cIdx) => {
+            {Array.from({ length: rows }).map((_, rIdx) =>
+              Array.from({ length: cols }).map((_, cIdx) => {
                 const isRowActive = viewMode === 'row';
                 const isColActive = viewMode === 'col';
-                const ballIndex = rIdx * displayCols + cIdx + 1;
+                const ballIndex = rIdx * cols + cIdx + 1;
 
-                // 颜色变化
+                // 颜色变化：行模式按行着色，列模式按列着色
                 let bgColor = '#3b82f6';
                 if (isRowActive) {
                   const rowColors = ['#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899', '#06b6d4'];
@@ -194,7 +193,7 @@ export default function MultiplicationArrayLab() {
                       fontWeight: 800,
                       fontSize: '0.875rem',
                       boxShadow: '0 4px 10px rgba(0,0,0,0.12)',
-                      transition: 'all 0.3s ease',
+                      transition: 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
                       transform: isRotated ? 'rotate(-90deg)' : 'none', // 保持数字朝向正向
                     }}
                   >
@@ -223,11 +222,23 @@ export default function MultiplicationArrayLab() {
             <span>核心视觉顿悟：一颗球也没多，一颗球也没少！</span>
           </div>
           <div style={{ fontSize: '0.9rem', color: '#78350f', lineHeight: 1.6 }}>
-            当我们把 {displayRows} × {displayCols} 的点阵<strong>顺时针旋转 90 度</strong>时：
-            <div style={{ fontWeight: 800, fontSize: '1.1rem', color: '#b45309', margin: '4px 0' }}>
-              {displayRows} × {displayCols} 变成了 {displayCols} × {displayRows}
-            </div>
-            总数始终是 <strong>{total}</strong> 颗！这就是乘法交换律的几何铁证：<strong>a × b = b × a</strong>！
+            {isRotated ? (
+              <>
+                已顺时针<strong>旋转 90 度</strong>：原本平躺的 <strong>{rows} 排 × 每排 {cols} 颗</strong>，变成了竖立的 <strong>{cols} 排 × 每排 {rows} 颗</strong>！
+                <div style={{ fontWeight: 800, fontSize: '1.15rem', color: '#b45309', margin: '6px 0' }}>
+                  {rows} × {cols} 变换为 {cols} × {rows} = {total}
+                </div>
+                一颗球也没多，一颗球也没少！这就是乘法交换律的几何视觉本质：<strong>a × b = b × a</strong>！
+              </>
+            ) : (
+              <>
+                当前为原始视角：一共有 <strong>{rows} 排</strong>，每排 <strong>{cols} 颗</strong>（共 {total} 颗）。
+                <div style={{ fontWeight: 800, fontSize: '1.15rem', color: '#b45309', margin: '6px 0' }}>
+                  {rows} × {cols} = {total}
+                </div>
+                点击下方<strong>“旋转 90 度”</strong>按钮，观察小球矩阵如何变身！
+              </>
+            )}
           </div>
         </div>
       </div>
