@@ -9,7 +9,7 @@ subject: math
 difficulty: 1
 durationMinutes: 4
 summary: 通过自由拨动钟表表盘，直观感受时针与分针按 1:12 齿轮传动比平滑联动。独创“小时的房间与门槛红线”领地法则，专破 7:55 误读 8:55、半点居中（3:30）以及刚过整点（12:05）等一年级头号易错考点。
-coreFormula: 1\text{小时} = 60\text{分}，\text{分针走1圈 (360}^\circ\text{)} \to \text{时针恰好走1大格 (30}^\circ\text{)}
+coreFormula: "1\\text{小时} = 60\\text{分}，\\text{分针走1圈 (360}^\\circ\\text{)} \\to \\text{时针走1大格 (30}^\\circ\\text{)}"
 parentGuide:
   painPoint: 看到 7:55 时，时针肉眼看已经几乎贴到了数字 8，一年级孩子一眼看过去几乎 100% 顺口读成“8点55分”，家长着急训斥，孩子却委屈大哭“它明明指着8啊！”
   steps:
