@@ -164,10 +164,10 @@ export default function FrontBackLeftRightLab() {
               {/* 乐乐的真实左手 (蓝色手环) */}
               <g
                 style={{
-                  transition: 'all 0.4s ease',
-                  transformOrigin: facing === 'back' ? '68px 100px' : '132px 100px',
+                  transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                  transformOrigin: facing === 'back' ? '60px 102px' : '140px 102px',
                   transform: isLeftHandRaised
-                    ? (facing === 'back' ? 'rotate(-60deg)' : 'rotate(60deg)')
+                    ? (facing === 'back' ? 'rotate(155deg)' : 'rotate(-155deg)')
                     : 'none',
                 }}
               >
@@ -178,6 +178,13 @@ export default function FrontBackLeftRightLab() {
                     {/* 蓝色手环标记 */}
                     <rect x="50" y="128" width="20" height="8" rx="2" fill="#2563eb" />
                     <circle cx="60" cy="150" r="9" fill="#fed7aa" />
+                    {isLeftHandRaised && (
+                      <g stroke="#ea580c" strokeWidth="2" strokeLinecap="round" opacity="0.7">
+                        <line x1="56" y1="158" x2="56" y2="163" />
+                        <line x1="60" y1="159" x2="60" y2="165" />
+                        <line x1="64" y1="158" x2="64" y2="163" />
+                      </g>
+                    )}
                   </>
                 ) : (
                   // 正向：真实左臂在屏幕右侧
@@ -186,6 +193,13 @@ export default function FrontBackLeftRightLab() {
                     {/* 蓝色手环标记 */}
                     <rect x="130" y="128" width="20" height="8" rx="2" fill="#2563eb" />
                     <circle cx="140" cy="150" r="9" fill="#fed7aa" />
+                    {isLeftHandRaised && (
+                      <g stroke="#ea580c" strokeWidth="2" strokeLinecap="round" opacity="0.7">
+                        <line x1="136" y1="158" x2="136" y2="163" />
+                        <line x1="140" y1="159" x2="140" y2="165" />
+                        <line x1="144" y1="158" x2="144" y2="163" />
+                      </g>
+                    )}
                   </>
                 )}
               </g>
@@ -193,10 +207,10 @@ export default function FrontBackLeftRightLab() {
               {/* 乐乐的真实右手 (红色手环) */}
               <g
                 style={{
-                  transition: 'all 0.4s ease',
-                  transformOrigin: facing === 'back' ? '132px 100px' : '68px 100px',
+                  transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                  transformOrigin: facing === 'back' ? '140px 102px' : '60px 102px',
                   transform: isRightHandRaised
-                    ? (facing === 'back' ? 'rotate(60deg)' : 'rotate(-60deg)')
+                    ? (facing === 'back' ? 'rotate(-155deg)' : 'rotate(155deg)')
                     : 'none',
                 }}
               >
@@ -207,6 +221,13 @@ export default function FrontBackLeftRightLab() {
                     {/* 红色手环标记 */}
                     <rect x="130" y="128" width="20" height="8" rx="2" fill="#dc2626" />
                     <circle cx="140" cy="150" r="9" fill="#fed7aa" />
+                    {isRightHandRaised && (
+                      <g stroke="#ea580c" strokeWidth="2" strokeLinecap="round" opacity="0.7">
+                        <line x1="136" y1="158" x2="136" y2="163" />
+                        <line x1="140" y1="159" x2="140" y2="165" />
+                        <line x1="144" y1="158" x2="144" y2="163" />
+                      </g>
+                    )}
                   </>
                 ) : (
                   // 正向：真实右臂在屏幕左侧
@@ -215,6 +236,13 @@ export default function FrontBackLeftRightLab() {
                     {/* 红色手环标记 */}
                     <rect x="50" y="128" width="20" height="8" rx="2" fill="#dc2626" />
                     <circle cx="60" cy="150" r="9" fill="#fed7aa" />
+                    {isRightHandRaised && (
+                      <g stroke="#ea580c" strokeWidth="2" strokeLinecap="round" opacity="0.7">
+                        <line x1="56" y1="158" x2="56" y2="163" />
+                        <line x1="60" y1="159" x2="60" y2="165" />
+                        <line x1="64" y1="158" x2="64" y2="163" />
+                      </g>
+                    )}
                   </>
                 )}
               </g>
@@ -302,27 +330,35 @@ export default function FrontBackLeftRightLab() {
           </button>
 
           <button
-            onClick={() => setRaisedHand('left')}
+            onClick={() => setRaisedHand(raisedHand === 'left' ? 'none' : 'left')}
             className={`btn ${raisedHand === 'left' ? 'btn-primary' : 'btn-secondary'}`}
             style={{ fontSize: '0.85rem' }}
           >
-            举起左手 (蓝手环)
+            🙋 举起左手 (蓝手环)
           </button>
 
           <button
-            onClick={() => setRaisedHand('right')}
+            onClick={() => setRaisedHand(raisedHand === 'right' ? 'none' : 'right')}
             className={`btn ${raisedHand === 'right' ? 'btn-primary' : 'btn-secondary'}`}
             style={{ fontSize: '0.85rem' }}
           >
-            举起右手 (红手环)
+            🙋 举起右手 (红手环)
           </button>
 
           <button
-            onClick={() => setRaisedHand('both')}
+            onClick={() => setRaisedHand(raisedHand === 'both' ? 'none' : 'both')}
             className={`btn ${raisedHand === 'both' ? 'btn-primary' : 'btn-secondary'}`}
             style={{ fontSize: '0.85rem' }}
           >
-            两只手都举起
+            🙌 双手举起
+          </button>
+
+          <button
+            onClick={() => setRaisedHand('none')}
+            className={`btn ${raisedHand === 'none' ? 'btn-primary' : 'btn-secondary'}`}
+            style={{ fontSize: '0.85rem' }}
+          >
+            放下双手
           </button>
         </div>
       </div>
