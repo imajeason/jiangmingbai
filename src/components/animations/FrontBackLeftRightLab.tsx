@@ -27,15 +27,14 @@ export default function FrontBackLeftRightLab() {
   return (
     <div className={styles.labContainer}>
       {/* 顶部标题与说明 */}
-      <div className={styles.labHeader}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <Eye size={20} color="#2563eb" />
-          <h2 style={{ fontSize: '1.15rem', fontWeight: 700, margin: 0 }}>
-            前后左右实验室：面对面时，左右为什么会反过来？
-          </h2>
+      <div className={styles.labToolbar}>
+        <div className={styles.labTitle}>
+          <Eye size={18} color="#2563eb" />
+          <span>前后左右实验室：面对面时，左右为什么会反过来？</span>
+          <span className="badge badge-blue">相对空间认知</span>
         </div>
         <span style={{ fontSize: '0.85rem', color: '#64748b' }}>
-          观察乐乐转身时，手腕上的彩色手环与我们双手的对照
+          观察乐乐转身时手环的相对位置
         </span>
       </div>
 

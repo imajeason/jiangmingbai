@@ -40,15 +40,14 @@ export default function LineUpOrderingLab() {
   return (
     <div className={styles.labContainer}>
       {/* 顶部标题与模式切换 */}
-      <div className={styles.labHeader}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <Users size={20} color="#2563eb" />
-          <h2 style={{ fontSize: '1.15rem', fontWeight: 700, margin: 0 }}>
-            排队问题实验室：到底什么时候加 1、减 1？
-          </h2>
+      <div className={styles.labToolbar}>
+        <div className={styles.labTitle}>
+          <Users size={18} color="#2563eb" />
+          <span>排队问题实验室：到底什么时候加 1、减 1？</span>
+          <span className="badge badge-blue">基数与序数辨析</span>
         </div>
         <span style={{ fontSize: '0.85rem', color: '#64748b' }}>
-          看清“小明”身上的双重帽子，彻底分清基数与序数
+          看清“小明”身上的双重帽子
         </span>
       </div>
 
