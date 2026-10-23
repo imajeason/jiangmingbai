@@ -98,6 +98,15 @@ const QUIZ_BANK: QuizItem[] = [
   },
 ];
 
+// 连续角度计算：根据当前角度计算到达目标模360角度的最短顺畅角度，避免在 360° -> 0° 时产生逆时针倒转
+function getNextContinuousAngle(currentAngle: number, targetDegMod360: number): number {
+  const currentMod = ((currentAngle % 360) + 360) % 360;
+  let diff = targetDegMod360 - currentMod;
+  if (diff > 180) diff -= 360;
+  if (diff < -180) diff += 360;
+  return currentAngle + diff;
+}
+
 export default function ClockReadingLab() {
   // 当前总分钟数：0 ~ 719 (以 12 小时制循环)
   // 默认设置为 7:55 (475 分)
@@ -107,6 +116,10 @@ export default function ClockReadingLab() {
   const [hideDigital, setHideDigital] = useState<boolean>(false); // 遮挡电子时间测试模式
   const [activeTab, setActiveTab] = useState<'explore' | 'quiz'>('explore');
 
+  // 连续指针角度状态（确保任何时候顺时针前进都不会倒转）
+  const [hourHandAngle, setHourHandAngle] = useState<number>((475 / 60) * 30);
+  const [minuteHandAngle, setMinuteHandAngle] = useState<number>((475 % 60) * 6);
+
   // 答题模式状态
   const [quizIdx, setQuizIdx] = useState<number>(0);
   const [quizSelected, setQuizSelected] = useState<string | null>(null);
@@ -115,6 +128,8 @@ export default function ClockReadingLab() {
   // SVG 拖拽交互
   const svgRef = useRef<SVGSVGElement | null>(null);
   const [isDragging, setIsDragging] = useState<boolean>(false);
+  const lastAngleRef = useRef<number | null>(null);
+  const accumulatedAngleRef = useRef<number>(0);
 
   // 自动走针计时器
   useEffect(() => {
@@ -128,13 +143,19 @@ export default function ClockReadingLab() {
   }, [isAutoPlaying]);
 
   // 时间换算
-  const rawHours = Math.floor(totalMinutes / 60); // 0 ~ 11
+  const normalizedMinutes = ((totalMinutes % 720) + 720) % 720;
+  const rawHours = Math.floor(normalizedMinutes / 60); // 0 ~ 11
   const displayHours = rawHours === 0 ? 12 : rawHours;
-  const minutes = totalMinutes % 60;
+  const minutes = normalizedMinutes % 60;
 
-  // 角度计算 (以 12 点方向为 0 度)
-  const minuteAngle = minutes * 6; // 每分钟 6 度
-  const hourAngle = (rawHours % 12) * 30 + (minutes / 60) * 30; // 每小时 30 度 + 分针平滑偏移
+  // 保持时针与分针角度平滑连续（跨越 12 点时绝不逆时针倒退）
+  useEffect(() => {
+    const targetHourMod = (normalizedMinutes / 60) * 30;
+    const targetMinMod = (normalizedMinutes % 60) * 6;
+
+    setHourHandAngle((prev) => getNextContinuousAngle(prev, targetHourMod));
+    setMinuteHandAngle((prev) => getNextContinuousAngle(prev, targetMinMod));
+  }, [normalizedMinutes]);
 
   // 当前时针所在的“小时房间” (1 ~ 12)
   const currentRoom = rawHours === 0 ? 12 : rawHours;
@@ -143,14 +164,10 @@ export default function ClockReadingLab() {
   // 易错区间：分钟在 45~59 之间（接近下一个小时）
   const isTricky = minutes >= 45;
 
-  // 直接在表盘上拖拽/点击计算分钟角度
-  const handlePointerMove = (e: React.PointerEvent<SVGSVGElement>) => {
-    if (!isDragging && e.type !== 'pointerdown') return;
-    if (!svgRef.current) return;
-
+  // 辅助：获取鼠标/触控在表盘上的当前角度 (以正上方12点为 0 度)
+  const getPointerAngle = (e: React.PointerEvent<SVGSVGElement>): number | null => {
+    if (!svgRef.current) return null;
     const rect = svgRef.current.getBoundingClientRect();
-    // 表盘中心相对于 SVG 画布 (210, 200)
-    // 根据实际 SVG 渲染比例换算
     const scaleX = 680 / rect.width;
     const scaleY = 410 / rect.height;
     const clientX = (e.clientX - rect.left) * scaleX;
@@ -161,17 +178,60 @@ export default function ClockReadingLab() {
     const dx = clientX - centerX;
     const dy = clientY - centerY;
 
-    // 计算角度 (0度为正上方北)
+    // 只有在表盘内部（半径 185 以内）才响应拨钟，避免误触右侧看板
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist > 185) return null;
+
     let rad = Math.atan2(dx, -dy);
     if (rad < 0) rad += 2 * Math.PI;
-    const deg = (rad * 180) / Math.PI;
+    return (rad * 180) / Math.PI;
+  };
 
-    // 换算为分钟 (0 ~ 59)
-    const newMin = Math.round(deg / 6) % 60;
+  const handlePointerDown = (e: React.PointerEvent<SVGSVGElement>) => {
+    const deg = getPointerAngle(e);
+    if (deg === null) return;
+    setIsAutoPlaying(false);
+    setIsDragging(true);
+    lastAngleRef.current = deg;
+    accumulatedAngleRef.current = 0;
+    try {
+      (e.target as Element).setPointerCapture?.(e.pointerId);
+    } catch (_) {}
+  };
 
-    // 保持当前小时不变，只更新分针位置（或者跨过12点时平滑进位）
-    // 为了让低年级孩子玩得顺畅：直接设置当前小时内的分针
-    setTotalMinutes(rawHours * 60 + newMin);
+  const handlePointerMove = (e: React.PointerEvent<SVGSVGElement>) => {
+    if (!isDragging || lastAngleRef.current === null) return;
+    const currentDeg = getPointerAngle(e);
+    if (currentDeg === null) return;
+
+    let diff = currentDeg - lastAngleRef.current;
+    if (diff > 180) diff -= 360;
+    if (diff < -180) diff += 360;
+
+    accumulatedAngleRef.current += diff;
+    lastAngleRef.current = currentDeg;
+
+    // 每移动 6 度对应 1 分钟，连续驱动小时与分针，跨过12点时平滑进位
+    if (Math.abs(accumulatedAngleRef.current) >= 6) {
+      const deltaMinutes = Math.trunc(accumulatedAngleRef.current / 6);
+      accumulatedAngleRef.current -= deltaMinutes * 6;
+      setTotalMinutes((prev) => {
+        let next = (prev + deltaMinutes) % 720;
+        if (next < 0) next += 720;
+        return next;
+      });
+    }
+  };
+
+  const handlePointerUp = (e: React.PointerEvent<SVGSVGElement>) => {
+    if (isDragging) {
+      setIsDragging(false);
+      lastAngleRef.current = null;
+      accumulatedAngleRef.current = 0;
+      try {
+        (e.target as Element).releasePointerCapture?.(e.pointerId);
+      } catch (_) {}
+    }
   };
 
   // 闯关测试逻辑
@@ -236,15 +296,11 @@ export default function ClockReadingLab() {
           viewBox="0 0 680 410"
           width="100%"
           height="410"
-          style={{ maxWidth: '680px', userSelect: 'none', cursor: isDragging ? 'grabbing' : 'default' }}
-          onPointerDown={(e) => {
-            setIsAutoPlaying(false);
-            setIsDragging(true);
-            handlePointerMove(e);
-          }}
+          style={{ maxWidth: '680px', userSelect: 'none', cursor: isDragging ? 'grabbing' : 'default', touchAction: 'none' }}
+          onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
-          onPointerUp={() => setIsDragging(false)}
-          onPointerLeave={() => setIsDragging(false)}
+          onPointerUp={handlePointerUp}
+          onPointerLeave={handlePointerUp}
         >
           <defs>
             {/* 表盘金属拉丝外圈 */}
@@ -403,7 +459,7 @@ export default function ClockReadingLab() {
 
             {/* 7. 时针（红色短粗指针） */}
             <g
-              transform={`rotate(${hourAngle})`}
+              transform={`rotate(${hourHandAngle})`}
               style={{ transition: isDragging ? 'none' : 'transform 0.15s ease-out' }}
             >
               <line x1="0" y1="16" x2="0" y2="-82" stroke="#dc2626" strokeWidth="8" strokeLinecap="round" />
@@ -414,7 +470,7 @@ export default function ClockReadingLab() {
 
             {/* 8. 分针（蓝色长细指针，外带可拖拽圆形手柄） */}
             <g
-              transform={`rotate(${minuteAngle})`}
+              transform={`rotate(${minuteHandAngle})`}
               style={{ transition: isDragging ? 'none' : 'transform 0.15s ease-out' }}
             >
               <line x1="0" y1="20" x2="0" y2="-128" stroke="#2563eb" strokeWidth="5" strokeLinecap="round" />
