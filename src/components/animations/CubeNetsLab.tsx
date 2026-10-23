@@ -81,8 +81,32 @@ export default function CubeNetsLab() {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [rotX, setRotX] = useState<number>(20);
   const [rotY, setRotY] = useState<number>(-35);
+  const [isDragging, setIsDragging] = useState<boolean>(false);
+  const lastPointerPos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
   const curPattern = PATTERNS.find((p) => p.id === selectedId) || PATTERNS[0];
+
+  // 鼠标 / 触摸拖拽 3D 旋转
+  const handlePointerDown = (e: React.PointerEvent) => {
+    setIsDragging(true);
+    lastPointerPos.current = { x: e.clientX, y: e.clientY };
+    (e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isDragging) return;
+    const dx = e.clientX - lastPointerPos.current.x;
+    const dy = e.clientY - lastPointerPos.current.y;
+    lastPointerPos.current = { x: e.clientX, y: e.clientY };
+
+    setRotY((prev) => (prev + dx * 0.7) % 360);
+    setRotX((prev) => Math.max(-85, Math.min(85, prev - dy * 0.7)));
+  };
+
+  const handlePointerUp = (e: React.PointerEvent) => {
+    setIsDragging(false);
+    (e.currentTarget as HTMLElement).releasePointerCapture?.(e.pointerId);
+  };
 
   // 动画播放
   useEffect(() => {
@@ -232,18 +256,24 @@ export default function CubeNetsLab() {
           </span>
         </div>
 
-        {/* 3D 舞台容器 */}
+        {/* 3D 舞台容器 - 支持鼠标/触控拖拽 360° 旋转 */}
         <div
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
           style={{
-            width: '320px',
-            height: '280px',
+            width: '360px',
+            height: '300px',
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             transformStyle: 'preserve-3d',
             transform: `rotateX(${rotX}deg) rotateY(${rotY}deg)`,
-            transition: 'transform 0.1s ease',
+            cursor: isDragging ? 'grabbing' : 'grab',
+            userSelect: 'none',
+            touchAction: 'none',
+            transition: isDragging ? 'none' : 'transform 0.15s ease-out',
           }}
         >
           {/* 以“底面 (Bottom Face)”为锚点根节点 */}
@@ -316,30 +346,32 @@ export default function CubeNetsLab() {
                 </div>
               )}
             </div>
-            {/* 2. 向后翻折面 (Back) - 橙黄色 */}
-            <div
-              style={{
-                width: `${S}px`,
-                height: `${S}px`,
-                background: '#f97316',
-                border: '2px solid #ffffff',
-                borderRadius: '6px',
-                position: 'absolute',
-                top: `-${S}px`,
-                left: selectedId === '1-4-1-skew' ? `${S}px` : 0,
-                transformOrigin: 'bottom center',
-                transformStyle: 'preserve-3d',
-                transform: `rotateX(${foldAngle}deg)`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#ffffff',
-                fontWeight: 900,
-                fontSize: '14px',
-              }}
-            >
-              后
-            </div>
+            {/* 2. 向后翻折面 (Back) - 橙黄色 (凹字型此处为缺口，不渲染) */}
+            {selectedId !== 'trap-ao' && (
+              <div
+                style={{
+                  width: `${S}px`,
+                  height: `${S}px`,
+                  background: '#f97316',
+                  border: '2px solid #ffffff',
+                  borderRadius: '6px',
+                  position: 'absolute',
+                  top: `-${S}px`,
+                  left: selectedId === '1-4-1-skew' ? `${S}px` : 0,
+                  transformOrigin: 'bottom center',
+                  transformStyle: 'preserve-3d',
+                  transform: `rotateX(${foldAngle}deg)`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#ffffff',
+                  fontWeight: 900,
+                  fontSize: '14px',
+                }}
+              >
+                后
+              </div>
+            )}
             {/* 3. 向左翻折面 (Left) - 翡翠绿 */}
             <div
               style={{
@@ -386,6 +418,33 @@ export default function CubeNetsLab() {
                   }}
                 >
                   顶面
+                </div>
+              )}
+              {/* 如果是凹字型陷阱：左翼带凹左耳，折起后向后翻折 */}
+              {selectedId === 'trap-ao' && (
+                <div
+                  style={{
+                    width: `${S}px`,
+                    height: `${S}px`,
+                    background: '#ec4899',
+                    border: '2px solid #ffffff',
+                    borderRadius: '6px',
+                    position: 'absolute',
+                    top: `-${S}px`,
+                    left: 0,
+                    transformOrigin: 'bottom center',
+                    transformStyle: 'preserve-3d',
+                    transform: `rotateX(${foldAngle}deg)`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#ffffff',
+                    fontWeight: 900,
+                    fontSize: '11px',
+                    boxShadow: foldProgress > 60 ? '0 0 16px #ef4444' : 'none',
+                  }}
+                >
+                  {foldProgress > 60 ? '💥撞车重叠' : '凹左耳'}
                 </div>
               )}
             </div>
@@ -438,13 +497,40 @@ export default function CubeNetsLab() {
                   {foldProgress > 60 ? '💥撞车重叠' : '田字面'}
                 </div>
               )}
+              {/* 如果是凹字型陷阱：右翼带凹右耳，折起后也向后翻折抢占同一面！ */}
+              {selectedId === 'trap-ao' && (
+                <div
+                  style={{
+                    width: `${S}px`,
+                    height: `${S}px`,
+                    background: '#f43f5e',
+                    border: '2px solid #ffffff',
+                    borderRadius: '6px',
+                    position: 'absolute',
+                    top: `-${S}px`,
+                    left: 0,
+                    transformOrigin: 'bottom center',
+                    transformStyle: 'preserve-3d',
+                    transform: `rotateX(${foldAngle}deg)`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#ffffff',
+                    fontWeight: 900,
+                    fontSize: '11px',
+                    boxShadow: foldProgress > 60 ? '0 0 16px #ef4444' : 'none',
+                  }}
+                >
+                  {foldProgress > 60 ? '💥撞车重叠' : '凹右耳'}
+                </div>
+              )}
             </div>
           </div>
         </div>
 
         {/* 3D 视角拖拽/旋转提示 */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '16px', fontSize: '0.8rem', color: '#64748b' }}>
-          <span>按住滑动条或用下方按钮转动视角：</span>
+          <span>💡 鼠标/手指在 3D 区域按住拖拽可任意角度自由旋转，或选择预设视角：</span>
           <button
             onClick={() => { setRotX(20); setRotY(-35); }}
             style={{ padding: '2px 8px', borderRadius: '4px', border: '1px solid #cbd5e1', background: '#ffffff', cursor: 'pointer', fontSize: '0.75rem' }}

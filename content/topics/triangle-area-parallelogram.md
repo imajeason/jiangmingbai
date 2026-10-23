@@ -29,8 +29,9 @@ tags:
   - 多边形面积
 animationType: triangle-area-parallelogram
 prerequisites:
-  - title: 长方形与平行四边形面积公式
-    reason: 必须先理解平行四边形割补法转化成长方形（底乘高），才能理解两个三角形合体为什么等于底乘高
+  - slug: perimeter-vs-area
+    title: 周长与面积：长方形面积推演
+    reason: 必须先理解长方形与平行四边形割补法（底乘高），才能理解两个三角形合体为什么等于底乘高
     strength: hard
   - slug: multiplication-array
     title: 乘法点阵与行列乘法意义
