@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#2563eb" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Background Squircle -->
+  <rect x="24" y="24" width="464" height="464" rx="116" fill="url(#bgGrad)" filter="url(#glow)" />
+
+  <!-- Interactive Sparkle (Aha moment) -->
+  <path d="M 400 78 Q 400 110 432 110 Q 400 110 400 142 Q 400 110 368 110 Q 400 110 400 78 Z" fill="#fef08a" opacity="0.95" />
+  <circle cx="400" cy="110" r="4" fill="#ffffff" />
+
+  <!-- Character "讲" (Jiang) -->
+  <text 
+    x="256" 
+    y="350" 
+    font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif" 
+    font-size="285" 
+    font-weight="900" 
+    fill="#ffffff" 
+    text-anchor="middle"
+    letter-spacing="-2px"
+  >讲</text>
+</svg>
