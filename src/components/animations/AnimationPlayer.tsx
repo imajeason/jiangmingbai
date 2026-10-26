@@ -29,9 +29,10 @@ import RiverBoatMotionLab from './RiverBoatMotionLab';
 import TrainBridgeCrossingLab from './TrainBridgeCrossingLab';
 import AverageBenchmarkLab from './AverageBenchmarkLab';
 import InclusionExclusionLab from './InclusionExclusionLab';
+import AgeDifferenceLab from './AgeDifferenceLab';
 
 interface AnimationPlayerProps {
-  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | 'sum-difference-multiple' | 'surplus-and-deficiency' | 'work-rate-problem' | 'newton-cow-pasture' | 'algebraic-equations-basics' | 'river-boat-motion' | 'train-bridge-crossing' | 'average-benchmark' | 'inclusion-exclusion-venn' | string;
+  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | 'sum-difference-multiple' | 'surplus-and-deficiency' | 'work-rate-problem' | 'newton-cow-pasture' | 'algebraic-equations-basics' | 'river-boat-motion' | 'train-bridge-crossing' | 'average-benchmark' | 'inclusion-exclusion-venn' | 'age-difference' | 'age-difference-problem' | string;
 }
 
 export default function AnimationPlayer({ type }: AnimationPlayerProps) {
@@ -92,6 +93,9 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
       return <AverageBenchmarkLab />;
     case 'inclusion-exclusion-venn':
       return <InclusionExclusionLab />;
+    case 'age-difference':
+    case 'age-difference-problem':
+      return <AgeDifferenceLab />;
 
 
 
