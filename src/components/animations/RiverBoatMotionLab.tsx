@@ -144,10 +144,10 @@ export default function RiverBoatMotionLab() {
         <div>
           {/* 控制条 */}
           <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '12px', border: '1px solid #e2e8f0', marginBottom: '20px' }}>
-            {/* 航向状态选择 */}
+            {/* 航向状态选择与动画播放按钮 */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '16px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontWeight: 700, fontSize: '0.95rem', color: '#1e293b' }}>航向选择：</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                <span style={{ fontWeight: 700, fontSize: '0.92rem', color: '#1e293b' }}>航向选择：</span>
                 <button
                   className={direction === 'downstream' ? styles.primaryBtn : styles.secondaryBtn}
                   onClick={() => setDirection('downstream')}
@@ -171,13 +171,13 @@ export default function RiverBoatMotionLab() {
                 </button>
               </div>
 
-              {/* 播放暂停 */}
+              {/* 播放暂停紧邻动画 */}
               <button
-                className={styles.secondaryBtn}
+                className={isPlaying ? styles.secondaryBtn : styles.primaryBtn}
                 onClick={() => setIsPlaying(!isPlaying)}
-                style={{ padding: '6px 14px', fontSize: '0.85rem' }}
+                style={{ padding: '7px 16px', fontSize: '0.88rem', fontWeight: 700 }}
               >
-                {isPlaying ? '⏸ 暂停动画' : '▶ 继续航行'}
+                {isPlaying ? '⏸ 暂停动画' : '▶ 开始航行'}
               </button>
             </div>
 

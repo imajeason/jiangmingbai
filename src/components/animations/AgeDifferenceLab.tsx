@@ -482,6 +482,111 @@ export default function AgeDifferenceLab() {
               </div>
             )}
           </div>
+
+          {/* 紧挨着线段图的时光机控制面板（播放、滑块、跃迁、年龄微调，换行流式布局） */}
+          <div
+            style={{
+              marginTop: '16px',
+              padding: '14px 18px',
+              background: '#f8fafc',
+              border: '2px solid #e0e7ff',
+              borderRadius: '14px',
+              boxShadow: '0 2px 8px rgba(79, 70, 229, 0.06)',
+            }}
+          >
+            {/* 第一行：播放、重置、时空穿梭滑块 */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <button
+                  className={`${styles.controlBtn} ${isPlaying ? styles.controlBtnActive : ''}`}
+                  onClick={handleTogglePlay}
+                  style={{ padding: '7px 14px', fontWeight: 700 }}
+                >
+                  {isPlaying ? <Pause size={14} /> : <Play size={14} />}
+                  <span>{isPlaying ? '暂停' : '时光巡航'}</span>
+                </button>
+                <button className={styles.controlBtn} onClick={handleReset} style={{ padding: '7px 12px' }}>
+                  <RotateCcw size={14} />
+                  <span>回到今年</span>
+                </button>
+              </div>
+
+              {/* 年龄滑块 */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: '1 1 280px', justifyContent: 'flex-end' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#1e293b', whiteSpace: 'nowrap' }}>
+                  时光穿梭调速：
+                </span>
+                <input
+                  type="range"
+                  min="-10"
+                  max="25"
+                  step="1"
+                  value={yearOffset}
+                  onChange={(e) => {
+                    setIsPlaying(false);
+                    setYearOffset(Number(e.target.value));
+                  }}
+                  style={{ flex: 1, minWidth: '80px', accentColor: '#2563eb', cursor: 'pointer' }}
+                />
+                <span style={{ fontSize: '0.9rem', fontWeight: 800, color: '#2563eb', minWidth: '85px', textAlign: 'center' }}>
+                  {yearOffset === 0 ? '今年 (0年)' : yearOffset > 0 ? `+${yearOffset} 年后` : `${yearOffset} 年前`}
+                </span>
+              </div>
+            </div>
+
+            {/* 第二行：跃迁目标按钮与基准年龄微调（换行排布） */}
+            <div style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
+              <div>
+                {targetYearOffset !== null && (
+                  <button
+                    onClick={() => setYearOffset(targetYearOffset)}
+                    style={{
+                      padding: '6px 12px',
+                      borderRadius: '8px',
+                      background: '#f59e0b',
+                      color: '#ffffff',
+                      border: 'none',
+                      cursor: 'pointer',
+                      fontWeight: 700,
+                      fontSize: '0.8rem',
+                      boxShadow: '0 2px 6px rgba(245, 158, 11, 0.25)',
+                    }}
+                  >
+                    🚀 直接跃迁到 {targetK} 倍时刻 ({targetYearOffset > 0 ? `+${targetYearOffset}年后` : `${targetYearOffset}年前`})
+                  </button>
+                )}
+              </div>
+
+              {/* 快捷基准年龄微调 */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                  <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>{roleA}今年:</span>
+                  <input
+                    type="number"
+                    min="10"
+                    max="60"
+                    value={baseAgeA}
+                    onChange={(e) => setBaseAgeA(Math.max(baseAgeB + 1, Number(e.target.value)))}
+                    style={{ width: '52px', padding: '3px 6px', borderRadius: '4px', border: '1px solid #cbd5e1', fontSize: '0.85rem', fontWeight: 700 }}
+                  />
+                  <span style={{ fontSize: '0.78rem', color: '#94a3b8' }}>岁</span>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                  <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>{roleB}今年:</span>
+                  <input
+                    type="number"
+                    min="1"
+                    max="50"
+                    value={baseAgeB}
+                    onChange={(e) => setBaseAgeB(Math.min(baseAgeA - 1, Math.max(1, Number(e.target.value))))}
+                    style={{ width: '52px', padding: '3px 6px', borderRadius: '4px', border: '1px solid #cbd5e1', fontSize: '0.85rem', fontWeight: 700 }}
+                  />
+                  <span style={{ fontSize: '0.78rem', color: '#94a3b8' }}>岁</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* 底部解题推演公式卡 (可折叠切换推导) */}
@@ -513,73 +618,6 @@ export default function AgeDifferenceLab() {
             <div>
               4. <strong>第四步：与今年对比求经过年数</strong> ➔ 年份差 = {targetAgeB !== null ? targetAgeB : '?'} - {baseAgeB} = <strong>{targetYearOffset !== null ? targetYearOffset : '?'} 年</strong>！
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 底部时空穿梭滑块控制台 */}
-      <div className={styles.sliderPanel}>
-        <div className={styles.sliderGroup} style={{ flex: '2 1 320px' }}>
-          <span className={styles.sliderLabel}>时光穿梭调速轮：</span>
-          <input
-            type="range"
-            min="-10"
-            max="25"
-            step="1"
-            value={yearOffset}
-            onChange={(e) => {
-              setIsPlaying(false);
-              setYearOffset(Number(e.target.value));
-            }}
-            className={styles.sliderInput}
-          />
-          <span style={{ fontSize: '0.9rem', fontWeight: 800, color: '#2563eb', minWidth: '95px' }}>
-            {yearOffset === 0 ? '今年 (0年)' : yearOffset > 0 ? `+${yearOffset} 年后` : `${yearOffset} 年前`}
-          </span>
-
-          {targetYearOffset !== null && (
-            <button
-              onClick={() => setYearOffset(targetYearOffset)}
-              style={{
-                padding: '6px 12px',
-                borderRadius: '6px',
-                background: '#f59e0b',
-                color: '#ffffff',
-                border: 'none',
-                cursor: 'pointer',
-                fontWeight: 700,
-                fontSize: '0.8rem',
-              }}
-            >
-              直接跃迁到 {targetK} 倍时刻
-            </button>
-          )}
-        </div>
-
-        {/* 快捷基准年龄微调 */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>{roleA}今年:</span>
-            <input
-              type="number"
-              min="10"
-              max="60"
-              value={baseAgeA}
-              onChange={(e) => setBaseAgeA(Math.max(baseAgeB + 1, Number(e.target.value)))}
-              style={{ width: '56px', padding: '3px 6px', borderRadius: '4px', border: '1px solid #cbd5e1', fontSize: '0.85rem', fontWeight: 700 }}
-            />
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>{roleB}今年:</span>
-            <input
-              type="number"
-              min="1"
-              max="50"
-              value={baseAgeB}
-              onChange={(e) => setBaseAgeB(Math.min(baseAgeA - 1, Math.max(1, Number(e.target.value))))}
-              style={{ width: '56px', padding: '3px 6px', borderRadius: '4px', border: '1px solid #cbd5e1', fontSize: '0.85rem', fontWeight: 700 }}
-            />
           </div>
         </div>
       </div>

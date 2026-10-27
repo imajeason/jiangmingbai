@@ -13,7 +13,6 @@ import {
   Search, 
   Plus, 
   Minus,
-  ArrowRight,
   PackageCheck
 } from 'lucide-react';
 import styles from '@/styles/animations.module.css';
@@ -32,7 +31,7 @@ interface PresetPattern {
   subtitle: string;
   items: PatternItem[];
   defaultN: number;
-  highlightIndex: number; // 默认统计或重点关注的元素序号
+  highlightIndex: number;
   description: string;
   question: string;
 }
@@ -49,7 +48,7 @@ const PRESETS: PresetPattern[] = [
       { id: 'f-green', name: '绿旗', icon: '🍀', color: '#10b981', bgColor: '#d1fae5' },
     ],
     defaultN: 23,
-    highlightIndex: 0, // 红旗
+    highlightIndex: 0,
     description: '每 4 面旗帜为一组周期。求第 23 面是什么旗？前 23 面里有几面红旗？',
     question: '操场边按“红、黄、蓝、绿”的顺序插了一排彩旗。第 23 面旗是什么颜色？前 23 面里一共有几面红旗？',
   },
@@ -65,7 +64,7 @@ const PRESETS: PresetPattern[] = [
       { id: 'b-b3', name: '黑珠', icon: '⚫', color: '#0f172a', bgColor: '#e2e8f0' },
     ],
     defaultN: 28,
-    highlightIndex: 2, // 黑珠
+    highlightIndex: 2,
     description: '一个周期包含 2 颗白珠和 3 颗黑珠。求第 28 颗是什么颜色？前 28 颗里共有几颗黑珠？',
     question: '小红串手链，按照“2 白 3 黑”的规律穿珠子。第 28 颗珠子是什么颜色？前 28 颗里一共有几颗黑珠？',
   },
@@ -83,7 +82,7 @@ const PRESETS: PresetPattern[] = [
       { id: 'w-7', name: '周日', icon: '7️⃣', color: '#ec4899', bgColor: '#fdf2f8' },
     ],
     defaultN: 35,
-    highlightIndex: 6, // 周日
+    highlightIndex: 6,
     description: '日历星期是典型的“余数看周末”问题。余 0 代表整除，正好是周期的最后一天（周日）！',
     question: '如果某个月的 1 号是周一，请问该月的第 35 天（或连续第 35 天）是星期几？',
   },
@@ -106,7 +105,7 @@ const PRESETS: PresetPattern[] = [
       { id: 'z-12', name: '猪', icon: '🐷', color: '#db2777', bgColor: '#fce7f3' },
     ],
     defaultN: 28,
-    highlightIndex: 3, // 兔
+    highlightIndex: 3,
     description: '生肖循环周期为 12。推算几十年后的生肖，除以 12 看余数即可瞬间识破。',
     question: '从鼠年开始算起，第 28 个年头是什么生肖？第 24 个年头又是什么生肖？',
   },
@@ -122,7 +121,6 @@ export default function PeriodicPatternsLab() {
 
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // 当切换预设时重置状态
   const handleSelectPreset = (preset: PresetPattern) => {
     setSelectedPreset(preset);
     setTargetN(preset.defaultN);
@@ -130,7 +128,6 @@ export default function PeriodicPatternsLab() {
     setIsPlaying(false);
   };
 
-  // 播放/步进
   useEffect(() => {
     if (isPlaying) {
       timerRef.current = setInterval(() => {
@@ -151,21 +148,17 @@ export default function PeriodicPatternsLab() {
   }, [isPlaying]);
 
   const cycleLength = selectedPreset.items.length;
-  // 除法核心变量：N ÷ T = quotient ... remainder
   const quotient = Math.floor(targetN / cycleLength);
   const remainder = targetN % cycleLength;
 
-  // 定位目标元素：余数为 0 时，对应周期里的最后一个（索引 cycleLength - 1）；余数 > 0 时，对应索引 remainder - 1
   const targetElementIndex = remainder === 0 ? cycleLength - 1 : remainder - 1;
   const targetElement = selectedPreset.items[targetElementIndex];
 
-  // 统计在全周期内，选定物品在每个周期中出现的次数
   const targetCountItem = selectedPreset.items[targetCountItemIndex];
   const countInSingleCycle = selectedPreset.items.filter(
     (item) => item.id === targetCountItem.id || item.name === targetCountItem.name
   ).length;
 
-  // 余数部分中包含该物品的次数
   let countInRemainder = 0;
   if (remainder > 0) {
     for (let i = 0; i < remainder; i++) {
@@ -175,11 +168,8 @@ export default function PeriodicPatternsLab() {
     }
   }
 
-  // 前 N 项中该物品的总数
   const totalTargetCount = quotient * countInSingleCycle + countInRemainder;
 
-  // 生成打包成箱的数据
-  // 箱子数：如果 remainder > 0 则有 quotient + 1 个箱子（最后一个是未装满的零头箱）
   const totalBoxes = remainder > 0 ? quotient + 1 : quotient;
   const boxes = [];
   for (let b = 0; b < totalBoxes; b++) {
@@ -208,41 +198,23 @@ export default function PeriodicPatternsLab() {
 
   return (
     <div className={styles.labContainer} style={{ maxWidth: '960px', margin: '0 auto' }}>
-      {/* 顶部工具栏 */}
+      {/* 顶部标题栏 */}
       <div className={styles.labToolbar} style={{ flexWrap: 'wrap', gap: '10px' }}>
         <div className={styles.labTitle}>
           <Layers className="w-5 h-5 text-indigo-600" />
           <span>周期与余数实验机：传送带分箱与循环密码</span>
         </div>
-        <div className={styles.labControls}>
-          <button
-            className={`${styles.controlBtn} ${isPlaying ? styles.controlBtnActive : ''}`}
-            onClick={() => setIsPlaying(!isPlaying)}
-            title={isPlaying ? '暂停动态递增' : '自动递增演示'}
-          >
-            {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-            <span>{isPlaying ? '暂停' : '自动递增'}</span>
-          </button>
-          <button
-            className={styles.controlBtn}
-            onClick={() => {
-              setIsPlaying(false);
-              setTargetN(selectedPreset.defaultN);
-            }}
-            title="重置为默认值"
-          >
-            <RotateCcw className="w-4 h-4" />
-            <span>重置</span>
-          </button>
+        <div style={{ fontSize: '0.8rem', color: '#64748b' }}>
+          三年级数学 · 数论模运算启蒙
         </div>
       </div>
 
-      {/* 预设题型选择栏 */}
+      {/* 预设题型选择栏（换行流式布局） */}
       <div style={{ padding: '12px 18px', background: '#f8fafc', borderBottom: '1px solid #e2e8f0' }}>
         <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#64748b', marginBottom: '8px' }}>
-          选择经典常考题型：
+          选择常考题型预设：
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '8px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
           {PRESETS.map((preset) => {
             const isSelected = preset.id === selectedPreset.id;
             return (
@@ -250,6 +222,7 @@ export default function PeriodicPatternsLab() {
                 key={preset.id}
                 onClick={() => handleSelectPreset(preset)}
                 style={{
+                  flex: '1 1 200px',
                   padding: '9px 12px',
                   borderRadius: '10px',
                   border: isSelected ? '2px solid #4f46e5' : '1px solid #cbd5e1',
@@ -294,148 +267,403 @@ export default function PeriodicPatternsLab() {
         </div>
       </div>
 
-      {/* 核心主交互操作控制区 */}
-      <div style={{ padding: '16px 20px', background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
-          {/* 模式选择 */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>探究模式：</span>
-            <button
-              onClick={() => setInspectMode('position')}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '5px',
-                padding: '6px 14px',
-                borderRadius: '8px',
-                fontSize: '0.825rem',
-                fontWeight: 600,
-                border: '1px solid',
-                cursor: 'pointer',
-                borderColor: inspectMode === 'position' ? '#4f46e5' : '#cbd5e1',
-                background: inspectMode === 'position' ? '#4f46e5' : '#ffffff',
-                color: inspectMode === 'position' ? '#ffffff' : '#475569',
-              }}
-            >
-              <Search className="w-3.5 h-3.5" />
-              <span>模式 A：问“第 N 项是什么”</span>
-            </button>
-            <button
-              onClick={() => setInspectMode('count')}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '5px',
-                padding: '6px 14px',
-                borderRadius: '8px',
-                fontSize: '0.825rem',
-                fontWeight: 600,
-                border: '1px solid',
-                cursor: 'pointer',
-                borderColor: inspectMode === 'count' ? '#0891b2' : '#cbd5e1',
-                background: inspectMode === 'count' ? '#0891b2' : '#ffffff',
-                color: inspectMode === 'count' ? '#ffffff' : '#475569',
-              }}
-            >
-              <PackageCheck className="w-3.5 h-3.5" />
-              <span>模式 B：问“前 N 项里有几个某物”</span>
-            </button>
+      {/* ======================================================== */}
+      {/* 核心动效区：传送带分箱实景图（放在上方核心视觉舞台） */}
+      {/* ======================================================== */}
+      <div style={{ padding: '18px 20px', background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', flexWrap: 'wrap', gap: '8px' }}>
+          <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#1e293b', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <PackageCheck className="w-4 h-4 text-indigo-600" />
+            <span>【传送带装箱动效】按每箱 {cycleLength} 个分装打包</span>
           </div>
-
-          {/* 快捷跳转常考特殊测试点 */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
-            <span style={{ fontSize: '0.78rem', color: '#64748b' }}>速试典型考点：</span>
-            {[
-              cycleLength * 2, // 整除零余数典型坑
-              cycleLength * 3, // 较大整除
-              cycleLength * 2 + 1, // 余1
-              cycleLength * 2 + (cycleLength > 2 ? 2 : 1), // 余2
-            ].map((testVal) => (
-              <button
-                key={testVal}
-                onClick={() => setTargetN(testVal)}
-                style={{
-                  padding: '3px 8px',
-                  borderRadius: '6px',
-                  fontSize: '0.75rem',
-                  fontWeight: 600,
-                  background: targetN === testVal ? '#312e81' : '#f1f5f9',
-                  color: targetN === testVal ? '#ffffff' : '#475569',
-                  border: '1px solid #cbd5e1',
-                  cursor: 'pointer',
-                }}
-              >
-                第 {testVal} 项{testVal % cycleLength === 0 ? ' (整除)' : ''}
-              </button>
-            ))}
+          <div style={{ fontSize: '0.78rem', color: '#64748b' }}>
+            共分成 <strong style={{ color: '#4f46e5' }}>{totalBoxes}</strong> 箱
+            {remainder > 0 ? ` (前 ${quotient} 箱已满，最后 1 箱未满)` : ' (全部满箱整除)'}
           </div>
         </div>
 
-        {/* 滑动条与增减器 */}
-        <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: '160px' }}>
-            <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#1e293b' }}>
-              探查总项数 (N)：
-            </span>
-            <span
-              style={{
-                fontSize: '1.25rem',
-                fontWeight: 800,
-                color: '#4f46e5',
-                padding: '2px 10px',
-                background: '#eef2ff',
-                borderRadius: '8px',
-                border: '1px solid #c7d2fe',
-                minWidth: '46px',
-                textAlign: 'center',
-              }}
-            >
-              {targetN}
-            </span>
+        {/* 箱子排列容器 */}
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '12px',
+            alignItems: 'flex-start',
+            padding: '10px 4px',
+            maxHeight: '380px',
+            overflowY: 'auto',
+          }}
+        >
+          {boxes.map((box) => {
+            const isRemainderBox = !box.isFull;
+            const hasTargetInBox = box.items.some((item) => item.isTarget);
+
+            return (
+              <div
+                key={box.boxIndex}
+                style={{
+                  background: isRemainderBox ? '#fff7ed' : '#f8fafc',
+                  border: isRemainderBox
+                    ? '2px dashed #fb923c'
+                    : hasTargetInBox
+                    ? '2px solid #6366f1'
+                    : '1px solid #e2e8f0',
+                  borderRadius: '14px',
+                  padding: '10px 12px',
+                  boxShadow: hasTargetInBox ? '0 4px 12px rgba(99, 102, 241, 0.12)' : '0 1px 3px rgba(0,0,0,0.02)',
+                  minWidth: `${cycleLength * 52 + 24}px`,
+                  transition: 'all 0.2s ease',
+                  position: 'relative',
+                }}
+              >
+                {/* 箱子标题栏 */}
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '8px',
+                    paddingBottom: '6px',
+                    borderBottom: '1px solid',
+                    borderColor: isRemainderBox ? '#fed7aa' : '#e2e8f0',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                    <span
+                      style={{
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        padding: '2px 6px',
+                        borderRadius: '4px',
+                        background: isRemainderBox ? '#ea580c' : '#4f46e5',
+                        color: '#ffffff',
+                      }}
+                    >
+                      第 {box.boxIndex} 组
+                    </span>
+                    {isRemainderBox ? (
+                      <span style={{ fontSize: '0.72rem', color: '#c2410c', fontWeight: 600 }}>
+                        (余数箱：未满 {remainder} 个)
+                      </span>
+                    ) : (
+                      <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
+                        (满箱 {cycleLength} 个)
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* 箱内元素 */}
+                <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                  {box.items.map((cell) => (
+                    <div
+                      key={cell.globalIndex}
+                      style={{
+                        width: '44px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        position: 'relative',
+                      }}
+                    >
+                      {/* 目标指向小标牌 */}
+                      {cell.isTarget && (
+                        <div
+                          style={{
+                            position: 'absolute',
+                            top: '-24px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            animation: 'bounce 1s infinite',
+                          }}
+                        >
+                          <span style={{ fontSize: '0.8rem' }}>👑</span>
+                          <span style={{ fontSize: '0.65rem', fontWeight: 800, color: '#4f46e5' }}>目标</span>
+                        </div>
+                      )}
+
+                      {/* 元素方块 */}
+                      <div
+                        style={{
+                          width: '42px',
+                          height: '42px',
+                          borderRadius: '10px',
+                          background: cell.item.bgColor,
+                          border: cell.isTarget
+                            ? '3px solid #4f46e5'
+                            : cell.isMatchCounting && inspectMode === 'count'
+                            ? '2px solid #0891b2'
+                            : `1px solid ${cell.item.color}40`,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: cell.item.icon.length > 2 ? '0.75rem' : '1.3rem',
+                          fontWeight: 700,
+                          color: cell.item.color,
+                          boxShadow: cell.isTarget
+                            ? '0 0 0 3px rgba(79, 70, 229, 0.3)'
+                            : cell.isMatchCounting && inspectMode === 'count'
+                            ? '0 0 0 2px rgba(8, 145, 178, 0.2)'
+                            : 'none',
+                          transform: cell.isTarget ? 'scale(1.08)' : 'scale(1)',
+                          transition: 'all 0.15s ease',
+                        }}
+                      >
+                        {cell.item.icon}
+                      </div>
+
+                      {/* 全局绝对序号 */}
+                      <div
+                        style={{
+                          fontSize: '0.7rem',
+                          fontWeight: cell.isTarget ? 800 : 500,
+                          color: cell.isTarget ? '#4f46e5' : '#64748b',
+                          marginTop: '4px',
+                        }}
+                      >
+                        #{cell.globalIndex}
+                      </div>
+
+                      {/* 周期内局部序号 */}
+                      <div
+                        style={{
+                          fontSize: '0.62rem',
+                          color: '#94a3b8',
+                          marginTop: '1px',
+                        }}
+                      >
+                        第{cell.localIndex}个
+                      </div>
+
+                      {/* 模式 B 计数标记 */}
+                      {inspectMode === 'count' && cell.isMatchCounting && (
+                        <div
+                          style={{
+                            position: 'absolute',
+                            top: '-6px',
+                            right: '-2px',
+                            background: '#0891b2',
+                            color: '#ffffff',
+                            borderRadius: '50%',
+                            width: '14px',
+                            height: '14px',
+                            fontSize: '0.6rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontWeight: 700,
+                          }}
+                        >
+                          ✓
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* ======================================================== */}
+        {/* 紧挨动画的控制栏：播放、重置、滑块、模式（换行流式） */}
+        {/* ======================================================== */}
+        <div
+          style={{
+            marginTop: '16px',
+            padding: '14px 18px',
+            background: '#f8fafc',
+            borderRadius: '14px',
+            border: '2px solid #e0e7ff',
+            boxShadow: '0 2px 8px rgba(79, 70, 229, 0.06)',
+          }}
+        >
+          {/* 第 1 行：播放、重置、滑动条调节总项数 N */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px' }}>
+              <button
+                onClick={() => setIsPlaying(!isPlaying)}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '8px 16px',
+                  borderRadius: '10px',
+                  fontSize: '0.88rem',
+                  fontWeight: 700,
+                  border: 'none',
+                  cursor: 'pointer',
+                  background: isPlaying ? '#dc2626' : '#4f46e5',
+                  color: '#ffffff',
+                  boxShadow: isPlaying ? '0 2px 6px rgba(220, 38, 38, 0.3)' : '0 2px 6px rgba(79, 70, 229, 0.3)',
+                }}
+              >
+                {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+                <span>{isPlaying ? '暂停递增' : '自动递增演示'}</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  setIsPlaying(false);
+                  setTargetN(selectedPreset.defaultN);
+                }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '8px 12px',
+                  borderRadius: '10px',
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  border: '1px solid #cbd5e1',
+                  background: '#ffffff',
+                  color: '#475569',
+                  cursor: 'pointer',
+                }}
+              >
+                <RotateCcw className="w-4 h-4" />
+                <span>重置</span>
+              </button>
+            </div>
+
+            {/* 项数滑块与微调按钮 */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: '1 1 280px', justifyContent: 'flex-end' }}>
+              <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#1e293b', whiteSpace: 'nowrap' }}>
+                目标第 N 项：
+              </span>
+              <button
+                onClick={() => setTargetN(Math.max(1, targetN - 1))}
+                disabled={targetN <= 1}
+                style={{
+                  padding: '5px 8px',
+                  borderRadius: '6px',
+                  background: '#ffffff',
+                  border: '1px solid #cbd5e1',
+                  cursor: targetN <= 1 ? 'not-allowed' : 'pointer',
+                }}
+              >
+                <Minus className="w-3.5 h-3.5 text-slate-700" />
+              </button>
+              <input
+                type="range"
+                min="1"
+                max="45"
+                value={targetN}
+                onChange={(e) => setTargetN(parseInt(e.target.value) || 1)}
+                style={{ flex: 1, minWidth: '80px', accentColor: '#4f46e5', cursor: 'pointer' }}
+              />
+              <button
+                onClick={() => setTargetN(Math.min(45, targetN + 1))}
+                disabled={targetN >= 45}
+                style={{
+                  padding: '5px 8px',
+                  borderRadius: '6px',
+                  background: '#ffffff',
+                  border: '1px solid #cbd5e1',
+                  cursor: targetN >= 45 ? 'not-allowed' : 'pointer',
+                }}
+              >
+                <Plus className="w-3.5 h-3.5 text-slate-700" />
+              </button>
+              <span
+                style={{
+                  fontSize: '1.15rem',
+                  fontWeight: 800,
+                  color: '#4f46e5',
+                  padding: '2px 8px',
+                  background: '#ffffff',
+                  borderRadius: '8px',
+                  border: '1px solid #c7d2fe',
+                  minWidth: '40px',
+                  textAlign: 'center',
+                }}
+              >
+                {targetN}
+              </span>
+            </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, minWidth: '220px' }}>
-            <button
-              onClick={() => setTargetN(Math.max(1, targetN - 1))}
-              disabled={targetN <= 1}
-              style={{
-                padding: '6px 10px',
-                borderRadius: '6px',
-                background: '#f8fafc',
-                border: '1px solid #cbd5e1',
-                cursor: targetN <= 1 ? 'not-allowed' : 'pointer',
-              }}
-            >
-              <Minus className="w-4 h-4 text-slate-700" />
-            </button>
-            <input
-              type="range"
-              min="1"
-              max="45"
-              value={targetN}
-              onChange={(e) => setTargetN(parseInt(e.target.value) || 1)}
-              style={{ flex: 1, accentColor: '#4f46e5', cursor: 'pointer' }}
-            />
-            <button
-              onClick={() => setTargetN(Math.min(45, targetN + 1))}
-              disabled={targetN >= 45}
-              style={{
-                padding: '6px 10px',
-                borderRadius: '6px',
-                background: '#f8fafc',
-                border: '1px solid #cbd5e1',
-                cursor: targetN >= 45 ? 'not-allowed' : 'pointer',
-              }}
-            >
-              <Plus className="w-4 h-4 text-slate-700" />
-            </button>
+          {/* 第 2 行：模式切换与速试考点（换行排布） */}
+          <div style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '8px' }}>
+              <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#475569' }}>探究模式：</span>
+              <button
+                onClick={() => setInspectMode('position')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  padding: '5px 10px',
+                  borderRadius: '6px',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  border: '1px solid',
+                  cursor: 'pointer',
+                  borderColor: inspectMode === 'position' ? '#4f46e5' : '#cbd5e1',
+                  background: inspectMode === 'position' ? '#4f46e5' : '#ffffff',
+                  color: inspectMode === 'position' ? '#ffffff' : '#475569',
+                }}
+              >
+                <Search className="w-3 h-3" />
+                <span>模式 A：问“第 N 项是什么”</span>
+              </button>
+              <button
+                onClick={() => setInspectMode('count')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  padding: '5px 10px',
+                  borderRadius: '6px',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  border: '1px solid',
+                  cursor: 'pointer',
+                  borderColor: inspectMode === 'count' ? '#0891b2' : '#cbd5e1',
+                  background: inspectMode === 'count' ? '#0891b2' : '#ffffff',
+                  color: inspectMode === 'count' ? '#ffffff' : '#475569',
+                }}
+              >
+                <PackageCheck className="w-3 h-3" />
+                <span>模式 B：问“前 N 项里有几个某物”</span>
+              </button>
+            </div>
+
+            {/* 典型考点快跳 */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '6px' }}>
+              <span style={{ fontSize: '0.76rem', color: '#64748b' }}>速试考点：</span>
+              {[
+                cycleLength * 2,
+                cycleLength * 3,
+                cycleLength * 2 + 1,
+                cycleLength * 2 + (cycleLength > 2 ? 2 : 1),
+              ].map((testVal) => (
+                <button
+                  key={testVal}
+                  onClick={() => setTargetN(testVal)}
+                  style={{
+                    padding: '3px 7px',
+                    borderRadius: '5px',
+                    fontSize: '0.74rem',
+                    fontWeight: 600,
+                    background: targetN === testVal ? '#312e81' : '#ffffff',
+                    color: targetN === testVal ? '#ffffff' : '#475569',
+                    border: '1px solid #cbd5e1',
+                    cursor: 'pointer',
+                  }}
+                >
+                  第 {testVal} 项{testVal % cycleLength === 0 ? ' (整除)' : ''}
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* 模式 B 时，选择要统计哪一个物体 */}
+          {/* 如果是模式 B，统计物品选项 */}
           {inspectMode === 'count' && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 12px', background: '#ecfeff', borderRadius: '8px', border: '1px solid #a5f3fc' }}>
-              <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#0e7490' }}>统计目标：</span>
-              <div style={{ display: 'flex', gap: '4px' }}>
+            <div style={{ marginTop: '10px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '8px', padding: '6px 10px', background: '#ecfeff', borderRadius: '8px', border: '1px solid #a5f3fc' }}>
+              <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#0e7490' }}>统计目标：</span>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
                 {selectedPreset.items.map((item, idx) => {
                   const isCur = idx === targetCountItemIndex;
                   return (
@@ -445,7 +673,7 @@ export default function PeriodicPatternsLab() {
                       style={{
                         padding: '3px 8px',
                         borderRadius: '6px',
-                        fontSize: '0.8rem',
+                        fontSize: '0.78rem',
                         fontWeight: 600,
                         border: isCur ? '2px solid #0891b2' : '1px solid #cbd5e1',
                         background: isCur ? '#ffffff' : '#f8fafc',
@@ -601,206 +829,6 @@ export default function PeriodicPatternsLab() {
               </>
             )}
           </div>
-        </div>
-      </div>
-
-      {/* 核心可视化：传送带分箱与元素陈列图景 */}
-      <div style={{ padding: '20px', background: '#ffffff', minHeight: '340px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
-          <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#334155', display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <PackageCheck className="w-4 h-4 text-indigo-600" />
-            <span>传送带“打包装箱”实景图 (每箱 {cycleLength} 个)</span>
-          </div>
-          <div style={{ fontSize: '0.78rem', color: '#64748b' }}>
-            共分成 <strong style={{ color: '#4f46e5' }}>{totalBoxes}</strong> 个箱子
-            {remainder > 0 ? ` (前 ${quotient} 箱已满，最后 1 箱未满)` : ' (全部整除满箱)'}
-          </div>
-        </div>
-
-        {/* 箱子排列容器 */}
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '14px',
-            alignItems: 'flex-start',
-            padding: '10px 4px',
-            maxHeight: '440px',
-            overflowY: 'auto',
-          }}
-        >
-          {boxes.map((box) => {
-            const isRemainderBox = !box.isFull;
-            const hasTargetInBox = box.items.some((item) => item.isTarget);
-
-            return (
-              <div
-                key={box.boxIndex}
-                style={{
-                  background: isRemainderBox ? '#fff7ed' : '#f8fafc',
-                  border: isRemainderBox
-                    ? '2px dashed #fb923c'
-                    : hasTargetInBox
-                    ? '2px solid #6366f1'
-                    : '1px solid #e2e8f0',
-                  borderRadius: '14px',
-                  padding: '10px 12px',
-                  boxShadow: hasTargetInBox ? '0 4px 12px rgba(99, 102, 241, 0.12)' : '0 1px 3px rgba(0,0,0,0.02)',
-                  minWidth: `${cycleLength * 54 + 24}px`,
-                  transition: 'all 0.2s ease',
-                  position: 'relative',
-                }}
-              >
-                {/* 箱子标题栏 */}
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    marginBottom: '8px',
-                    paddingBottom: '6px',
-                    borderBottom: '1px solid',
-                    borderColor: isRemainderBox ? '#fed7aa' : '#e2e8f0',
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                    <span
-                      style={{
-                        fontSize: '0.75rem',
-                        fontWeight: 700,
-                        padding: '2px 6px',
-                        borderRadius: '4px',
-                        background: isRemainderBox ? '#ea580c' : '#4f46e5',
-                        color: '#ffffff',
-                      }}
-                    >
-                      第 {box.boxIndex} 组
-                    </span>
-                    {isRemainderBox ? (
-                      <span style={{ fontSize: '0.72rem', color: '#c2410c', fontWeight: 600 }}>
-                        (余数箱：未满 {remainder} 个)
-                      </span>
-                    ) : (
-                      <span style={{ fontSize: '0.72rem', color: '#64748b' }}>
-                        (满箱 {cycleLength} 个)
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* 箱内的各个元素卡片 */}
-                <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-                  {box.items.map((cell) => {
-                    return (
-                      <div
-                        key={cell.globalIndex}
-                        style={{
-                          width: '46px',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          alignItems: 'center',
-                          position: 'relative',
-                        }}
-                      >
-                        {/* 目标指向小标牌 */}
-                        {cell.isTarget && (
-                          <div
-                            style={{
-                              position: 'absolute',
-                              top: '-24px',
-                              display: 'flex',
-                              flexDirection: 'column',
-                              alignItems: 'center',
-                              animation: 'bounce 1s infinite',
-                            }}
-                          >
-                            <span style={{ fontSize: '0.8rem' }}>👑</span>
-                            <span style={{ fontSize: '0.65rem', fontWeight: 800, color: '#4f46e5' }}>目标</span>
-                          </div>
-                        )}
-
-                        {/* 元素方块 */}
-                        <div
-                          style={{
-                            width: '44px',
-                            height: '44px',
-                            borderRadius: '10px',
-                            background: cell.item.bgColor,
-                            border: cell.isTarget
-                              ? '3px solid #4f46e5'
-                              : cell.isMatchCounting && inspectMode === 'count'
-                              ? '2px solid #0891b2'
-                              : `1px solid ${cell.item.color}40`,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontSize: cell.item.icon.length > 2 ? '0.75rem' : '1.35rem',
-                            fontWeight: 700,
-                            color: cell.item.color,
-                            boxShadow: cell.isTarget
-                              ? '0 0 0 3px rgba(79, 70, 229, 0.3)'
-                              : cell.isMatchCounting && inspectMode === 'count'
-                              ? '0 0 0 2px rgba(8, 145, 178, 0.2)'
-                              : 'none',
-                            transform: cell.isTarget ? 'scale(1.08)' : 'scale(1)',
-                            transition: 'all 0.15s ease',
-                          }}
-                        >
-                          {cell.item.icon}
-                        </div>
-
-                        {/* 全局绝对序号 */}
-                        <div
-                          style={{
-                            fontSize: '0.7rem',
-                            fontWeight: cell.isTarget ? 800 : 500,
-                            color: cell.isTarget ? '#4f46e5' : '#64748b',
-                            marginTop: '4px',
-                          }}
-                        >
-                          #{cell.globalIndex}
-                        </div>
-
-                        {/* 周期内局部序号 */}
-                        <div
-                          style={{
-                            fontSize: '0.62rem',
-                            color: '#94a3b8',
-                            marginTop: '1px',
-                          }}
-                        >
-                          第{cell.localIndex}个
-                        </div>
-
-                        {/* 模式 B 计数标记 */}
-                        {inspectMode === 'count' && cell.isMatchCounting && (
-                          <div
-                            style={{
-                              position: 'absolute',
-                              top: '-6px',
-                              right: '-2px',
-                              background: '#0891b2',
-                              color: '#ffffff',
-                              borderRadius: '50%',
-                              width: '14px',
-                              height: '14px',
-                              fontSize: '0.6rem',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              fontWeight: 700,
-                            }}
-                          >
-                            ✓
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
         </div>
       </div>
 
