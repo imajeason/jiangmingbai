@@ -518,6 +518,176 @@ export default function TopicCard({ topic }: TopicCardProps) {
             <text x="80" y="88" textAnchor="middle" fontSize="7.5" fill="#dc2626" fontWeight="700">基准数秒算 · 平均非真数</text>
           </svg>
         )}
+
+        {/* 28. 容斥原理与重叠问题 */}
+        {(topic.animationType === 'inclusion-exclusion-venn' || topic.animationType === 'inclusion-exclusion') && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <circle cx="62" cy="50" r="28" fill="#3b82f6" fillOpacity="0.3" stroke="#2563eb" strokeWidth="1.8" />
+            <circle cx="98" cy="50" r="28" fill="#ef4444" fillOpacity="0.3" stroke="#dc2626" strokeWidth="1.8" />
+            <text x="50" y="53" textAnchor="middle" fontSize="10" fill="#1e40af" fontWeight="800">A</text>
+            <text x="110" y="53" textAnchor="middle" fontSize="10" fill="#b91c1c" fontWeight="800">B</text>
+            <text x="80" y="53" textAnchor="middle" fontSize="8" fill="#7c3aed" fontWeight="900">A∩B</text>
+            <text x="80" y="18" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">两圈相交扣重复</text>
+            <text x="80" y="88" textAnchor="middle" fontSize="7.5" fill="#7c3aed" fontWeight="700">总数 = A + B - 重叠</text>
+          </svg>
+        )}
+
+        {/* 29. 年龄问题 */}
+        {(topic.animationType === 'age-difference' || topic.animationType === 'age-difference-problem') && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 爸爸长线段 */}
+            <rect x="25" y="34" width="70" height="11" rx="3" fill="#3b82f6" />
+            <rect x="95" y="34" width="35" height="11" rx="3" fill="#f59e0b" />
+            {/* 孩子短线段 */}
+            <rect x="25" y="52" width="70" height="11" rx="3" fill="#3b82f6" />
+            {/* 差量对齐虚线 */}
+            <line x1="95" y1="30" x2="95" y2="68" stroke="#ef4444" strokeWidth="1.2" strokeDasharray="2 2" />
+            <line x1="130" y1="30" x2="130" y2="50" stroke="#ef4444" strokeWidth="1.2" strokeDasharray="2 2" />
+            <text x="112" y="43" textAnchor="middle" fontSize="7" fill="#fff" fontWeight="800">差24岁</text>
+            <text x="80" y="19" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">年龄差永远恒定！</text>
+            <text x="80" y="88" textAnchor="middle" fontSize="7.5" fill="#d97706" fontWeight="700">过多少年差都不改</text>
+          </svg>
+        )}
+
+        {/* 30. 周期与余数问题 */}
+        {(topic.animationType === 'repeating-patterns-modulo' || topic.animationType === 'periodic-patterns') && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 传送带槽 */}
+            <rect x="18" y="40" width="124" height="22" rx="4" fill="#f1f5f9" stroke="#94a3b8" strokeWidth="1.2" />
+            {/* 周期框一 (红蓝绿) */}
+            <rect x="22" y="43" width="46" height="16" rx="2" fill="none" stroke="#2563eb" strokeWidth="1.2" strokeDasharray="2 2" />
+            <circle cx="30" cy="51" r="5" fill="#ef4444" />
+            <circle cx="45" cy="51" r="5" fill="#3b82f6" />
+            <circle cx="60" cy="51" r="5" fill="#10b981" />
+            {/* 周期框二 */}
+            <circle cx="75" cy="51" r="5" fill="#ef4444" />
+            <circle cx="90" cy="51" r="5" fill="#3b82f6" />
+            <circle cx="105" cy="51" r="5" fill="#10b981" />
+            {/* 余数单出闪烁 */}
+            <circle cx="125" cy="51" r="6" fill="#f59e0b" stroke="#d97706" strokeWidth="1.5" />
+            <text x="80" y="20" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">周期打包 · 余数定位</text>
+            <text x="80" y="88" textAnchor="middle" fontSize="7.5" fill="#15803d" fontWeight="700">余几看第几 · 0余踩末尾</text>
+          </svg>
+        )}
+
+        {/* 31. 环形跑道问题 */}
+        {(topic.animationType === 'circular-track' || topic.animationType === 'circular-track-problem') && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 跑道底 */}
+            <ellipse cx="80" cy="49" rx="54" ry="23" fill="#f8fafc" stroke="#475569" strokeWidth="5.5" />
+            <ellipse cx="80" cy="49" rx="54" ry="23" fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="3 3" />
+            {/* 跑车红 */}
+            <circle cx="124" cy="38" r="4.5" fill="#ef4444" />
+            <path d="M 129 35 Q 132 42 129 45" fill="none" stroke="#ef4444" strokeWidth="1.5" strokeLinecap="round" />
+            {/* 跑车蓝 */}
+            <circle cx="40" cy="60" r="4.5" fill="#3b82f6" />
+            <path d="M 35 63 Q 32 56 35 53" fill="none" stroke="#3b82f6" strokeWidth="1.5" strokeLinecap="round" />
+            <text x="80" y="18" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">同向差一圈 · 反向合一圈</text>
+            <text x="80" y="88" textAnchor="middle" fontSize="7.5" fill="#475569" fontWeight="700">封闭跑道追及相遇模型</text>
+          </svg>
+        )}
+
+        {/* 32. 倒推还原问题 */}
+        {(topic.animationType === 'reverse-thinking' || topic.animationType === 'reverse-thinking-reduction') && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 正向流 */}
+            <g transform="translate(25, 33)">
+              <rect x="0" y="0" width="22" height="13" rx="2.5" fill="#93c5fd" />
+              <text x="11" y="9.5" textAnchor="middle" fontSize="7.5" fill="#1e40af" fontWeight="700">+5</text>
+              <path d="M 26 6.5 L 42 6.5 M 38 3.5 L 42 6.5 L 38 9.5" stroke="#3b82f6" strokeWidth="1.5" strokeLinecap="round" />
+              <rect x="46" y="0" width="22" height="13" rx="2.5" fill="#93c5fd" />
+              <text x="57" y="9.5" textAnchor="middle" fontSize="7.5" fill="#1e40af" fontWeight="700">×2</text>
+              <path d="M 72 6.5 L 88 6.5 M 84 3.5 L 88 6.5 L 84 9.5" stroke="#3b82f6" strokeWidth="1.5" strokeLinecap="round" />
+              <rect x="92" y="0" width="22" height="13" rx="2.5" fill="#fde047" stroke="#ca8a04" strokeWidth="1" />
+              <text x="103" y="9.5" textAnchor="middle" fontSize="7.5" fill="#713f12" fontWeight="800">20</text>
+            </g>
+            {/* 倒推流 */}
+            <g transform="translate(25, 53)">
+              <rect x="0" y="0" width="22" height="13" rx="2.5" fill="#86efac" stroke="#16a34a" strokeWidth="1" />
+              <text x="11" y="9.5" textAnchor="middle" fontSize="7.5" fill="#14532d" fontWeight="800">5</text>
+              <path d="M 42 6.5 L 26 6.5 M 30 3.5 L 26 6.5 L 30 9.5" stroke="#16a34a" strokeWidth="1.5" strokeLinecap="round" />
+              <rect x="46" y="0" width="22" height="13" rx="2.5" fill="#bbf7d0" />
+              <text x="57" y="9.5" textAnchor="middle" fontSize="7.5" fill="#166534" fontWeight="700">-5</text>
+              <path d="M 88 6.5 L 72 6.5 M 76 3.5 L 72 6.5 L 76 9.5" stroke="#16a34a" strokeWidth="1.5" strokeLinecap="round" />
+              <rect x="92" y="0" width="22" height="13" rx="2.5" fill="#bbf7d0" />
+              <text x="103" y="9.5" textAnchor="middle" fontSize="7.5" fill="#166534" fontWeight="700">÷2</text>
+            </g>
+            <text x="80" y="19" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">原路返回 · 符号反转</text>
+            <text x="80" y="88" textAnchor="middle" fontSize="7.5" fill="#15803d" fontWeight="700">后发生先解开 (+变-，×变÷)</text>
+          </svg>
+        )}
+
+        {/* 33. 九宫格与三阶幻方 */}
+        {(topic.animationType === 'magic-square' || topic.animationType === 'magic-square-number-array') && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <g transform="translate(54, 23)">
+              <rect x="0" y="0" width="52" height="52" rx="4" fill="#f8fafc" stroke="#cbd5e1" strokeWidth="1.5" />
+              <line x1="17.3" y1="0" x2="17.3" y2="52" stroke="#e2e8f0" strokeWidth="1" />
+              <line x1="34.6" y1="0" x2="34.6" y2="52" stroke="#e2e8f0" strokeWidth="1" />
+              <line x1="0" y1="17.3" x2="52" y2="17.3" stroke="#e2e8f0" strokeWidth="1" />
+              <line x1="0" y1="34.6" x2="52" y2="34.6" stroke="#e2e8f0" strokeWidth="1" />
+              <text x="26" y="12" textAnchor="middle" fontSize="8.5" fill="#1e293b" fontWeight="700">9</text>
+              <text x="26" y="47" textAnchor="middle" fontSize="8.5" fill="#1e293b" fontWeight="700">1</text>
+              <text x="8.5" y="30" textAnchor="middle" fontSize="8.5" fill="#1e293b" fontWeight="700">3</text>
+              <text x="43.5" y="30" textAnchor="middle" fontSize="8.5" fill="#1e293b" fontWeight="700">7</text>
+              <rect x="18.5" y="18.5" width="15" height="15" fill="#fef08a" stroke="#ca8a04" strokeWidth="1" rx="2" />
+              <text x="26" y="30" textAnchor="middle" fontSize="9.5" fill="#b45309" fontWeight="900">5</text>
+              <text x="8.5" y="12" textAnchor="middle" fontSize="7.5" fill="#64748b">4</text>
+              <text x="43.5" y="12" textAnchor="middle" fontSize="7.5" fill="#64748b">2</text>
+              <text x="8.5" y="47" textAnchor="middle" fontSize="7.5" fill="#64748b">8</text>
+              <text x="43.5" y="47" textAnchor="middle" fontSize="7.5" fill="#64748b">6</text>
+            </g>
+            <text x="80" y="16" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">戴九履一 · 五居中央</text>
+            <text x="80" y="90" textAnchor="middle" fontSize="7.5" fill="#b45309" fontWeight="700">三阶幻方 · 幻和恒等于 15</text>
+          </svg>
+        )}
+
+        {/* 34. 正方体涂色切块 */}
+        {(topic.animationType === 'cube-coloring' || topic.animationType === 'cube-coloring-cutting') && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <g transform="translate(80, 50)">
+              {/* 顶角红色块 */}
+              <g transform="translate(-24, -18)">
+                <polygon points="0,-7 8,-11 0,-15 -8,-11" fill="#f87171" stroke="#dc2626" strokeWidth="0.8" />
+                <polygon points="-8,-11 0,-7 0,3 -8,-1" fill="#ef4444" stroke="#dc2626" strokeWidth="0.8" />
+                <polygon points="0,-7 8,-11 8,-1 0,3" fill="#b91c1c" stroke="#dc2626" strokeWidth="0.8" />
+              </g>
+              {/* 棱上蓝色块 */}
+              <g transform="translate(24, -18)">
+                <polygon points="0,-7 8,-11 0,-15 -8,-11" fill="#60a5fa" stroke="#2563eb" strokeWidth="0.8" />
+                <polygon points="-8,-11 0,-7 0,3 -8,-1" fill="#3b82f6" stroke="#2563eb" strokeWidth="0.8" />
+                <polygon points="0,-7 8,-11 8,-1 0,3" fill="#1d4ed8" stroke="#2563eb" strokeWidth="0.8" />
+              </g>
+              {/* 面心黄色块 */}
+              <g transform="translate(-24, 13)">
+                <polygon points="0,-7 8,-11 0,-15 -8,-11" fill="#fde047" stroke="#ca8a04" strokeWidth="0.8" />
+                <polygon points="-8,-11 0,-7 0,3 -8,-1" fill="#eab308" stroke="#ca8a04" strokeWidth="0.8" />
+                <polygon points="0,-7 8,-11 8,-1 0,3" fill="#a16207" stroke="#ca8a04" strokeWidth="0.8" />
+              </g>
+              {/* 内部绿色核心 */}
+              <g transform="translate(24, 13)">
+                <polygon points="0,-7 8,-11 0,-15 -8,-11" fill="#86efac" stroke="#16a34a" strokeWidth="0.8" />
+                <polygon points="-8,-11 0,-7 0,3 -8,-1" fill="#22c55e" stroke="#16a34a" strokeWidth="0.8" />
+                <polygon points="0,-7 8,-11 8,-1 0,3" fill="#15803d" stroke="#16a34a" strokeWidth="0.8" />
+              </g>
+              {/* 爆炸拉伸虚线 */}
+              <line x1="-12" y1="-9" x2="12" y2="9" stroke="#94a3b8" strokeWidth="1" strokeDasharray="2 2" />
+              <line x1="12" y1="-9" x2="-12" y2="9" stroke="#94a3b8" strokeWidth="1" strokeDasharray="2 2" />
+            </g>
+            <text x="80" y="17" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">顶8 · 棱12 · 面6 · 核立方</text>
+            <text x="80" y="88" textAnchor="middle" fontSize="7.5" fill="#475569" fontWeight="700">3D爆炸透视涂色切块</text>
+          </svg>
+        )}
+
+        {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
+            <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
+            <polygon points="76,38 90,46 76,54" fill="#0284c7" />
+            <text x="80" y="74" textAnchor="middle" fontSize="8" fill="#0284c7" fontWeight="700">动手拖拽探索动画</text>
+          </svg>
+        )}
       </div>
 
 
