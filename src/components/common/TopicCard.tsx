@@ -679,8 +679,30 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {/* 35. 抽屉原理（鸽巢原理） */}
+        {topic.animationType === 'pigeonhole-principle' && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 3 个笼子 */}
+            <g transform="translate(20, 30)">
+              {/* 笼子 1 (1只) */}
+              <rect x="0" y="0" width="36" height="36" rx="4" fill="#ffffff" stroke="#94a3b8" strokeWidth="1.2" strokeDasharray="2 2" />
+              <text x="18" y="24" textAnchor="middle" fontSize="16">🕊️</text>
+              {/* 笼子 2 (2只，高亮) */}
+              <rect x="42" y="0" width="36" height="36" rx="4" fill="#eff6ff" stroke="#2563eb" strokeWidth="1.8" />
+              <text x="13" y="24" textAnchor="middle" fontSize="13">🕊️</text>
+              <text x="27" y="24" textAnchor="middle" fontSize="13">🕊️</text>
+              <polygon points="60,2 62,6 66,3 64,8 60,6 56,8 54,3 58,6" fill="#f59e0b" />
+              {/* 笼子 3 (1只) */}
+              <rect x="84" y="0" width="36" height="36" rx="4" fill="#ffffff" stroke="#94a3b8" strokeWidth="1.2" strokeDasharray="2 2" />
+              <text x="102" y="24" textAnchor="middle" fontSize="16">🕊️</text>
+            </g>
+            <text x="80" y="18" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">4鸽3笼 · 必有笼≥2只</text>
+            <text x="80" y="88" textAnchor="middle" fontSize="7.5" fill="#dc2626" fontWeight="700">最不利原则 · 倒霉蛋+1</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
