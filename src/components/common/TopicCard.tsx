@@ -724,8 +724,26 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {/* 37. 巧求不规则图形周长：平移法 */}
+        {(topic.animationType === 'irregular-perimeter' || topic.animationType === 'irregular-perimeter-translation') && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 大长方形参考虚线 */}
+            <rect x="25" y="24" width="110" height="52" fill="none" stroke="#cbd5e1" strokeWidth="1.2" strokeDasharray="3 3" />
+            {/* 凹字形多边形实体 */}
+            <polygon points="25,24 60,24 60,45 100,45 100,24 135,24 135,76 25,76" fill="#eff6ff" stroke="#2563eb" strokeWidth="1.5" />
+            {/* 凹陷两条红线标注 */}
+            <line x1="60" y1="24" x2="60" y2="45" stroke="#dc2626" strokeWidth="2.5" />
+            <line x1="100" y1="24" x2="100" y2="45" stroke="#dc2626" strokeWidth="2.5" />
+            {/* 向上平移推平虚线 */}
+            <line x1="60" y1="24" x2="100" y2="24" stroke="#10b981" strokeWidth="2" strokeDasharray="2 2" />
+            <path d="M 80 40 L 80 28 M 77 31 L 80 27 L 83 31" stroke="#10b981" strokeWidth="1.2" fill="none" />
+            <text x="80" y="18" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">平移推平 · 凹多两边</text>
+            <text x="80" y="90" textAnchor="middle" fontSize="7.5" fill="#dc2626" fontWeight="700">周长 = 大长方形 + 凹深×2</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />

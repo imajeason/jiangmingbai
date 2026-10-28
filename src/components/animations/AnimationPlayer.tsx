@@ -37,9 +37,10 @@ import MagicSquareLab from './MagicSquareLab';
 import CubeColoringLab from './CubeColoringLab';
 import PigeonholePrincipleLab from './PigeonholePrincipleLab';
 import ArithmeticProgressionLab from './ArithmeticProgressionLab';
+import IrregularPerimeterLab from './IrregularPerimeterLab';
 
 interface AnimationPlayerProps {
-  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | 'sum-difference-multiple' | 'surplus-and-deficiency' | 'work-rate-problem' | 'newton-cow-pasture' | 'algebraic-equations-basics' | 'river-boat-motion' | 'train-bridge-crossing' | 'average-benchmark' | 'inclusion-exclusion-venn' | 'age-difference' | 'age-difference-problem' | 'periodic-patterns' | 'repeating-patterns-modulo' | 'circular-track' | 'circular-track-problem' | 'reverse-thinking' | 'reverse-thinking-reduction' | 'magic-square' | 'magic-square-number-array' | 'cube-coloring' | 'cube-coloring-cutting' | 'pigeonhole-principle' | 'arithmetic-progression' | 'arithmetic-progression-gauss' | string;
+  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | 'sum-difference-multiple' | 'surplus-and-deficiency' | 'work-rate-problem' | 'newton-cow-pasture' | 'algebraic-equations-basics' | 'river-boat-motion' | 'train-bridge-crossing' | 'average-benchmark' | 'inclusion-exclusion-venn' | 'age-difference' | 'age-difference-problem' | 'periodic-patterns' | 'repeating-patterns-modulo' | 'circular-track' | 'circular-track-problem' | 'reverse-thinking' | 'reverse-thinking-reduction' | 'magic-square' | 'magic-square-number-array' | 'cube-coloring' | 'cube-coloring-cutting' | 'pigeonhole-principle' | 'arithmetic-progression' | 'arithmetic-progression-gauss' | 'irregular-perimeter' | 'irregular-perimeter-translation' | string;
 }
 
 export default function AnimationPlayer({ type }: AnimationPlayerProps) {
@@ -123,6 +124,9 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
     case 'arithmetic-progression':
     case 'arithmetic-progression-gauss':
       return <ArithmeticProgressionLab />;
+    case 'irregular-perimeter':
+    case 'irregular-perimeter-translation':
+      return <IrregularPerimeterLab />;
 
 
 
