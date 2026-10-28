@@ -701,8 +701,31 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {/* 36. 等差数列与高斯求和 */}
+        {(topic.animationType === 'arithmetic-progression' || topic.animationType === 'arithmetic-progression-gauss') && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 倒扣拼合阶梯大矩形 */}
+            <g transform="translate(42, 24)">
+              {/* 第1行: 蓝1 红4 */}
+              <rect x="0" y="0" width="15" height="11" rx="1.5" fill="#3b82f6" />
+              <rect x="15" y="0" width="60" height="11" rx="1.5" fill="#f87171" />
+              {/* 第2行: 蓝2 红3 */}
+              <rect x="0" y="13" width="30" height="11" rx="1.5" fill="#3b82f6" />
+              <rect x="30" y="13" width="45" height="11" rx="1.5" fill="#f87171" />
+              {/* 第3行: 蓝3 红2 */}
+              <rect x="0" y="26" width="45" height="11" rx="1.5" fill="#3b82f6" />
+              <rect x="45" y="26" width="30" height="11" rx="1.5" fill="#f87171" />
+              {/* 第4行: 蓝4 红1 */}
+              <rect x="0" y="39" width="60" height="11" rx="1.5" fill="#3b82f6" />
+              <rect x="60" y="39" width="15" height="11" rx="1.5" fill="#f87171" />
+            </g>
+            <text x="80" y="17" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">倒序相加 · 阶梯拼图</text>
+            <text x="80" y="90" textAnchor="middle" fontSize="7.5" fill="#15803d" fontWeight="700">和 = (首项 + 末项) × 项数 ÷ 2</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
