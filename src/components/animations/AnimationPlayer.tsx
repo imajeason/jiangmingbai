@@ -33,9 +33,10 @@ import AgeDifferenceLab from './AgeDifferenceLab';
 import PeriodicPatternsLab from './PeriodicPatternsLab';
 import CircularTrackLab from './CircularTrackLab';
 import ReverseThinkingLab from './ReverseThinkingLab';
+import MagicSquareLab from './MagicSquareLab';
 
 interface AnimationPlayerProps {
-  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | 'sum-difference-multiple' | 'surplus-and-deficiency' | 'work-rate-problem' | 'newton-cow-pasture' | 'algebraic-equations-basics' | 'river-boat-motion' | 'train-bridge-crossing' | 'average-benchmark' | 'inclusion-exclusion-venn' | 'age-difference' | 'age-difference-problem' | 'periodic-patterns' | 'repeating-patterns-modulo' | 'circular-track' | 'circular-track-problem' | 'reverse-thinking' | 'reverse-thinking-reduction' | string;
+  type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | 'sum-difference-multiple' | 'surplus-and-deficiency' | 'work-rate-problem' | 'newton-cow-pasture' | 'algebraic-equations-basics' | 'river-boat-motion' | 'train-bridge-crossing' | 'average-benchmark' | 'inclusion-exclusion-venn' | 'age-difference' | 'age-difference-problem' | 'periodic-patterns' | 'repeating-patterns-modulo' | 'circular-track' | 'circular-track-problem' | 'reverse-thinking' | 'reverse-thinking-reduction' | 'magic-square' | 'magic-square-number-array' | string;
 }
 
 export default function AnimationPlayer({ type }: AnimationPlayerProps) {
@@ -108,6 +109,9 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
     case 'reverse-thinking':
     case 'reverse-thinking-reduction':
       return <ReverseThinkingLab />;
+    case 'magic-square':
+    case 'magic-square-number-array':
+      return <MagicSquareLab />;
 
 
 
