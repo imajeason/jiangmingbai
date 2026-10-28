@@ -264,10 +264,14 @@ src/
    这里可以继续写长篇的图文解析、课堂思考题与拓展训练...
    ```
 
-3. **第 3 步：一键推送到线上**
+3. **第 3 步：在 `src/components/common/TopicCard.tsx` 添加卡片微缩封面 SVG**
+   - 为该知识点在卡片列表区绘制专属 `<svg viewBox="0 0 160 100">` 封面示意图（如韦恩图、时钟、跑道、九宫格、积木等）；
+   - 保证首页和分类浏览网格展示生动、直观、色彩协调（已配备默认科技微缩兜底）。
+
+4. **第 4 步：一键推送到线上**
    ```bash
    git add .
-   git commit -m "feat(topic): add clock reading markdown and lab"
-   git push
+   git commit -m "feat(topic): add knowledge point and lab"
+   git push github main
    ```
    Cloudflare Pages 会在 30 秒内自动打包生成新的静态网页并完成全站 CDN 更新！
