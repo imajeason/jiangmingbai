@@ -759,8 +759,29 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {/* 39. 消元法与等量代换 */}
+        {(topic.animationType === 'substitution-elimination' || topic.animationType === 'substitution-elimination-method') && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 上篮 */}
+            <rect x="25" y="24" width="110" height="22" rx="4" fill="#ffffff" stroke="#3b82f6" strokeWidth="1.2" />
+            <text x="35" y="39" fontSize="13">🍉</text>
+            <text x="50" y="39" fontSize="13">🍉</text>
+            <text x="70" y="39" fontSize="13" opacity="0.3">🍇</text>
+            <line x1="68" y1="34" x2="84" y2="34" stroke="#dc2626" strokeWidth="1.5" />
+            <text x="110" y="39" textAnchor="middle" fontSize="9" fontWeight="800" fill="#1e3a8a">54元</text>
+            {/* 下篮 */}
+            <rect x="25" y="52" width="110" height="22" rx="4" fill="#ffffff" stroke="#10b981" strokeWidth="1.2" />
+            <text x="35" y="67" fontSize="13">🍉</text>
+            <text x="70" y="67" fontSize="13" opacity="0.3">🍇</text>
+            <line x1="68" y1="62" x2="84" y2="62" stroke="#dc2626" strokeWidth="1.5" />
+            <text x="110" y="67" textAnchor="middle" fontSize="9" fontWeight="800" fill="#065f46">26元</text>
+            <text x="80" y="17" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">等量消元 · 抓差额</text>
+            <text x="80" y="90" textAnchor="middle" fontSize="7.5" fill="#dc2626" fontWeight="700">消去相同项 · 差额归单物</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
