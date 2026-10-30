@@ -780,8 +780,37 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {/* 40. 溶液浓度问题与十字交叉法 */}
+        {(topic.animationType === 'ratio-concentration' || topic.animationType === 'ratio-concentration-problem') && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 烧杯外框 */}
+            <path d="M 32 28 L 32 72 Q 32 78 38 78 L 72 78 Q 78 78 78 72 L 78 28" fill="none" stroke="#475569" strokeWidth="2" strokeLinecap="round" />
+            {/* 烧杯刻度线 */}
+            <line x1="32" y1="42" x2="40" y2="42" stroke="#94a3b8" strokeWidth="1.2" />
+            <line x1="32" y1="56" x2="44" y2="56" stroke="#94a3b8" strokeWidth="1.2" />
+            <line x1="32" y1="68" x2="40" y2="68" stroke="#94a3b8" strokeWidth="1.2" />
+            {/* 溶液液面 */}
+            <path d="M 33 46 L 77 46 L 77 72 Q 77 77 72 77 L 38 77 Q 33 77 33 72 Z" fill="#fed7aa" opacity="0.8" />
+            {/* 溶质糖颗粒 */}
+            <circle cx="45" cy="58" r="2.5" fill="#ea580c" />
+            <circle cx="55" cy="66" r="2.5" fill="#ea580c" />
+            <circle cx="65" cy="56" r="2.5" fill="#ea580c" />
+            <circle cx="50" cy="70" r="2.5" fill="#ea580c" />
+            {/* 滴管/加水箭头 */}
+            <path d="M 55 18 L 55 36 M 50 31 L 55 36 L 60 31" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            {/* 右侧十字交叉杠杆示意 */}
+            <rect x="94" y="32" width="56" height="42" rx="4" fill="#f8fafc" stroke="#cbd5e1" strokeWidth="1" />
+            <line x1="100" y1="40" x2="144" y2="66" stroke="#94a3b8" strokeWidth="1.5" />
+            <line x1="100" y1="66" x2="144" y2="40" stroke="#94a3b8" strokeWidth="1.5" />
+            <circle cx="122" cy="53" r="7" fill="#059669" />
+            <text x="122" y="56" textAnchor="middle" fontSize="6.5" fill="#ffffff" fontWeight="800">%</text>
+            <text x="80" y="16" textAnchor="middle" fontSize="8.5" fill="#0369a1" fontWeight="800">溶液浓度 · 抓不变量</text>
+            <text x="80" y="90" textAnchor="middle" fontSize="7.5" fill="#d97706" fontWeight="700">稀释抓溶质 · 十字交叉平杠杆</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
