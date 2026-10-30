@@ -809,8 +809,35 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {/* 41. 钟表问题：时针分针的追及与夹角 */}
+        {(topic.animationType === 'clock-angle-pursuit' || topic.animationType === 'clock-angle-problem' || topic.animationType === 'clock-hands-pursuit') && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 钟表外圈 */}
+            <circle cx="56" cy="52" r="30" fill="#ffffff" stroke="#334155" strokeWidth="2" />
+            {/* 刻度点 */}
+            <line x1="56" y1="24" x2="56" y2="28" stroke="#1e293b" strokeWidth="1.5" />
+            <line x1="84" y1="52" x2="80" y2="52" stroke="#1e293b" strokeWidth="1.5" />
+            <line x1="56" y1="80" x2="56" y2="76" stroke="#1e293b" strokeWidth="1.5" />
+            <line x1="28" y1="52" x2="32" y2="52" stroke="#1e293b" strokeWidth="1.5" />
+            {/* 夹角扇形 */}
+            <path d="M 56 52 L 72 52 A 16 16 0 0 0 71 44 Z" fill="rgba(239,68,68,0.25)" />
+            {/* 时针 (3点多) */}
+            <line x1="56" y1="52" x2="73" y2="54" stroke="#dc2626" strokeWidth="2.5" strokeLinecap="round" />
+            {/* 分针 (追赶到接近重合) */}
+            <line x1="56" y1="52" x2="72" y2="43" stroke="#2563eb" strokeWidth="1.8" strokeLinecap="round" />
+            <circle cx="56" cy="52" r="2.5" fill="#0f172a" />
+            {/* 右侧追及公式示意卡片 */}
+            <rect x="94" y="28" width="56" height="48" rx="4" fill="#f0fdf4" stroke="#86efac" strokeWidth="1" />
+            <text x="122" y="42" textAnchor="middle" fontSize="7.5" fill="#166534" fontWeight="800">速度差</text>
+            <text x="122" y="55" textAnchor="middle" fontSize="9" fill="#dc2626" fontWeight="800">5.5°/分</text>
+            <text x="122" y="67" textAnchor="middle" fontSize="6.5" fill="#047857" fontWeight="700">11/12 格/分</text>
+            <text x="80" y="16" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">时钟追及 · 环形赛道</text>
+            <text x="80" y="92" textAnchor="middle" fontSize="7.5" fill="#059669" fontWeight="700">时间 = 差距角度 ÷ 5.5°</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
