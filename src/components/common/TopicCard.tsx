@@ -862,8 +862,32 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {/* 43. 数线段与握手模型 */}
+        {(topic.animationType === 'counting-segments-handshakes' || topic.animationType === 'handshake-counting-model' || topic.animationType === 'counting-segments') && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 主横线 */}
+            <line x1="25" y1="62" x2="135" y2="62" stroke="#64748b" strokeWidth="2" />
+            {/* 彩色拱形弧 */}
+            <path d="M 32 62 Q 54 28 76 62" fill="none" stroke="#3b82f6" strokeWidth="1.5" />
+            <path d="M 54 62 Q 76 34 98 62" fill="none" stroke="#10b981" strokeWidth="1.5" />
+            <path d="M 76 62 Q 98 38 120 62" fill="none" stroke="#f59e0b" strokeWidth="1.5" />
+            <path d="M 32 62 Q 76 14 120 62" fill="none" stroke="#dc2626" strokeWidth="1.8" />
+            {/* 4个点 */}
+            {[32, 54, 76, 98, 120].map((x, i) => (
+              <g key={i}>
+                <circle cx={x} cy="62" r="3.5" fill="#2563eb" stroke="#ffffff" strokeWidth="1.2" />
+                <text x={x} y="74" fontSize="7" fontWeight="800" fill="#334155" textAnchor="middle">
+                  {String.fromCharCode(65 + i)}
+                </text>
+              </g>
+            ))}
+            <text x="80" y="16" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">数线段 · 握手模型</text>
+            <text x="80" y="90" textAnchor="middle" fontSize="7.5" fill="#059669" fontWeight="700">去重除以 2 · n(n-1) ÷ 2</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
