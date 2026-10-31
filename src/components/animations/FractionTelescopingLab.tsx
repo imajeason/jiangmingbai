@@ -641,3 +641,4 @@ export default function FractionTelescopingLab() {
     </div>
   );
 }
+

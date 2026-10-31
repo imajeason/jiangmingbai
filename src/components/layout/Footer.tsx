@@ -10,7 +10,7 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <div className={styles.brand} style={{ marginBottom: '12px' }}>
             <div className={styles.brandLogo} style={{ width: '30px', height: '30px', fontSize: '0.9rem' }}>讲</div>
-            <span style={{ fontSize: '1.15rem' }}>讲明白 JiangMingBai</span>
+            <span style={{ fontSize: '1.15rem' }}>讲明白 jiangmb.com</span>
           </div>
           <p className={styles.footerBrandDesc}>
             专为家长和中小学生设计的知识点可视化互动实验室。通过自主调节参数的纯 JS 动画与启发式提问三步法，彻底打破“死记硬背”，让孩子真正看明白、想透彻。
@@ -71,7 +71,7 @@ export default function Footer() {
 
       <div className={`container ${styles.footerBottom}`}>
         <div>
-          © {new Date().getFullYear()} 讲明白 (JiangMingBai.com) · 代码遵循 MIT 协议 · 内容遵循 CC BY-NC-SA 4.0
+          © {new Date().getFullYear()} 讲明白 (jiangmb.com) · 代码遵循 MIT 协议 · 内容遵循 CC BY-NC-SA 4.0
         </div>
         <div style={{ display: 'flex', gap: '16px' }}>
           <Link href="/sitemap" style={{ color: 'inherit', textDecoration: 'none' }}>网站地图</Link>

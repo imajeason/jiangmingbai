@@ -182,3 +182,4 @@ $$1 - \frac{1}{n+1} = \frac{n}{n+1}$$
    - 首项为 $1$，末项为 $\frac{1}{21}$；  
    - 原式：  
      $$= \frac{1}{2} \times \left(1 - \frac{1}{21}\right) = \frac{1}{2} \times \frac{20}{21} = \mathbf{\frac{10}{21}}$$
+

@@ -7,7 +7,7 @@ import SitemapClientView from '@/components/sitemap/SitemapClientView';
 export const metadata: Metadata = {
   title: '网站地图 (Sitemap) - 中小学数理化知识点全站索引与交互实验导航 - 讲明白',
   description:
-    '讲明白 (JiangMingBai.com) 完整网站地图。涵盖小学趣味数学、初中数理化所有可交互动画实验室、各学段分类索引、认知技能树及搜索引擎规范文件，方便快速检索与导航。',
+    '讲明白 (jiangmb.com) 完整网站地图。涵盖小学趣味数学、初中数理化所有可交互动画实验室、各学段分类索引、认知技能树及搜索引擎规范文件，方便快速检索与导航。',
   keywords: [
     '网站地图',
     'Sitemap',
