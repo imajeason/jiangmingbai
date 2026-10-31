@@ -886,8 +886,35 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {/* 44. 分数巧算之裂项相消法 */}
+        {(topic.animationType === 'fraction-telescoping-sum' || topic.animationType === 'telescoping-fractions' || topic.animationType === 'fraction-telescoping') && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 骨牌卡片 */}
+            <rect x="24" y="32" width="26" height="36" rx="4" fill="#dbeafe" stroke="#2563eb" strokeWidth="1.2" />
+            <text x="37" y="47" textAnchor="middle" fontSize="8.5" fontWeight="800" fill="#1e40af">1/1</text>
+            <text x="37" y="60" textAnchor="middle" fontSize="7" fontWeight="700" fill="#15803d">首项</text>
+
+            <rect x="54" y="32" width="24" height="36" rx="4" fill="#fee2e2" stroke="#dc2626" strokeWidth="1" strokeDasharray="2 2" />
+            <text x="66" y="52" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="#dc2626" textDecoration="line-through">-1/2</text>
+
+            <rect x="82" y="32" width="24" height="36" rx="4" fill="#dcfce7" stroke="#16a34a" strokeWidth="1" strokeDasharray="2 2" />
+            <text x="94" y="52" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="#16a34a" textDecoration="line-through">+1/2</text>
+
+            <rect x="110" y="32" width="26" height="36" rx="4" fill="#fee2e2" stroke="#ef4444" strokeWidth="1.2" />
+            <text x="123" y="47" textAnchor="middle" fontSize="7.5" fontWeight="800" fill="#991b1b">-1/n</text>
+            <text x="123" y="60" textAnchor="middle" fontSize="7" fontWeight="700" fill="#dc2626">末项</text>
+
+            {/* 对消跨弧 */}
+            <path d="M 66 32 Q 80 18 94 32" fill="none" stroke="#dc2626" strokeWidth="1.5" />
+            <text x="80" y="24" textAnchor="middle" fontSize="7" fontWeight="800" fill="#dc2626">对消</text>
+
+            <text x="80" y="16" textAnchor="middle" fontSize="8.5" fill="#2563eb" fontWeight="800">裂项相消 · 骨牌对消</text>
+            <text x="80" y="88" textAnchor="middle" fontSize="7.5" fill="#15803d" fontWeight="700">首项 - 末项 · 1/(n·(n+1)) = 1/n - 1/(n+1)</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
