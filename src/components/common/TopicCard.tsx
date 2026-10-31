@@ -836,8 +836,34 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {/* 42. 梯形蝴蝶模型与沙漏模型 */}
+        {(topic.animationType === 'butterfly-model' || topic.animationType === 'butterfly-model-geometry' || topic.animationType === 'trapezoid-butterfly-model') && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 左翅膀 */}
+            <polygon points="50,30 30,75 80,48" fill="#fed7aa" stroke="#ea580c" strokeWidth="1.2" />
+            {/* 右翅膀 */}
+            <polygon points="110,30 130,75 80,48" fill="#fed7aa" stroke="#ea580c" strokeWidth="1.2" />
+            {/* 上三角 S1 */}
+            <polygon points="50,30 110,30 80,48" fill="#fef08a" stroke="#ca8a04" strokeWidth="1.2" />
+            {/* 下三角 S2 */}
+            <polygon points="30,75 130,75 80,48" fill="#bbf7d0" stroke="#16a34a" strokeWidth="1.2" />
+            {/* 梯形外框线 */}
+            <polygon points="50,30 110,30 130,75 30,75" fill="none" stroke="#1e293b" strokeWidth="1.8" />
+            {/* 对角线交叉 */}
+            <line x1="50" y1="30" x2="130" y2="75" stroke="#475569" strokeWidth="1.2" />
+            <line x1="110" y1="30" x2="30" y2="75" stroke="#475569" strokeWidth="1.2" />
+            {/* 翅膀面积等号 */}
+            <text x="50" y="56" fontSize="7.5" fontWeight="800" fill="#c2410c">S₃</text>
+            <text x="105" y="56" fontSize="7.5" fontWeight="800" fill="#c2410c">S₄</text>
+            <text x="80" y="40" fontSize="7" fontWeight="800" fill="#a16207" textAnchor="middle">S₁</text>
+            <text x="80" y="68" fontSize="7" fontWeight="800" fill="#15803d" textAnchor="middle">S₂</text>
+            <text x="80" y="16" textAnchor="middle" fontSize="8.5" fill="#ea580c" fontWeight="800">蝴蝶模型 · 双翅等积</text>
+            <text x="80" y="90" textAnchor="middle" fontSize="7.5" fill="#2563eb" fontWeight="700">S₃ = S₄ · S₁ × S₂ = S₃ × S₄</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
