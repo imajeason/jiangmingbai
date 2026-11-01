@@ -17,6 +17,11 @@
   - 构建命令：`npm run build`
   - 构建输出目录：`out`
   - 构建环境版本：`NODE_VERSION = 20`
+  - **构建配额保护（防频繁重建防限流）**：
+    - Cloudflare Pages 免费版每月上限为 **500 次构建**（并发构建数 1 个）；
+    - **严禁无意义的高频零碎推送**（如改几个标点或单纯改文档就 push 一次）；
+    - **非发布性修改使用 `[skip ci]`**：凡是修改文档、项目注释、测试脚本或临时提交，必须在 commit message 中注明 `[skip ci]` 或 `[skip build]`，告知 Cloudflare 跳过构建；
+    - **批量开发合并推送**：多知识点或连续性修复应在本地通过 `cmd /c npm run build` 完成全量 0 报错验证后，再一并推送触发正式构建。
 - **开源与授权协议 (Dual-License)**：
   - **网站源代码**：遵循 [MIT License](LICENSE)
   - **知识点讲解、家长辅导锦囊、动画教研资产**：遵循 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-Hans)（非商业性使用、相同方式共享）
@@ -294,10 +299,22 @@ src/
    - 为该知识点在卡片列表区绘制专属 `<svg viewBox="0 0 160 100">` 封面示意图（如韦恩图、时钟、跑道、九宫格、积木等）；
    - 保证首页和分类浏览网格展示生动、直观、色彩协调（已配备默认科技微缩兜底）。
 
-4. **第 4 步：一键推送到线上**
-   ```bash
-   git add .
-   git commit -m "feat(topic): add knowledge point and lab"
-   git push github main
-   ```
-   Cloudflare Pages 会在 30 秒内自动打包生成新的静态网页并完成全站 CDN 更新！
+4. **第 4 步：本地验证与防频繁重建推送规范**
+   - **本地全量构建验证**：
+     ```bash
+     cmd /c npm run build
+     ```
+     必须确认所有静态页面 100% 成功生成且 0 报错，杜绝把构建错误推送到远程浪费额度。
+   - **正式知识点发布推送**：
+     ```bash
+     git add .
+     git commit -m "feat(topic): add <slug> knowledge point and lab"
+     git push github main
+     ```
+   - **纯文档/微调免构建推送（保护 500 次/月配额）**：
+     ```bash
+     git add .
+     git commit -m "docs: update memory and guidelines [skip ci]"
+     git push github main
+     ```
+     带上 `[skip ci]` 或 `[skip build]` 时，Cloudflare Pages 会自动跳过构建，完全不消耗月度额度！
