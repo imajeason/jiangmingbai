@@ -958,8 +958,45 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {['prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 短除法阶梯微缩示意 */}
+            <rect x="22" y="8" width="116" height="84" rx="6" fill="#f8fafc" stroke="#e2e8f0" strokeWidth="1" />
+            {/* L型底衬高亮 */}
+            <path d="M 36 18 L 36 82 L 126 82" fill="none" stroke="#fed7aa" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" opacity="0.6" />
+            {/* 左侧GCD高亮竖条 */}
+            <line x1="36" y1="20" x2="36" y2="68" stroke="#3b82f6" strokeWidth="4" strokeLinecap="round" opacity="0.8" />
+            
+            {/* 短除法阶梯竖横线 */}
+            <path d="M 44 26 L 44 32 L 122 32" fill="none" stroke="#64748b" strokeWidth="1.5" />
+            <path d="M 44 44 L 44 50 L 122 50" fill="none" stroke="#64748b" strokeWidth="1.5" />
+            <path d="M 44 62 L 44 68 L 122 68" fill="none" stroke="#64748b" strokeWidth="1.5" />
+
+            {/* 数字排列 */}
+            {/* Step 1 */}
+            <text x="36" y="29" textAnchor="middle" fontSize="10" fill="#2563eb" fontWeight="800">2</text>
+            <text x="68" y="29" textAnchor="middle" fontSize="10" fill="#334155" fontWeight="600">24</text>
+            <text x="100" y="29" textAnchor="middle" fontSize="10" fill="#334155" fontWeight="600">36</text>
+            {/* Step 2 */}
+            <text x="36" y="47" textAnchor="middle" fontSize="10" fill="#2563eb" fontWeight="800">2</text>
+            <text x="68" y="47" textAnchor="middle" fontSize="10" fill="#334155" fontWeight="600">12</text>
+            <text x="100" y="47" textAnchor="middle" fontSize="10" fill="#334155" fontWeight="600">18</text>
+            {/* Step 3 */}
+            <text x="36" y="65" textAnchor="middle" fontSize="10" fill="#2563eb" fontWeight="800">3</text>
+            <text x="68" y="65" textAnchor="middle" fontSize="10" fill="#334155" fontWeight="600">6</text>
+            <text x="100" y="65" textAnchor="middle" fontSize="10" fill="#334155" fontWeight="600">9</text>
+            {/* Bottom quotients */}
+            <text x="68" y="80" textAnchor="middle" fontSize="10" fill="#ea580c" fontWeight="800">2</text>
+            <text x="100" y="80" textAnchor="middle" fontSize="10" fill="#ea580c" fontWeight="800">3</text>
+
+            {/* 标签提示 */}
+            <text x="25" y="16" fontSize="7" fill="#2563eb" fontWeight="700">左侧 GCD=12</text>
+            <text x="132" y="86" textAnchor="end" fontSize="7" fill="#ea580c" fontWeight="700">大 L 乘积 LCM=72</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
