@@ -180,3 +180,4 @@ $$\frac{S_1}{S_2} = \frac{a_1 \times b_1}{a_2 \times b_2}$$
      $$S(\triangle ABC) = 18 \div \frac{1}{2} = \mathbf{36 \text{ cm}^2}$$  
    - 四边形 $DBCE$ 面积：  
      $$S(DBCE) = 36 - 18 = \mathbf{18 \text{ cm}^2}$$
+
