@@ -2,11 +2,13 @@
 
 import React, { useState } from 'react';
 import styles from '@/styles/animations.module.css';
-import { Grid, Sparkles, CheckCircle2, RefreshCw, HelpCircle, Layers } from 'lucide-react';
+import { Grid, Sparkles, CheckCircle2 } from 'lucide-react';
 
 interface ShapeDef {
   name: string;
   points: { x: number; y: number }[];
+  boundaryPoints: { x: number; y: number }[];
+  interiorPoints: { x: number; y: number }[];
   i: number; // 内部点数
   b: number; // 边上点数
   desc: string;
@@ -15,25 +17,54 @@ interface ShapeDef {
 export default function PickTheoremLab() {
   const shapes: ShapeDef[] = [
     {
-      name: '经典斜角三角形',
-      points: [{ x: 1, y: 1 }, { x: 5, y: 2 }, { x: 2, y: 4 }],
-      i: 5,
+      name: '经典倾斜三角形',
+      points: [{ x: 1, y: 4 }, { x: 5, y: 3 }, { x: 3, y: 0 }],
+      boundaryPoints: [
+        { x: 1, y: 4 }, { x: 5, y: 3 }, { x: 3, y: 0 }, { x: 2, y: 2 }
+      ],
+      interiorPoints: [
+        { x: 2, y: 3 },
+        { x: 3, y: 3 }, { x: 3, y: 2 }, { x: 3, y: 1 },
+        { x: 4, y: 3 }, { x: 4, y: 2 }
+      ],
+      i: 6,
       b: 4,
-      desc: '看似倾斜无从下手，数数钉子立刻秒杀！'
+      desc: '经典倾斜三角形：内部 6 个钉子，边上 4 个钉子，面积 6 + 4/2 - 1 = 7！'
     },
     {
-      name: '凹五边形 (回旋镖)',
-      points: [{ x: 1, y: 1 }, { x: 4, y: 1 }, { x: 5, y: 4 }, { x: 3, y: 2 }, { x: 1, y: 4 }],
-      i: 4,
-      b: 7,
-      desc: '连凹多边形也 100% 完美适用！'
+      name: '尖顶小房子 (凸五边形)',
+      points: [{ x: 1, y: 4 }, { x: 5, y: 4 }, { x: 5, y: 2 }, { x: 3, y: 0 }, { x: 1, y: 2 }],
+      boundaryPoints: [
+        { x: 1, y: 4 }, { x: 2, y: 4 }, { x: 3, y: 4 }, { x: 4, y: 4 }, { x: 5, y: 4 },
+        { x: 5, y: 3 }, { x: 5, y: 2 },
+        { x: 4, y: 1 }, { x: 3, y: 0 },
+        { x: 2, y: 1 }, { x: 1, y: 2 },
+        { x: 1, y: 3 }
+      ],
+      interiorPoints: [
+        { x: 2, y: 3 }, { x: 3, y: 3 }, { x: 4, y: 3 },
+        { x: 2, y: 2 }, { x: 3, y: 2 }, { x: 4, y: 2 },
+        { x: 3, y: 1 }
+      ],
+      i: 7,
+      b: 12,
+      desc: '凸多边形房子：边上 12 个钉子，肚子藏 7 个钉子，面积恰好 12！'
     },
     {
-      name: '不规则大六边形',
-      points: [{ x: 2, y: 1 }, { x: 5, y: 1 }, { x: 5, y: 3 }, { x: 4, y: 5 }, { x: 1, y: 4 }, { x: 1, y: 2 }],
-      i: 8,
-      b: 8,
-      desc: '数清楚内部点与边界点，告别割补切碎！'
+      name: '凹多边形 (回旋镖)',
+      points: [{ x: 1, y: 4 }, { x: 5, y: 4 }, { x: 3, y: 3 }, { x: 1, y: 1 }],
+      boundaryPoints: [
+        { x: 1, y: 4 }, { x: 2, y: 4 }, { x: 3, y: 4 }, { x: 4, y: 4 }, { x: 5, y: 4 },
+        { x: 3, y: 3 },
+        { x: 2, y: 2 },
+        { x: 1, y: 1 }, { x: 1, y: 2 }, { x: 1, y: 3 }
+      ],
+      interiorPoints: [
+        { x: 2, y: 3 }
+      ],
+      i: 1,
+      b: 10,
+      desc: '凹多边形：无论图形多么凹陷扭曲，皮克定理依然 100% 成立！'
     }
   ];
 
@@ -44,8 +75,15 @@ export default function PickTheoremLab() {
   const offsetX = 50;
   const offsetY = 40;
 
-  // 皮克定理面积
+  // 皮克定理面积: S = i + b/2 - 1
   const pickArea = activeShape.i + activeShape.b / 2 - 1;
+
+  // 判定点属性
+  const isBoundary = (x: number, y: number) =>
+    activeShape.boundaryPoints.some(p => p.x === x && p.y === y);
+
+  const isInterior = (x: number, y: number) =>
+    activeShape.interiorPoints.some(p => p.x === x && p.y === y);
 
   return (
     <div className={styles.labContainer}>
@@ -84,7 +122,7 @@ export default function PickTheoremLab() {
           <div style={{
             width: '100%',
             background: '#ecfdf5',
-            padding: '10px 14px',
+            padding: '12px 14px',
             borderRadius: '8px',
             borderLeft: '4px solid #10b981',
             fontSize: '0.875rem',
@@ -93,31 +131,26 @@ export default function PickTheoremLab() {
           }}>
             <strong>【皮克定理核心公式 (Pick&apos;s Theorem)】：</strong>
             <br />
-            <span style={{ fontSize: '1.05rem', fontWeight: 800, color: '#047857' }}>
-              面积 S = i (内部点) + b/2 (边上点一半) - 1
+            <span style={{ fontSize: '1.1rem', fontWeight: 800, color: '#047857' }}>
+              面积 S = i (内部点) + b / 2 (边上点一半) - 1
             </span>
-            <br />
-            钉子板上无论图形多么歪斜、凹凸多边形，<strong>只需数数钉子，一步心算出面积！</strong>
+            <div style={{ marginTop: '4px', fontSize: '0.825rem', color: '#047857' }}>
+              {activeShape.desc}
+            </div>
           </div>
 
           {/* 钉子板 SVG */}
           <div style={{ marginTop: '16px', width: '100%', maxWidth: '380px' }}>
-            <svg viewBox="0 0 340 300" style={{ width: '100%', height: 'auto', overflow: 'visible' }}>
-              <defs>
-                <pattern id="dotGrid" width={gridStep} height={gridStep} patternUnits="userSpaceOnUse">
-                  <circle cx="2" cy="2" r="2" fill="#cbd5e1" />
-                </pattern>
-              </defs>
-
-              {/* 背景格线 */}
-              {Array.from({ length: 7 }).map((_, r) => (
+            <svg viewBox="0 0 325 300" style={{ width: '100%', height: 'auto', overflow: 'visible' }}>
+              {/* 背景格线 6x6 */}
+              {Array.from({ length: 6 }).map((_, r) => (
                 <line
                   key={`h-${r}`}
                   x1={offsetX}
                   y1={offsetY + r * gridStep}
                   x2={offsetX + 5 * gridStep}
                   y2={offsetY + r * gridStep}
-                  stroke="#f1f5f9"
+                  stroke="#e2e8f0"
                   strokeWidth="1.5"
                 />
               ))}
@@ -128,50 +161,72 @@ export default function PickTheoremLab() {
                   y1={offsetY}
                   x2={offsetX + c * gridStep}
                   y2={offsetY + 5 * gridStep}
-                  stroke="#f1f5f9"
+                  stroke="#e2e8f0"
                   strokeWidth="1.5"
                 />
               ))}
 
-              {/* 多边形皮筋 */}
+              {/* 多边形皮筋填充与边缘 */}
               <polygon
                 points={activeShape.points.map(p => `${offsetX + p.x * gridStep},${offsetY + p.y * gridStep}`).join(' ')}
                 fill="#3b82f6"
-                fillOpacity="0.25"
+                fillOpacity="0.18"
                 stroke="#2563eb"
                 strokeWidth="2.5"
                 strokeLinejoin="round"
               />
 
-              {/* 网格上的钉子阵列 */}
+              {/* 网格上的钉子阵列 (精确按内部/边界/外部区分颜色) */}
               {Array.from({ length: 6 }).map((_, r) => (
                 Array.from({ length: 6 }).map((_, c) => {
                   const px = offsetX + c * gridStep;
                   const py = offsetY + r * gridStep;
+                  const onB = isBoundary(c, r);
+                  const inI = isInterior(c, r);
+
+                  if (inI) {
+                    return (
+                      <g key={`${r}-${c}`}>
+                        <circle cx={px} cy={py} r="7" fill="#3b82f6" fillOpacity="0.25" />
+                        <circle cx={px} cy={py} r="4.5" fill="#2563eb" stroke="#ffffff" strokeWidth="1.5" />
+                      </g>
+                    );
+                  }
+                  if (onB) {
+                    return (
+                      <g key={`${r}-${c}`}>
+                        <circle cx={px} cy={py} r="7" fill="#f59e0b" fillOpacity="0.25" />
+                        <circle cx={px} cy={py} r="4.5" fill="#f59e0b" stroke="#ffffff" strokeWidth="1.5" />
+                      </g>
+                    );
+                  }
                   return (
-                    <circle key={`${r}-${c}`} cx={px} cy={py} r="3" fill="#94a3b8" />
+                    <circle key={`${r}-${c}`} cx={px} cy={py} r="2.5" fill="#cbd5e1" />
                   );
                 })
-              ))}
-
-              {/* 顶点大白点 */}
-              {activeShape.points.map((p, idx) => (
-                <circle
-                  key={idx}
-                  cx={offsetX + p.x * gridStep}
-                  cy={offsetY + p.y * gridStep}
-                  r="5"
-                  fill="#f59e0b"
-                  stroke="#ffffff"
-                  strokeWidth="2"
-                />
               ))}
             </svg>
           </div>
 
+          {/* 图例 */}
+          <div style={{ display: 'flex', gap: '16px', marginTop: '10px', fontSize: '0.8rem', color: '#64748b' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+              <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#2563eb', display: 'inline-block' }} />
+              <span>内部点 (i = {activeShape.i})</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+              <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b', display: 'inline-block' }} />
+              <span>边界点 (b = {activeShape.b})</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#cbd5e1', display: 'inline-block' }} />
+              <span>外部点</span>
+            </div>
+          </div>
+
           {/* 实时计数账本仪表盘 */}
           <div style={{
-            marginTop: '12px',
+            marginTop: '14px',
             width: '100%',
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
@@ -190,7 +245,7 @@ export default function PickTheoremLab() {
               <div style={{ fontSize: '1.25rem', fontWeight: 900, color: '#b45309', marginTop: '2px' }}>
                 {activeShape.b} <span style={{ fontSize: '0.75rem' }}>个</span>
               </div>
-              <div style={{ fontSize: '0.7rem', color: '#64748b' }}>皮筋正好穿过的钉子</div>
+              <div style={{ fontSize: '0.7rem', color: '#64748b' }}>皮筋穿过的钉子</div>
             </div>
 
             <div style={{ background: '#ecfdf5', padding: '10px', borderRadius: '8px', border: '1.5px solid #86efac', textAlign: 'center' }}>
@@ -208,4 +263,3 @@ export default function PickTheoremLab() {
     </div>
   );
 }
-
