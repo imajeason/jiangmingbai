@@ -58,6 +58,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'perimeter-vs-area',
       'irregular-perimeter-translation',
       'triangle-area-parallelogram',
+      'half-model-geometry',
       'cube-nets-folding',
       'cube-coloring-cutting',
       'bird-head-model-geometry',
@@ -102,6 +103,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'line-up-ordering',
       'sum-difference-multiple',
       'reverse-thinking-reduction',
+      'mistake-correction-arithmetic',
       'age-difference-problem',
       'counting-segments-handshakes',
       'square-formation-problem',
@@ -143,6 +145,8 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'multiplication-array', to: 'perimeter-vs-area', label: '点阵乘积即矩形面积' },
   { from: 'perimeter-vs-area', to: 'irregular-perimeter-translation', label: '矩形周长到凹凸平移' },
   { from: 'perimeter-vs-area', to: 'triangle-area-parallelogram', label: '矩形面积到三角形割补' },
+  { from: 'triangle-area-parallelogram', to: 'half-model-geometry', label: '割补矩形到对边滑动一半模型' },
+  { from: 'half-model-geometry', to: 'butterfly-model-geometry', label: '一半模型到梯形蝴蝶模型' },
   { from: 'triangle-area-parallelogram', to: 'bird-head-model-geometry', label: '等高比例到共角乘积' },
   { from: 'triangle-area-parallelogram', to: 'butterfly-model-geometry', label: '等底等高到梯形对顶翅膀' },
   { from: 'triangle-area-parallelogram', to: 'swallowtail-model-geometry', label: '等高大减小到燕尾两翼比' },
@@ -182,6 +186,8 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'sum-difference-multiple', to: 'chicken-rabbit-cage', label: '总差量分摊到吹哨抬腿假设' },
   { from: 'counting-segments-handshakes', to: 'pigeonhole-principle', label: '配对去重到最不利组合' },
   { from: 'square-formation-problem', to: 'arithmetic-progression-gauss', label: '同心圈差8到等差数列' },
+  { from: 'reverse-thinking-reduction', to: 'mistake-correction-arithmetic', label: '逆向还原到错中求解' },
+  { from: 'mistake-correction-arithmetic', to: 'substitution-elimination-method', label: '抓不变量到等量代换消元' },
   { from: 'reverse-thinking-reduction', to: 'algebraic-equations-basics', label: '倒推逆运算到代数移项' },
 
   // 分数、比率与高阶综合

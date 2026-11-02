@@ -1116,8 +1116,51 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {['half-model-geometry', 'half-model', 'equal-area-transformation'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 一半模型微缩封面 */}
+            <text x="80" y="22" textAnchor="middle" fontSize="8" fill="#2563eb" fontWeight="800">几何核心 · 一半模型</text>
+            
+            {/* 长方形外框 */}
+            <rect x="25" y="30" width="110" height="48" fill="#f8fafc" stroke="#64748b" strokeWidth="1.2" rx="2" />
+            
+            {/* 核心三角形 (正好占一半) */}
+            <polygon points="25,78 135,78 95,30" fill="#93c5fd" stroke="#2563eb" strokeWidth="1.5" />
+            
+            {/* 左右空白三角形 */}
+            <polygon points="25,78 25,30 95,30" fill="#fef08a" opacity="0.6" stroke="#ca8a04" strokeWidth="1" strokeDasharray="2,2" />
+            <polygon points="135,78 135,30 95,30" fill="#fef08a" opacity="0.6" stroke="#ca8a04" strokeWidth="1" strokeDasharray="2,2" />
+            
+            {/* 顶点 P */}
+            <circle cx="95" cy="30" r="3.5" fill="#ef4444" />
+            
+            <text x="80" y="62" textAnchor="middle" fontSize="8" fill="#1e3a8a" fontWeight="800">S = 50%</text>
+            <text x="80" y="90" textAnchor="middle" fontSize="6.5" fill="#475569" fontWeight="700">等底等高 · 顶点对边滑动面积恒定</text>
+          </svg>
+        )}
+
+        {['mistake-correction-arithmetic', 'mistake-correction', 'careless-mistake-arithmetic'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 错中求解微缩封面 */}
+            <text x="80" y="22" textAnchor="middle" fontSize="8" fill="#0284c7" fontWeight="800">错中求解 · 算式还原侦探</text>
+
+            {/* 错误算式纸条 */}
+            <rect x="22" y="30" width="116" height="22" rx="4" fill="#fee2e2" stroke="#ef4444" strokeWidth="1" />
+            <text x="80" y="44" textAnchor="middle" fontSize="7.5" fill="#b91c1c" fontWeight="700">36 + 52(看错) = 88 ❌</text>
+
+            {/* 还原箭头 */}
+            <path d="M 80 54 L 80 62" stroke="#0ea5e9" strokeWidth="2" markerEnd="url(#arrow)" />
+
+            {/* 正确算式纸条 */}
+            <rect x="22" y="63" width="116" height="22" rx="4" fill="#f0fdf4" stroke="#22c55e" strokeWidth="1" />
+            <text x="80" y="77" textAnchor="middle" fontSize="7.5" fill="#15803d" fontWeight="800">36 + 25 = 61 (还原) ✔️</text>
+
+            <text x="80" y="94" textAnchor="middle" fontSize="6.5" fill="#64748b" fontWeight="600">多看就减 · 少看就加 · 抓不变量</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion', 'swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem', 'profit-loss-discount', 'profit-and-loss', 'economic-profit-problem', 'repeated-meeting-motion', 'repeated-meeting', 'turnback-motion', 'addition-multiplication-principles', 'addition-multiplication-principle', 'combinatorics-principles'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion', 'swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem', 'profit-loss-discount', 'profit-and-loss', 'economic-profit-problem', 'repeated-meeting-motion', 'repeated-meeting', 'turnback-motion', 'addition-multiplication-principles', 'addition-multiplication-principle', 'combinatorics-principles', 'half-model-geometry', 'half-model', 'equal-area-transformation', 'mistake-correction-arithmetic', 'mistake-correction', 'careless-mistake-arithmetic'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
