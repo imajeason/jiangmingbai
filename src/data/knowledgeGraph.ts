@@ -40,6 +40,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'vertical-cryptarithm-math-puzzle',
       'prime-factorization-lcm-gcd',
       'divisibility-rules-math',
+      'modular-congruence-arithmetic',
       'fraction-telescoping-sum',
     ],
   },
@@ -58,6 +59,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'hidden-cubes-counting',
       'perimeter-vs-area',
       'irregular-perimeter-translation',
+      'pick-theorem-lattice',
       'triangle-area-parallelogram',
       'half-model-geometry',
       'cube-nets-folding',
@@ -65,6 +67,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'bird-head-model-geometry',
       'butterfly-model-geometry',
       'swallowtail-model-geometry',
+      'kite-quadrilateral-geometry',
       'circle-area',
       'cylinder-cone-volume',
       'pythagorean-theorem',
@@ -87,6 +90,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'river-boat-motion',
       'circular-track-problem',
       'clock-angle-pursuit',
+      'fast-slow-clock-problem',
       'repeated-meeting-motion',
       'escalator-motion-problem',
     ],
@@ -118,6 +122,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'pigeonhole-principle',
       'logic-reasoning-truth-lie',
       'optimization-pancake-scheduling',
+      'queuing-tian-ji-strategy',
     ],
   },
   {
@@ -212,5 +217,12 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'sum-difference-multiple', to: 'ratio-concentration-problem', label: '溶质不变与杠杆十字交叉' },
   { from: 'fractions-basics', to: 'profit-loss-discount', label: '百分数折扣到成本基准单位1' },
   { from: 'river-boat-motion', to: 'buoyancy-archimedes', label: '水流浮力与排开液体体积' },
+
+  // 几何模型与数论运筹进阶
+  { from: 'clock-angle-pursuit', to: 'fast-slow-clock-problem', label: '两针追及到快慢钟走速比' },
+  { from: 'triangle-area-parallelogram', to: 'pick-theorem-lattice', label: '网格面积到皮克定理钉子板' },
+  { from: 'swallowtail-model-geometry', to: 'kite-quadrilateral-geometry', label: '燕尾两翼比到四边形风筝共边' },
+  { from: 'optimization-pancake-scheduling', to: 'queuing-tian-ji-strategy', label: '烙饼运筹到排队短耗时优先' },
+  { from: 'divisibility-rules-math', to: 'modular-congruence-arithmetic', label: '整除规律到同余与韩信点兵' },
 ];
 

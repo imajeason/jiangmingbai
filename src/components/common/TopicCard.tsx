@@ -1299,8 +1299,103 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {['fast-slow-clock-problem', 'fast-slow-clock'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 快慢钟微缩封面 */}
+            <text x="80" y="20" textAnchor="middle" fontSize="8" fill="#2563eb" fontWeight="800">快慢钟 · 走速比对齐</text>
+            {/* 左表：标准 */}
+            <circle cx="50" cy="50" r="18" fill="#f0fdf4" stroke="#16a34a" strokeWidth="1.2" />
+            <line x1="50" y1="50" x2="50" y2="38" stroke="#16a34a" strokeWidth="1.5" />
+            <line x1="50" y1="50" x2="60" y2="50" stroke="#166534" strokeWidth="1.5" />
+            <text x="50" y="76" textAnchor="middle" fontSize="6.5" fill="#166534" fontWeight="700">标准表 (60分)</text>
+            {/* 右表：慢钟 */}
+            <circle cx="110" cy="50" r="18" fill="#eff6ff" stroke="#2563eb" strokeWidth="1.2" />
+            <line x1="110" y1="50" x2="105" y2="38" stroke="#2563eb" strokeWidth="1.5" />
+            <line x1="110" y1="50" x2="118" y2="53" stroke="#1e3a8a" strokeWidth="1.5" />
+            <text x="110" y="76" textAnchor="middle" fontSize="6.5" fill="#1e40af" fontWeight="700">慢钟 (55分)</text>
+            <text x="80" y="92" textAnchor="middle" fontSize="6.5" fill="#475569" fontWeight="700">走速比 = 60 : 55 ➔ 还原真时间</text>
+          </svg>
+        )}
+
+        {['pick-theorem-lattice', 'pick-theorem'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 皮克定理微缩封面 */}
+            <text x="80" y="20" textAnchor="middle" fontSize="8" fill="#059669" fontWeight="800">皮克定理 · 钉子板面积</text>
+            {/* 网格点 */}
+            {Array.from({ length: 4 }).map((_, r) => (
+              Array.from({ length: 6 }).map((_, c) => (
+                <circle key={`${r}-${c}`} cx={35 + c * 18} cy={30 + r * 14} r="1.5" fill="#cbd5e1" />
+              ))
+            ))}
+            {/* 多边形 */}
+            <polygon points="53,44 107,30 89,72 53,58" fill="#3b82f6" fillOpacity="0.25" stroke="#2563eb" strokeWidth="1.5" />
+            {/* 内部点 (青) */}
+            <circle cx="71" cy="44" r="2.5" fill="#06b6d4" />
+            <circle cx="71" cy="58" r="2.5" fill="#06b6d4" />
+            {/* 边界点 (黄) */}
+            <circle cx="53" cy="44" r="2.5" fill="#f59e0b" />
+            <circle cx="107" cy="30" r="2.5" fill="#f59e0b" />
+            <circle cx="89" cy="72" r="2.5" fill="#f59e0b" />
+            <circle cx="53" cy="58" r="2.5" fill="#f59e0b" />
+            <text x="80" y="92" textAnchor="middle" fontSize="6.5" fill="#047857" fontWeight="800">S = i (内) + b/2 (边) - 1</text>
+          </svg>
+        )}
+
+        {['queuing-tian-ji-strategy', 'queuing-strategy', 'tian-ji-horse-racing'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 统筹排队与田忌赛马微缩封面 */}
+            <text x="80" y="20" textAnchor="middle" fontSize="8" fill="#0284c7" fontWeight="800">统筹博弈 · 短耗时优先与田忌</text>
+            {/* 卡车队列 */}
+            <rect x="25" y="32" width="28" height="20" rx="3" fill="#ecfdf5" stroke="#10b981" strokeWidth="1" />
+            <text x="39" y="45" textAnchor="middle" fontSize="6.5" fill="#065f46" fontWeight="700">丙 1分</text>
+            <text x="59" y="45" textAnchor="middle" fontSize="8" fill="#64748b">→</text>
+            <rect x="66" y="32" width="28" height="20" rx="3" fill="#eff6ff" stroke="#3b82f6" strokeWidth="1" />
+            <text x="80" y="45" textAnchor="middle" fontSize="6.5" fill="#1e40af" fontWeight="700">乙 4分</text>
+            <text x="100" y="45" textAnchor="middle" fontSize="8" fill="#64748b">→</text>
+            <rect x="107" y="32" width="28" height="20" rx="3" fill="#fef2f2" stroke="#ef4444" strokeWidth="1" />
+            <text x="121" y="45" textAnchor="middle" fontSize="6.5" fill="#991b1b" fontWeight="700">甲 8分</text>
+            {/* 口诀标语 */}
+            <text x="80" y="74" textAnchor="middle" fontSize="6.5" fill="#0369a1" fontWeight="700">短耗时排前面 · 总等待时间最少</text>
+            <text x="80" y="88" textAnchor="middle" fontSize="6.5" fill="#d97706" fontWeight="800">田忌赛马：下对上 · 上对中 · 中对下 (2:1)</text>
+          </svg>
+        )}
+
+        {['modular-congruence-arithmetic', 'modular-congruence', 'chinese-remainder-theorem'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 同余特性微缩封面 */}
+            <text x="80" y="20" textAnchor="middle" fontSize="8" fill="#7c3aed" fontWeight="800">同余特性 · 韩信点兵</text>
+            {/* 周期跳步轨道 */}
+            <line x1="25" y1="46" x2="135" y2="46" stroke="#cbd5e1" strokeWidth="2" strokeDasharray="3,2" />
+            <circle cx="45" cy="46" r="6" fill="#ede9fe" stroke="#7c3aed" strokeWidth="1.2" />
+            <text x="45" y="49" textAnchor="middle" fontSize="6" fontWeight="700" fill="#7c3aed">2</text>
+            <path d="M 45 40 Q 67 24 90 40" fill="none" stroke="#7c3aed" strokeWidth="1.5" markerEnd="url(#arrow)" />
+            <text x="67" y="26" textAnchor="middle" fontSize="6" fill="#a855f7" fontWeight="800">+21</text>
+            <circle cx="90" cy="46" r="8" fill="#dcfce7" stroke="#16a34a" strokeWidth="1.5" />
+            <text x="90" y="49" textAnchor="middle" fontSize="7" fontWeight="800" fill="#15803d">23</text>
+            <text x="90" y="66" textAnchor="middle" fontSize="6" fill="#166534" fontWeight="700">23÷5 余 3 ✔️</text>
+            <text x="80" y="88" textAnchor="middle" fontSize="6.5" fill="#475569" fontWeight="700">余同取余 · 差同减差 · 和同加和</text>
+          </svg>
+        )}
+
+        {['kite-quadrilateral-geometry', 'kite-model', 'quadrilateral-diagonal-ratio'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 风筝模型与共边定理微缩封面 */}
+            <text x="80" y="20" textAnchor="middle" fontSize="8" fill="#0891b2" fontWeight="800">风筝模型 · 对顶乘积相等</text>
+            {/* 凸四边形与对角线 */}
+            <polygon points="80,28 125,50 90,80 35,55" fill="#f8fafc" stroke="#475569" strokeWidth="1.2" />
+            <line x1="80" y1="28" x2="90" y2="80" stroke="#0891b2" strokeWidth="1.5" strokeDasharray="2,2" />
+            <line x1="35" y1="55" x2="125" y2="50" stroke="#0891b2" strokeWidth="1.5" strokeDasharray="2,2" />
+            {/* 四块面积 */}
+            <text x="75" y="42" fontSize="6" fill="#2563eb" fontWeight="800">S₁</text>
+            <text x="100" y="52" fontSize="6" fill="#d97706" fontWeight="800">S₂</text>
+            <text x="90" y="68" fontSize="6" fill="#16a34a" fontWeight="800">S₃</text>
+            <text x="55" y="58" fontSize="6" fill="#db2777" fontWeight="800">S₄</text>
+            <text x="80" y="93" textAnchor="middle" fontSize="6.5" fill="#0e7490" fontWeight="800">S₁ × S₃ = S₂ × S₄ (对顶乘积守恒)</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion', 'swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem', 'profit-loss-discount', 'profit-and-loss', 'economic-profit-problem', 'repeated-meeting-motion', 'repeated-meeting', 'turnback-motion', 'addition-multiplication-principles', 'addition-multiplication-principle', 'combinatorics-principles', 'half-model-geometry', 'half-model', 'equal-area-transformation', 'mistake-correction-arithmetic', 'mistake-correction', 'careless-mistake-arithmetic', 'proportional-distribution-sharing', 'proportional-sharing', 'continuous-ratio-unification', 'logic-reasoning-truth-lie', 'logic-truth-lie', 'truth-and-lie-reasoning', 'vertical-cryptarithm-math-puzzle', 'vertical-cryptarithm', 'cryptarithm-puzzle', 'escalator-motion-problem', 'escalator-motion', 'escalator-problem', 'optimization-pancake-scheduling', 'pancake-optimization', 'pancake-problem', 'three-set-venn-diagram', 'three-set-venn', 'three-set-inclusion-exclusion'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion', 'swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem', 'profit-loss-discount', 'profit-and-loss', 'economic-profit-problem', 'repeated-meeting-motion', 'repeated-meeting', 'turnback-motion', 'addition-multiplication-principles', 'addition-multiplication-principle', 'combinatorics-principles', 'half-model-geometry', 'half-model', 'equal-area-transformation', 'mistake-correction-arithmetic', 'mistake-correction', 'careless-mistake-arithmetic', 'proportional-distribution-sharing', 'proportional-sharing', 'continuous-ratio-unification', 'logic-reasoning-truth-lie', 'logic-truth-lie', 'truth-and-lie-reasoning', 'vertical-cryptarithm-math-puzzle', 'vertical-cryptarithm', 'cryptarithm-puzzle', 'escalator-motion-problem', 'escalator-motion', 'escalator-problem', 'optimization-pancake-scheduling', 'pancake-optimization', 'pancake-problem', 'three-set-venn-diagram', 'three-set-venn', 'three-set-inclusion-exclusion', 'fast-slow-clock-problem', 'fast-slow-clock', 'pick-theorem-lattice', 'pick-theorem', 'queuing-tian-ji-strategy', 'queuing-strategy', 'tian-ji-horse-racing', 'modular-congruence-arithmetic', 'modular-congruence', 'chinese-remainder-theorem', 'kite-quadrilateral-geometry', 'kite-model', 'quadrilateral-diagonal-ratio'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
