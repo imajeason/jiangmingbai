@@ -44,6 +44,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'power-last-digit-periodicity',
       'trailing-zeros-factorial',
       'radiant-number-array-puzzle',
+      'divisibility-by-7-11-13',
       'fraction-telescoping-sum',
     ],
   },
@@ -75,7 +76,9 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'circle-square-yin-yang-area',
       'cylinder-cone-volume',
       'cylinder-cutting-surface-area',
+      'cube-hole-drilling-surface-area',
       'pythagorean-theorem',
+      'zhao-shuang-string-figure',
     ],
   },
   {
@@ -132,6 +135,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'defining-new-operations',
       'map-coloring-combinatorics',
       'river-crossing-puzzle',
+      'snail-climbing-well',
     ],
   },
   {
@@ -152,6 +156,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'newton-cow-pasture',
       'ratio-concentration-problem',
       'profit-loss-discount',
+      'tiered-pricing-taxi-fare',
       'buoyancy-archimedes',
     ],
   },
@@ -244,5 +249,10 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'addition-multiplication-principles', to: 'map-coloring-combinatorics', label: '加乘原理到地图相邻涂色' },
   { from: 'cylinder-cone-volume', to: 'cylinder-cutting-surface-area', label: '圆柱体积表面积到横纵截切' },
   { from: 'optimization-pancake-scheduling', to: 'river-crossing-puzzle', label: '烙饼运筹到提灯过桥巨头捆绑' },
+  { from: 'divisibility-rules-math', to: 'divisibility-by-7-11-13', label: '整除规律到1001末三位截断' },
+  { from: 'irregular-perimeter-translation', to: 'cube-hole-drilling-surface-area', label: '平移凹凸到正方体打孔内壁' },
+  { from: 'pythagorean-theorem', to: 'zhao-shuang-string-figure', label: '勾股定理到赵爽弦图无字证明' },
+  { from: 'reverse-thinking-reduction', to: 'snail-climbing-well', label: '逆向还原到蜗牛爬井临界预留' },
+  { from: 'profit-loss-discount', to: 'tiered-pricing-taxi-fare', label: '商业应用到出租车阶梯分段' },
 ];
 

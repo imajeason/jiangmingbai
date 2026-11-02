@@ -96,3 +96,4 @@ $$\mathbf{\text{纵切新增表面积} = 2 \times (2r \times h) = 4rh}$$
   $$\Delta S = 2 \times (2r \times h) = 4rh$$
 - **圆柱切拼成长方体（等体积变形）**：
   表面积平白多出了左右两个垂直侧面，多出 $\mathbf{2rh}$！
+

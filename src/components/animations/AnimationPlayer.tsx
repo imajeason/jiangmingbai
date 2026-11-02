@@ -76,6 +76,11 @@ import RadiantNumberArrayLab from './RadiantNumberArrayLab';
 import MapColoringLab from './MapColoringLab';
 import CylinderCuttingLab from './CylinderCuttingLab';
 import RiverCrossingLab from './RiverCrossingLab';
+import SnailClimbingWellLab from './SnailClimbingWellLab';
+import CubeHoleDrillingLab from './CubeHoleDrillingLab';
+import Divisibility71113Lab from './Divisibility71113Lab';
+import ZhaoShuangStringFigureLab from './ZhaoShuangStringFigureLab';
+import TieredPricingTaxiLab from './TieredPricingTaxiLab';
 
 interface AnimationPlayerProps {
   type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | 'sum-difference-multiple' | 'surplus-and-deficiency' | 'work-rate-problem' | 'newton-cow-pasture' | 'algebraic-equations-basics' | 'river-boat-motion' | 'train-bridge-crossing' | 'average-benchmark' | 'inclusion-exclusion-venn' | 'age-difference' | 'age-difference-problem' | 'periodic-patterns' | 'repeating-patterns-modulo' | 'circular-track' | 'circular-track-problem' | 'reverse-thinking' | 'reverse-thinking-reduction' | 'magic-square' | 'magic-square-number-array' | 'cube-coloring' | 'cube-coloring-cutting' | 'pigeonhole-principle' | 'arithmetic-progression' | 'arithmetic-progression-gauss' | 'irregular-perimeter' | 'irregular-perimeter-translation' | 'distributive-law' | 'distributive-law-area' | 'substitution-elimination' | 'substitution-elimination-method' | 'ratio-concentration' | 'ratio-concentration-problem' | 'clock-angle-pursuit' | 'clock-angle-problem' | 'clock-hands-pursuit' | 'butterfly-model' | 'butterfly-model-geometry' | 'trapezoid-butterfly-model' | 'counting-segments-handshakes' | 'handshake-counting-model' | 'counting-segments' | 'fraction-telescoping-sum' | 'telescoping-fractions' | 'fraction-telescoping' | 'bird-head-model' | 'bird-head-model-geometry' | 'shared-angle-model' | 'square-formation' | 'square-formation-problem' | 'matrix-square-formation' | 'prime-factorization-lcm-gcd' | 'prime-factorization-short-division' | 'prime-factorization' | 'divisibility-rules-math' | 'divisibility-rules' | 'divisibility-criterion' | 'swallowtail-model' | 'swallowtail-model-geometry' | 'swallowtail-theorem' | 'profit-loss-discount' | 'profit-and-loss' | 'economic-profit-problem' | 'repeated-meeting-motion' | 'repeated-meeting' | 'turnback-motion' | 'addition-multiplication-principles' | 'addition-multiplication-principle' | 'combinatorics-principles' | string;
@@ -312,6 +317,26 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
     case 'river-crossing':
     case 'bridge-and-torch':
       return <RiverCrossingLab />;
+    case 'snail-climbing-well':
+    case 'snail-well':
+    case 'frog-climbing-well':
+      return <SnailClimbingWellLab />;
+    case 'cube-hole-drilling-surface-area':
+    case 'cube-hole-drilling':
+    case 'cube-drilling':
+      return <CubeHoleDrillingLab />;
+    case 'divisibility-by-7-11-13':
+    case 'divisibility-7-11-13':
+    case 'divisibility-rules-1001':
+      return <Divisibility71113Lab />;
+    case 'zhao-shuang-string-figure':
+    case 'zhao-shuang':
+    case 'pythagorean-puzzle':
+      return <ZhaoShuangStringFigureLab />;
+    case 'tiered-pricing-taxi-fare':
+    case 'tiered-pricing':
+    case 'taxi-fare-problem':
+      return <TieredPricingTaxiLab />;
 
 
 

@@ -107,3 +107,4 @@ $$\text{零的个数} = \left\lfloor\frac{N}{5}\right\rfloor + \left\lfloor\frac
 - $1000 \div 625 = 1$
 - 零的个数 = $200 + 40 + 8 + 1 = \mathbf{249 \text{ 个 0}}$！
 全程只需做四道除法并相加，10 秒秒杀压轴奥数！
+
