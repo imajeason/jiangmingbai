@@ -56,3 +56,14 @@ export interface TopicItem {
   assessmentPrompt?: string;
   content?: string;
 }
+
+export interface SearchTopicItem {
+  slug: string;
+  title: string;
+  subtitle: string;
+  stage: StageKey;
+  grade: string;
+  subject: SubjectKey;
+  tags: string[];
+  summary: string;
+}

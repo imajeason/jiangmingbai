@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { getAllTopics } from '@/lib/topics';
+import { SearchTopicItem } from '@/types';
 import '@/styles/globals.css';
 import 'katex/dist/katex.min.css';
 
@@ -74,7 +76,20 @@ export default function RootLayout({
           `}
         </Script>
 
-        <Header />
+        {(() => {
+          const allTopics = getAllTopics();
+          const searchIndex: SearchTopicItem[] = allTopics.map((t) => ({
+            slug: t.slug,
+            title: t.title,
+            subtitle: t.subtitle,
+            stage: t.stage,
+            grade: t.grade,
+            subject: t.subject,
+            tags: t.tags,
+            summary: t.summary,
+          }));
+          return <Header searchIndex={searchIndex} />;
+        })()}
         <main style={{ minHeight: 'calc(100vh - var(--header-height) - 300px)' }}>
           {children}
         </main>
