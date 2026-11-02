@@ -32,6 +32,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
     slugs: [
       'ten-frame-addition-subtraction',
       'multiplication-array',
+      'addition-multiplication-principles',
       'periodic-patterns',
       'magic-square-number-array',
       'arithmetic-progression-gauss',
@@ -84,6 +85,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'river-boat-motion',
       'circular-track-problem',
       'clock-angle-pursuit',
+      'repeated-meeting-motion',
     ],
   },
   {
@@ -165,9 +167,12 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'speed-meeting-chasing', to: 'river-boat-motion', label: '基准速度到水流矢量和差' },
   { from: 'speed-meeting-chasing', to: 'circular-track-problem', label: '线段追及到环形封闭套圈' },
   { from: 'speed-meeting-chasing', to: 'clock-angle-pursuit', label: '同向追及到两针追及' },
+  { from: 'speed-meeting-chasing', to: 'repeated-meeting-motion', label: '单次相遇到折返3S' },
 
   // 应用题与代数主线
   { from: 'ten-frame-addition-subtraction', to: 'transfer-and-balance', label: '基准数增减与平衡' },
+  { from: 'multiplication-array', to: 'addition-multiplication-principles', label: '阵列乘积到分步乘法' },
+  { from: 'addition-multiplication-principles', to: 'counting-segments-handshakes', label: '分步组合到握手去重' },
   { from: 'transfer-and-balance', to: 'sum-difference-multiple', label: '去多补少到线段图一份量' },
   { from: 'transfer-and-balance', to: 'average-benchmark', label: '两数平摊到多元移多补少' },
   { from: 'transfer-and-balance', to: 'algebraic-equations-basics', label: '杠杆天平到方程等式性质' },

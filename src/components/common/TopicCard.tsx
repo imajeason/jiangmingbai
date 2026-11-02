@@ -1069,8 +1069,55 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {['repeated-meeting-motion', 'repeated-meeting', 'turnback-motion'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 多次相遇与折返模型微缩示意 */}
+            <rect x="18" y="10" width="124" height="80" rx="6" fill="#f8fafc" stroke="#e2e8f0" strokeWidth="1" />
+            <text x="80" y="24" textAnchor="middle" fontSize="8" fill="#1d4ed8" fontWeight="800">多次相遇 · 折返模型</text>
+            
+            {/* 跑道线段 */}
+            <line x1="30" y1="38" x2="130" y2="38" stroke="#cbd5e1" strokeWidth="3" strokeLinecap="round" />
+            <circle cx="30" cy="38" r="3" fill="#2563eb" />
+            <text x="30" y="32" textAnchor="middle" fontSize="6" fill="#2563eb" fontWeight="800">A</text>
+            <circle cx="130" cy="38" r="3" fill="#ea580c" />
+            <text x="130" y="32" textAnchor="middle" fontSize="6" fill="#ea580c" fontWeight="800">B</text>
+
+            {/* 第1次相遇点 */}
+            <circle cx="70" cy="38" r="3.5" fill="#dc2626" />
+            <text x="70" y="49" textAnchor="middle" fontSize="6" fill="#dc2626" fontWeight="700">第1次(1S)</text>
+
+            {/* 核心公式标签 */}
+            <rect x="25" y="56" width="110" height="26" rx="4" fill="#eff6ff" stroke="#bfdbfe" strokeWidth="1" />
+            <text x="80" y="67" textAnchor="middle" fontSize="7" fill="#1e40af" fontWeight="800">第 n 次相遇合走 (2n - 1)S</text>
+            <text x="80" y="77" textAnchor="middle" fontSize="6.5" fill="#2563eb" fontWeight="700">第2次合走 3S · 各自路程×3</text>
+          </svg>
+        )}
+
+        {['addition-multiplication-principles', 'addition-multiplication-principle', 'combinatorics-principles'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 加法与乘法原理微缩示意 */}
+            <rect x="18" y="10" width="124" height="80" rx="6" fill="#f8fafc" stroke="#e2e8f0" strokeWidth="1" />
+            <text x="80" y="24" textAnchor="middle" fontSize="8" fill="#7e22ce" fontWeight="800">排列组合 · 加乘两大基石</text>
+
+            {/* 分类加法 (左) */}
+            <rect x="24" y="32" width="52" height="34" rx="4" fill="#eff6ff" stroke="#3b82f6" strokeWidth="1" />
+            <text x="50" y="44" textAnchor="middle" fontSize="7" fill="#1e40af" fontWeight="800">分类加法 ➕</text>
+            <text x="50" y="53" textAnchor="middle" fontSize="6" fill="#2563eb">独立成事</text>
+            <text x="50" y="61" textAnchor="middle" fontSize="6" fill="#64748b">m₁ + m₂ + ...</text>
+
+            {/* 分步乘法 (右) */}
+            <rect x="84" y="32" width="52" height="34" rx="4" fill="#f0fdf4" stroke="#22c55e" strokeWidth="1" />
+            <text x="110" y="44" textAnchor="middle" fontSize="7" fill="#15803d" fontWeight="800">分步乘法 ✖️</text>
+            <text x="110" y="53" textAnchor="middle" fontSize="6" fill="#16a34a">链条相接</text>
+            <text x="110" y="61" textAnchor="middle" fontSize="6" fill="#64748b">m₁ × m₂ × ...</text>
+
+            {/* 口诀标语 */}
+            <text x="80" y="81" textAnchor="middle" fontSize="6.5" fill="#475569" fontWeight="700">分类互斥用加法 · 分步连环用乘法</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion', 'swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem', 'profit-loss-discount', 'profit-and-loss', 'economic-profit-problem'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion', 'swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem', 'profit-loss-discount', 'profit-and-loss', 'economic-profit-problem', 'repeated-meeting-motion', 'repeated-meeting', 'turnback-motion', 'addition-multiplication-principles', 'addition-multiplication-principle', 'combinatorics-principles'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
