@@ -1020,8 +1020,57 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {['swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 燕尾模型微缩示意 */}
+            <polygon points="80,12 25,82 135,82" fill="#f8fafc" stroke="#334155" strokeWidth="1.5" />
+            {/* 左翼 S1 */}
+            <polygon points="80,12 25,82 72,55" fill="#38bdf8" fillOpacity="0.5" stroke="#0284c7" strokeWidth="1.2" />
+            {/* 右翼 S2 */}
+            <polygon points="80,12 135,82 72,55" fill="#f472b6" fillOpacity="0.5" stroke="#db2777" strokeWidth="1.2" />
+            {/* 贯穿线 AD */}
+            <line x1="80" y1="12" x2="68" y2="82" stroke="#0f172a" strokeWidth="1.2" strokeDasharray="2 2" />
+            {/* O 点 */}
+            <circle cx="72" cy="55" r="2.5" fill="#e11d48" />
+            {/* 两翼标签 */}
+            <text x="50" y="44" fontSize="7.5" fill="#0284c7" fontWeight="800">S₁</text>
+            <text x="100" y="44" fontSize="7.5" fill="#db2777" fontWeight="800">S₂</text>
+            {/* 底部分段 */}
+            <text x="46" y="93" fontSize="6.5" fill="#0284c7" fontWeight="700">BD</text>
+            <text x="100" y="93" fontSize="6.5" fill="#db2777" fontWeight="700">CD</text>
+            <text x="80" y="24" textAnchor="middle" fontSize="7.5" fill="#1e293b" fontWeight="800">S₁ : S₂ = BD : CD</text>
+          </svg>
+        )}
+
+        {['profit-loss-discount', 'profit-and-loss', 'economic-profit-problem'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 经济利润与打折微缩示意 */}
+            <rect x="18" y="10" width="124" height="80" rx="6" fill="#f8fafc" stroke="#e2e8f0" strokeWidth="1" />
+            <text x="80" y="22" textAnchor="middle" fontSize="8.5" fill="#15803d" fontWeight="800">经济利润 · 打折陷阱</text>
+            
+            {/* 进价 ➔ 标价 ➔ 售价 流水线 */}
+            <rect x="25" y="30" width="30" height="20" rx="3" fill="#eff6ff" stroke="#3b82f6" strokeWidth="1" />
+            <text x="40" y="43" textAnchor="middle" fontSize="7" fill="#1d4ed8" fontWeight="700">进价</text>
+
+            <text x="61" y="43" textAnchor="middle" fontSize="9" fill="#94a3b8" fontWeight="700">➔</text>
+
+            <rect x="68" y="30" width="30" height="20" rx="3" fill="#faf5ff" stroke="#a855f7" strokeWidth="1" />
+            <text x="83" y="43" textAnchor="middle" fontSize="7" fill="#6b21a8" fontWeight="700">标价</text>
+
+            <text x="104" y="43" textAnchor="middle" fontSize="9" fill="#94a3b8" fontWeight="700">➔</text>
+
+            <rect x="110" y="30" width="30" height="20" rx="3" fill="#fff7ed" stroke="#ea580c" strokeWidth="1" />
+            <text x="125" y="43" textAnchor="middle" fontSize="7" fill="#c2410c" fontWeight="700">售价</text>
+
+            {/* 陷阱与公式警示 */}
+            <rect x="25" y="58" width="110" height="24" rx="4" fill="#fef2f2" stroke="#fca5a5" strokeWidth="1" />
+            <text x="80" y="69" textAnchor="middle" fontSize="6.8" fill="#991b1b" fontWeight="800">先涨20%再降20% = 96% (亏4%)</text>
+            <text x="80" y="78" textAnchor="middle" fontSize="6.5" fill="#475569" fontWeight="600">利润率基准单位“1”恒为成本进价</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion', 'swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem', 'profit-loss-discount', 'profit-and-loss', 'economic-profit-problem'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
