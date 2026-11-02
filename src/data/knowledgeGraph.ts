@@ -42,6 +42,8 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'divisibility-rules-math',
       'modular-congruence-arithmetic',
       'power-last-digit-periodicity',
+      'trailing-zeros-factorial',
+      'radiant-number-array-puzzle',
       'fraction-telescoping-sum',
     ],
   },
@@ -72,6 +74,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'circle-area',
       'circle-square-yin-yang-area',
       'cylinder-cone-volume',
+      'cylinder-cutting-surface-area',
       'pythagorean-theorem',
     ],
   },
@@ -127,6 +130,8 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'queuing-tian-ji-strategy',
       'grid-shortest-path-counting',
       'defining-new-operations',
+      'map-coloring-combinatorics',
+      'river-crossing-puzzle',
     ],
   },
   {
@@ -234,5 +239,10 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'addition-multiplication-principles', to: 'grid-shortest-path-counting', label: '加法原理到网格标数法' },
   { from: 'algebraic-equations-basics', to: 'defining-new-operations', label: '代数方程到定义新运算' },
   { from: 'work-rate-problem', to: 'water-tank-pipes-problem', label: '合作工程到进出水管净工效' },
+  { from: 'prime-factorization-lcm-gcd', to: 'trailing-zeros-factorial', label: '质因数分解到末尾零勒让德' },
+  { from: 'magic-square-number-array', to: 'radiant-number-array-puzzle', label: '九宫格到辐射数阵重叠数' },
+  { from: 'addition-multiplication-principles', to: 'map-coloring-combinatorics', label: '加乘原理到地图相邻涂色' },
+  { from: 'cylinder-cone-volume', to: 'cylinder-cutting-surface-area', label: '圆柱体积表面积到横纵截切' },
+  { from: 'optimization-pancake-scheduling', to: 'river-crossing-puzzle', label: '烙饼运筹到提灯过桥巨头捆绑' },
 ];
 

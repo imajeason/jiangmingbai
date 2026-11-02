@@ -1467,8 +1467,62 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {['trailing-zeros-factorial', 'trailing-zeros', 'factorial-zeros'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <rect x="25" y="25" width="110" height="48" rx="8" fill="#ede9fe" stroke="#8b5cf6" strokeWidth="1.5" />
+            <text x="80" y="44" textAnchor="middle" fontSize="8.5" fill="#6d28d9" fontWeight="800">100! 末尾有 24 个 0</text>
+            <text x="80" y="58" textAnchor="middle" fontSize="7" fill="#4338ca" fontWeight="700">100÷5 + 100÷25 = 20 + 4</text>
+            <text x="80" y="88" textAnchor="middle" fontSize="6.5" fill="#6d28d9" fontWeight="800">2×5 配对 · 勒让德定理</text>
+          </svg>
+        )}
+
+        {['radiant-number-array-puzzle', 'radiant-number-array', 'number-array-puzzle'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <polygon points="80,18 40,75 120,75" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+            <circle cx="80" cy="18" r="7" fill="#ea580c" />
+            <text x="80" y="21" textAnchor="middle" fontSize="7" fill="#fff" fontWeight="800">1</text>
+            <circle cx="40" cy="75" r="7" fill="#ea580c" />
+            <text x="40" y="78" textAnchor="middle" fontSize="7" fill="#fff" fontWeight="800">2</text>
+            <circle cx="120" cy="75" r="7" fill="#ea580c" />
+            <text x="120" y="78" textAnchor="middle" fontSize="7" fill="#fff" fontWeight="800">3</text>
+            <circle cx="60" cy="46" r="6" fill="#3b82f6" />
+            <circle cx="100" cy="46" r="6" fill="#3b82f6" />
+            <circle cx="80" cy="75" r="6" fill="#3b82f6" />
+            <text x="80" y="92" textAnchor="middle" fontSize="6.5" fill="#ea580c" fontWeight="800">顶点重叠算2次 · 公共数守恒</text>
+          </svg>
+        )}
+
+        {['map-coloring-combinatorics', 'map-coloring', 'color-regions-puzzle'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <rect x="45" y="20" width="35" height="30" fill="#3b82f6" stroke="#1e293b" strokeWidth="1.2" />
+            <rect x="80" y="20" width="35" height="30" fill="#10b981" stroke="#1e293b" strokeWidth="1.2" />
+            <rect x="45" y="50" width="35" height="30" fill="#8b5cf6" stroke="#1e293b" strokeWidth="1.2" />
+            <rect x="80" y="50" width="35" height="30" fill="#f59e0b" stroke="#1e293b" strokeWidth="1.2" />
+            <text x="80" y="93" textAnchor="middle" fontSize="6.5" fill="#2563eb" fontWeight="800">相邻不同色 · 限制最多先涂</text>
+          </svg>
+        )}
+
+        {['cylinder-cutting-surface-area', 'cylinder-cutting', 'cylinder-cross-section'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <ellipse cx="80" cy="25" rx="30" ry="10" fill="#bae6fd" stroke="#0284c7" strokeWidth="1.5" />
+            <path d="M 50 25 L 50 75 A 30 10 0 0 0 110 75 L 110 25" fill="#f0f9ff" stroke="#0284c7" strokeWidth="1.5" />
+            <line x1="50" y1="50" x2="110" y2="50" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="3 2" />
+            <text x="80" y="53" textAnchor="middle" fontSize="7" fill="#dc2626" fontWeight="800">+2个底圆</text>
+            <text x="80" y="92" textAnchor="middle" fontSize="6.5" fill="#0284c7" fontWeight="800">横切多两底 · 纵切多两长方</text>
+          </svg>
+        )}
+
+        {['river-crossing-puzzle', 'river-crossing', 'bridge-and-torch'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <rect x="30" y="20" width="100" height="56" rx="8" fill="#eff6ff" stroke="#3b82f6" strokeWidth="1.5" />
+            <text x="80" y="40" textAnchor="middle" fontSize="8" fill="#1e40af" fontWeight="800">提灯过桥最优 17 分钟</text>
+            <text x="80" y="56" textAnchor="middle" fontSize="7" fill="#059669" fontWeight="700">捆绑最慢 5分 &amp; 10分 同过</text>
+            <text x="80" y="88" textAnchor="middle" fontSize="6.5" fill="#2563eb" fontWeight="800">运筹极值 · 狼羊逆向带回</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion', 'swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem', 'profit-loss-discount', 'profit-and-loss', 'economic-profit-problem', 'repeated-meeting-motion', 'repeated-meeting', 'turnback-motion', 'addition-multiplication-principles', 'addition-multiplication-principle', 'combinatorics-principles', 'half-model-geometry', 'half-model', 'equal-area-transformation', 'mistake-correction-arithmetic', 'mistake-correction', 'careless-mistake-arithmetic', 'proportional-distribution-sharing', 'proportional-sharing', 'continuous-ratio-unification', 'logic-reasoning-truth-lie', 'logic-truth-lie', 'truth-and-lie-reasoning', 'vertical-cryptarithm-math-puzzle', 'vertical-cryptarithm', 'cryptarithm-puzzle', 'escalator-motion-problem', 'escalator-motion', 'escalator-problem', 'optimization-pancake-scheduling', 'pancake-optimization', 'pancake-problem', 'three-set-venn-diagram', 'three-set-venn', 'three-set-inclusion-exclusion', 'fast-slow-clock-problem', 'fast-slow-clock', 'pick-theorem-lattice', 'pick-theorem', 'queuing-tian-ji-strategy', 'queuing-strategy', 'tian-ji-horse-racing', 'modular-congruence-arithmetic', 'modular-congruence', 'chinese-remainder-theorem', 'kite-quadrilateral-geometry', 'kite-model', 'quadrilateral-diagonal-ratio', 'grid-shortest-path-counting', 'grid-shortest-path', 'street-grid-counting', 'circle-square-yin-yang-area', 'circle-square-area', 'leaf-flower-area', 'power-last-digit-periodicity', 'power-last-digit', 'last-digit-period', 'defining-new-operations', 'defined-operations', 'new-math-operations', 'water-tank-pipes-problem', 'water-pipe-problem', 'tank-pipes-problem'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion', 'swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem', 'profit-loss-discount', 'profit-and-loss', 'economic-profit-problem', 'repeated-meeting-motion', 'repeated-meeting', 'turnback-motion', 'addition-multiplication-principles', 'addition-multiplication-principle', 'combinatorics-principles', 'half-model-geometry', 'half-model', 'equal-area-transformation', 'mistake-correction-arithmetic', 'mistake-correction', 'careless-mistake-arithmetic', 'proportional-distribution-sharing', 'proportional-sharing', 'continuous-ratio-unification', 'logic-reasoning-truth-lie', 'logic-truth-lie', 'truth-and-lie-reasoning', 'vertical-cryptarithm-math-puzzle', 'vertical-cryptarithm', 'cryptarithm-puzzle', 'escalator-motion-problem', 'escalator-motion', 'escalator-problem', 'optimization-pancake-scheduling', 'pancake-optimization', 'pancake-problem', 'three-set-venn-diagram', 'three-set-venn', 'three-set-inclusion-exclusion', 'fast-slow-clock-problem', 'fast-slow-clock', 'pick-theorem-lattice', 'pick-theorem', 'queuing-tian-ji-strategy', 'queuing-strategy', 'tian-ji-horse-racing', 'modular-congruence-arithmetic', 'modular-congruence', 'chinese-remainder-theorem', 'kite-quadrilateral-geometry', 'kite-model', 'quadrilateral-diagonal-ratio', 'grid-shortest-path-counting', 'grid-shortest-path', 'street-grid-counting', 'circle-square-yin-yang-area', 'circle-square-area', 'leaf-flower-area', 'power-last-digit-periodicity', 'power-last-digit', 'last-digit-period', 'defining-new-operations', 'defined-operations', 'new-math-operations', 'water-tank-pipes-problem', 'water-pipe-problem', 'tank-pipes-problem', 'trailing-zeros-factorial', 'trailing-zeros', 'factorial-zeros', 'radiant-number-array-puzzle', 'radiant-number-array', 'number-array-puzzle', 'map-coloring-combinatorics', 'map-coloring', 'color-regions-puzzle', 'cylinder-cutting-surface-area', 'cylinder-cutting', 'cylinder-cross-section', 'river-crossing-puzzle', 'river-crossing', 'bridge-and-torch'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
