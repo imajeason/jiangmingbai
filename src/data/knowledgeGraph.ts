@@ -112,6 +112,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'chicken-rabbit-cage',
       'surplus-and-deficiency',
       'pigeonhole-principle',
+      'logic-reasoning-truth-lie',
     ],
   },
   {
@@ -125,6 +126,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
     description: '从分数直观切分、天平方程等式性质，进阶单位“1”工程合作、牛吃草动态追及、十字交叉浓度、经济利润打折与浮力物理实验。',
     slugs: [
       'fractions-basics',
+      'proportional-distribution-sharing',
       'algebraic-equations-basics',
       'work-rate-problem',
       'newton-cow-pasture',
@@ -185,12 +187,15 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'sum-difference-multiple', to: 'substitution-elimination-method', label: '一份量代换到加减消元' },
   { from: 'sum-difference-multiple', to: 'chicken-rabbit-cage', label: '总差量分摊到吹哨抬腿假设' },
   { from: 'counting-segments-handshakes', to: 'pigeonhole-principle', label: '配对去重到最不利组合' },
+  { from: 'pigeonhole-principle', to: 'logic-reasoning-truth-lie', label: '最不利反证到逻辑矛盾推理' },
   { from: 'square-formation-problem', to: 'arithmetic-progression-gauss', label: '同心圈差8到等差数列' },
   { from: 'reverse-thinking-reduction', to: 'mistake-correction-arithmetic', label: '逆向还原到错中求解' },
   { from: 'mistake-correction-arithmetic', to: 'substitution-elimination-method', label: '抓不变量到等量代换消元' },
   { from: 'reverse-thinking-reduction', to: 'algebraic-equations-basics', label: '倒推逆运算到代数移项' },
 
   // 分数、比率与高阶综合
+  { from: 'fractions-basics', to: 'proportional-distribution-sharing', label: '部分占整体到按比例分配' },
+  { from: 'proportional-distribution-sharing', to: 'ratio-concentration-problem', label: '连比分配到浓度十字交叉' },
   { from: 'fractions-basics', to: 'work-rate-problem', label: '部分占整体到工作总量单位1' },
   { from: 'speed-meeting-chasing', to: 'work-rate-problem', label: '合速度到合工效' },
   { from: 'speed-meeting-chasing', to: 'newton-cow-pasture', label: '追及相消到老草与新草' },

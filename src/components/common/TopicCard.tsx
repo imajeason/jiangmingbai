@@ -1159,8 +1159,54 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {['proportional-distribution-sharing', 'proportional-sharing', 'continuous-ratio-unification'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 按比例分配微缩封面 */}
+            <text x="80" y="22" textAnchor="middle" fontSize="8" fill="#059669" fontWeight="800">按比例分配 · 连比统一桥梁</text>
+
+            {/* 三色彩色比例条 */}
+            <rect x="22" y="32" width="30" height="26" rx="3" fill="#3b82f6" />
+            <text x="37" y="48" textAnchor="middle" fontSize="7" fill="#ffffff" fontWeight="800">甲 8份</text>
+
+            <rect x="54" y="32" width="46" height="26" rx="3" fill="#f59e0b" />
+            <text x="77" y="48" textAnchor="middle" fontSize="7" fill="#ffffff" fontWeight="800">乙 12份 (桥梁)</text>
+
+            <rect x="102" y="32" width="36" height="26" rx="3" fill="#10b981" />
+            <text x="120" y="48" textAnchor="middle" fontSize="7" fill="#ffffff" fontWeight="800">丙 15份</text>
+
+            {/* 连比结果 */}
+            <rect x="22" y="64" width="116" height="18" rx="4" fill="#ecfdf5" stroke="#10b981" strokeWidth="1" />
+            <text x="80" y="76" textAnchor="middle" fontSize="7.5" fill="#047857" fontWeight="800">甲:乙:丙 = 8 : 12 : 15 (共35份)</text>
+
+            <text x="80" y="93" textAnchor="middle" fontSize="6.5" fill="#64748b" fontWeight="600">统一一份量 · 算总份数 · 分配到人</text>
+          </svg>
+        )}
+
+        {['logic-reasoning-truth-lie', 'logic-truth-lie', 'truth-and-lie-reasoning'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            {/* 逻辑推理与真假话微缩封面 */}
+            <text x="80" y="22" textAnchor="middle" fontSize="8" fill="#dc2626" fontWeight="800">逻辑推理 · 矛盾法则破案</text>
+
+            {/* 侦探放大镜与对立双方 */}
+            <circle cx="80" cy="52" r="22" fill="#fef2f2" stroke="#ef4444" strokeWidth="1.5" />
+            <line x1="95" y1="67" x2="110" y2="82" stroke="#dc2626" strokeWidth="3" strokeLinecap="round" />
+
+            {/* 矛盾两人对话 */}
+            <rect x="20" y="36" width="36" height="20" rx="3" fill="#fee2e2" stroke="#ef4444" strokeWidth="1" />
+            <text x="38" y="49" textAnchor="middle" fontSize="6.5" fill="#991b1b" fontWeight="700">乙: 是丁</text>
+
+            <text x="80" y="48" textAnchor="middle" fontSize="11" fill="#dc2626" fontWeight="900">⚡</text>
+            <text x="80" y="60" textAnchor="middle" fontSize="6.5" fill="#b91c1c" fontWeight="800">互为对立</text>
+
+            <rect x="104" y="36" width="36" height="20" rx="3" fill="#f0fdf4" stroke="#22c55e" strokeWidth="1" />
+            <text x="122" y="49" textAnchor="middle" fontSize="6.5" fill="#15803d" fontWeight="700">丁: 不是我</text>
+
+            <text x="80" y="93" textAnchor="middle" fontSize="6.5" fill="#475569" fontWeight="700">对立必有一真一假 · 假设法逐一排查</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion', 'swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem', 'profit-loss-discount', 'profit-and-loss', 'economic-profit-problem', 'repeated-meeting-motion', 'repeated-meeting', 'turnback-motion', 'addition-multiplication-principles', 'addition-multiplication-principle', 'combinatorics-principles', 'half-model-geometry', 'half-model', 'equal-area-transformation', 'mistake-correction-arithmetic', 'mistake-correction', 'careless-mistake-arithmetic'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion', 'swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem', 'profit-loss-discount', 'profit-and-loss', 'economic-profit-problem', 'repeated-meeting-motion', 'repeated-meeting', 'turnback-motion', 'addition-multiplication-principles', 'addition-multiplication-principle', 'combinatorics-principles', 'half-model-geometry', 'half-model', 'equal-area-transformation', 'mistake-correction-arithmetic', 'mistake-correction', 'careless-mistake-arithmetic', 'proportional-distribution-sharing', 'proportional-sharing', 'continuous-ratio-unification', 'logic-reasoning-truth-lie', 'logic-truth-lie', 'truth-and-lie-reasoning'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />
