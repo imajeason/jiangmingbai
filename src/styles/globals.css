@@ -36,7 +36,13 @@
   --radius-lg: 16px;
   --radius-full: 9999px;
 
-  --header-height: 64px;
+  --header-height: 96px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 88px;
+  }
 }
 
 * {

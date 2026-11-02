@@ -40,57 +40,65 @@ export default function Header({ searchIndex = [] }: HeaderProps) {
   return (
     <>
       <header className={`${styles.header} glass-effect`}>
-        <div className={`container ${styles.headerInner}`}>
-          <Link href="/" className={styles.brand}>
-            <div className={styles.brandLogo}>讲</div>
-            <div className={styles.brandName}>
-              <span className={styles.brandTitle}>讲明白</span>
-              <span className={styles.brandSlogan}>中小学知识点 JS 交互实验室</span>
-            </div>
-          </Link>
-
-          <nav className={styles.nav}>
-            {navLinks.map((link) => {
-              const Icon = link.icon;
-              const isActive = link.href === '/' 
-                ? pathname === '/' 
-                : pathname.startsWith(link.href);
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`${styles.navItem} ${isActive ? styles.navItemActive : ''}`}
-                >
-                  <Icon size={16} />
-                  <span>{link.label}</span>
-                </Link>
-              );
-            })}
-          </nav>
-
-          <div className={styles.headerActions}>
-            {/* 顶部搜索框按钮 */}
-            <button
-              type="button"
-              className={searchStyles.headerSearchBtn}
-              onClick={() => setIsSearchOpen(true)}
-              title="搜索知识点 (Ctrl+K / ⌘K)"
-              aria-label="搜索知识点"
-            >
-              <Search size={15} />
-              <span className={searchStyles.headerSearchText}>搜索知识点...</span>
-              <kbd className={searchStyles.headerSearchKbd}>⌘K</kbd>
-            </button>
-
-            <div className={styles.parentBadge}>
-              <HeartHandshake size={14} />
-              <span>家长辅导神器</span>
-            </div>
-
-            <Link href="/chuzhong/physics/buoyancy-archimedes" className="btn btn-primary" style={{ padding: '6px 14px', fontSize: '0.85rem' }}>
-              <Sparkles size={15} />
-              <span>体验演示</span>
+        {/* 第一行：品牌 Logo 与右侧搜索及辅助操作 */}
+        <div className={styles.headerTopRow}>
+          <div className={`container ${styles.headerTopInner}`}>
+            <Link href="/" className={styles.brand}>
+              <div className={styles.brandLogo}>讲</div>
+              <div className={styles.brandName}>
+                <span className={styles.brandTitle}>讲明白</span>
+                <span className={styles.brandSlogan}>中小学知识点 JS 交互实验室</span>
+              </div>
             </Link>
+
+            <div className={styles.headerActions}>
+              {/* 顶部搜索框按钮 */}
+              <button
+                type="button"
+                className={searchStyles.headerSearchBtn}
+                onClick={() => setIsSearchOpen(true)}
+                title="搜索知识点 (Ctrl+K / ⌘K)"
+                aria-label="搜索知识点"
+              >
+                <Search size={15} />
+                <span className={searchStyles.headerSearchText}>搜索知识点...</span>
+                <kbd className={searchStyles.headerSearchKbd}>⌘K</kbd>
+              </button>
+
+              <div className={styles.parentBadge}>
+                <HeartHandshake size={14} />
+                <span>家长辅导神器</span>
+              </div>
+
+              <Link href="/chuzhong/physics/buoyancy-archimedes" className={`btn btn-primary ${styles.tryBtn}`}>
+                <Sparkles size={15} />
+                <span>体验演示</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* 第二行：主菜单导航栏（整洁居左，支持移动端横向丝滑滑动，永不挤压折行） */}
+        <div className={styles.headerNavRow}>
+          <div className={`container ${styles.headerNavInner}`}>
+            <nav className={styles.nav}>
+              {navLinks.map((link) => {
+                const Icon = link.icon;
+                const isActive = link.href === '/' 
+                  ? pathname === '/' 
+                  : pathname.startsWith(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`${styles.navItem} ${isActive ? styles.navItemActive : ''}`}
+                  >
+                    <Icon size={15} />
+                    <span>{link.label}</span>
+                  </Link>
+                );
+              })}
+            </nav>
           </div>
         </div>
       </header>
