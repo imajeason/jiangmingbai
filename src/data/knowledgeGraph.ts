@@ -41,6 +41,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'prime-factorization-lcm-gcd',
       'divisibility-rules-math',
       'modular-congruence-arithmetic',
+      'power-last-digit-periodicity',
       'fraction-telescoping-sum',
     ],
   },
@@ -69,6 +70,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'swallowtail-model-geometry',
       'kite-quadrilateral-geometry',
       'circle-area',
+      'circle-square-yin-yang-area',
       'cylinder-cone-volume',
       'pythagorean-theorem',
     ],
@@ -123,6 +125,8 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'logic-reasoning-truth-lie',
       'optimization-pancake-scheduling',
       'queuing-tian-ji-strategy',
+      'grid-shortest-path-counting',
+      'defining-new-operations',
     ],
   },
   {
@@ -139,6 +143,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'proportional-distribution-sharing',
       'algebraic-equations-basics',
       'work-rate-problem',
+      'water-tank-pipes-problem',
       'newton-cow-pasture',
       'ratio-concentration-problem',
       'profit-loss-discount',
@@ -224,5 +229,10 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'swallowtail-model-geometry', to: 'kite-quadrilateral-geometry', label: '燕尾两翼比到四边形风筝共边' },
   { from: 'optimization-pancake-scheduling', to: 'queuing-tian-ji-strategy', label: '烙饼运筹到排队短耗时优先' },
   { from: 'divisibility-rules-math', to: 'modular-congruence-arithmetic', label: '整除规律到同余与韩信点兵' },
+  { from: 'periodic-patterns', to: 'power-last-digit-periodicity', label: '循环周期到幂末位数' },
+  { from: 'circle-area', to: 'circle-square-yin-yang-area', label: '圆面积到正方形叶形重叠' },
+  { from: 'addition-multiplication-principles', to: 'grid-shortest-path-counting', label: '加法原理到网格标数法' },
+  { from: 'algebraic-equations-basics', to: 'defining-new-operations', label: '代数方程到定义新运算' },
+  { from: 'work-rate-problem', to: 'water-tank-pipes-problem', label: '合作工程到进出水管净工效' },
 ];
 

@@ -1394,8 +1394,81 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {['grid-shortest-path-counting', 'grid-shortest-path', 'street-grid-counting'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <line x1="45" y1="20" x2="115" y2="20" stroke="#cbd5e1" strokeWidth="1.5" />
+            <line x1="45" y1="50" x2="115" y2="50" stroke="#cbd5e1" strokeWidth="1.5" />
+            <line x1="45" y1="80" x2="115" y2="80" stroke="#cbd5e1" strokeWidth="1.5" />
+            <line x1="45" y1="20" x2="45" y2="80" stroke="#cbd5e1" strokeWidth="1.5" />
+            <line x1="80" y1="20" x2="80" y2="80" stroke="#cbd5e1" strokeWidth="1.5" />
+            <line x1="115" y1="20" x2="115" y2="80" stroke="#cbd5e1" strokeWidth="1.5" />
+            <circle cx="45" cy="80" r="7" fill="#10b981" />
+            <text x="45" y="83" textAnchor="middle" fontSize="7" fill="#fff" fontWeight="800">A</text>
+            <circle cx="115" cy="20" r="7" fill="#ef4444" />
+            <text x="115" y="23" textAnchor="middle" fontSize="7" fill="#fff" fontWeight="800">6</text>
+            <circle cx="80" cy="80" r="6" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
+            <text x="80" y="82.5" textAnchor="middle" fontSize="6.5" fill="#1d4ed8" fontWeight="800">1</text>
+            <circle cx="115" cy="80" r="6" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
+            <text x="115" y="82.5" textAnchor="middle" fontSize="6.5" fill="#1d4ed8" fontWeight="800">1</text>
+            <circle cx="45" cy="50" r="6" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
+            <text x="45" y="52.5" textAnchor="middle" fontSize="6.5" fill="#1d4ed8" fontWeight="800">1</text>
+            <circle cx="80" cy="50" r="6.5" fill="#bfdbfe" stroke="#1d4ed8" strokeWidth="1" />
+            <text x="80" y="52.5" textAnchor="middle" fontSize="7" fill="#1e3a8a" fontWeight="800">2</text>
+            <circle cx="115" cy="50" r="6.5" fill="#bfdbfe" stroke="#1d4ed8" strokeWidth="1" />
+            <text x="115" y="52.5" textAnchor="middle" fontSize="7" fill="#1e3a8a" fontWeight="800">3</text>
+            <text x="80" y="94" textAnchor="middle" fontSize="6.5" fill="#2563eb" fontWeight="800">标数法：左 + 下 = 本点走法</text>
+          </svg>
+        )}
+
+        {['circle-square-yin-yang-area', 'circle-square-area', 'leaf-flower-area'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <rect x="50" y="20" width="60" height="60" fill="#f8fafc" stroke="#334155" strokeWidth="1.5" />
+            <path d="M 50 20 A 60 60 0 0 1 110 80 A 60 60 0 0 1 50 20 Z" fill="#38bdf8" stroke="#0284c7" strokeWidth="1.5" />
+            <text x="80" y="53" textAnchor="middle" fontSize="8" fill="#0369a1" fontWeight="800">0.57r²</text>
+            <text x="80" y="92" textAnchor="middle" fontSize="6.5" fill="#0284c7" fontWeight="800">重叠叶形 = 两扇形 - 正方形</text>
+          </svg>
+        )}
+
+        {['power-last-digit-periodicity', 'power-last-digit', 'last-digit-period'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <circle cx="80" cy="45" r="28" fill="none" stroke="#e2e8f0" strokeWidth="2" strokeDasharray="3 3" />
+            <circle cx="80" cy="17" r="9" fill="#3b82f6" />
+            <text x="80" y="20" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="800">2</text>
+            <circle cx="108" cy="45" r="9" fill="#10b981" />
+            <text x="108" y="48" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="800">4</text>
+            <circle cx="80" cy="73" r="9" fill="#f59e0b" />
+            <text x="80" y="76" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="800">8</text>
+            <circle cx="52" cy="45" r="9" fill="#ec4899" />
+            <text x="52" y="48" textAnchor="middle" fontSize="8" fill="#fff" fontWeight="800">6</text>
+            <text x="80" y="48" textAnchor="middle" fontSize="7" fill="#64748b" fontWeight="800">T=4</text>
+            <text x="80" y="93" textAnchor="middle" fontSize="6.5" fill="#2563eb" fontWeight="800">2ⁿ 周期律：除以 4 看余数</text>
+          </svg>
+        )}
+
+        {['defining-new-operations', 'defined-operations', 'new-math-operations'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <rect x="35" y="25" width="90" height="46" rx="8" fill="#ede9fe" stroke="#8b5cf6" strokeWidth="1.5" />
+            <text x="80" y="43" textAnchor="middle" fontSize="8.5" fill="#6d28d9" fontWeight="800">a ⊕ b = 2a + 3b</text>
+            <path d="M 50 15 L 50 25 M 110 15 L 110 25" stroke="#8b5cf6" strokeWidth="2" />
+            <text x="80" y="61" textAnchor="middle" fontSize="7.5" fill="#4c1d95" fontWeight="700">对号入座替换零件</text>
+            <text x="80" y="88" textAnchor="middle" fontSize="6.5" fill="#7c3aed" fontWeight="800">特殊符号也是代数流水线</text>
+          </svg>
+        )}
+
+        {['water-tank-pipes-problem', 'water-pipe-problem', 'tank-pipes-problem'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <rect x="50" y="25" width="60" height="50" rx="3" fill="#f1f5f9" stroke="#334155" strokeWidth="1.5" />
+            <rect x="52" y="45" width="56" height="28" fill="#38bdf8" opacity="0.8" />
+            <rect x="58" y="10" width="10" height="15" fill="#93c5fd" stroke="#2563eb" strokeWidth="1" />
+            <line x1="63" y1="25" x2="63" y2="45" stroke="#60a5fa" strokeWidth="2" strokeDasharray="2 2" />
+            <rect x="110" y="60" width="15" height="8" fill="#fca5a5" stroke="#ef4444" strokeWidth="1" />
+            <text x="80" y="58" textAnchor="middle" fontSize="7" fill="#0369a1" fontWeight="800">净工效</text>
+            <text x="80" y="90" textAnchor="middle" fontSize="6.5" fill="#0284c7" fontWeight="800">进出抵消：1/A - 1/B</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion', 'swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem', 'profit-loss-discount', 'profit-and-loss', 'economic-profit-problem', 'repeated-meeting-motion', 'repeated-meeting', 'turnback-motion', 'addition-multiplication-principles', 'addition-multiplication-principle', 'combinatorics-principles', 'half-model-geometry', 'half-model', 'equal-area-transformation', 'mistake-correction-arithmetic', 'mistake-correction', 'careless-mistake-arithmetic', 'proportional-distribution-sharing', 'proportional-sharing', 'continuous-ratio-unification', 'logic-reasoning-truth-lie', 'logic-truth-lie', 'truth-and-lie-reasoning', 'vertical-cryptarithm-math-puzzle', 'vertical-cryptarithm', 'cryptarithm-puzzle', 'escalator-motion-problem', 'escalator-motion', 'escalator-problem', 'optimization-pancake-scheduling', 'pancake-optimization', 'pancake-problem', 'three-set-venn-diagram', 'three-set-venn', 'three-set-inclusion-exclusion', 'fast-slow-clock-problem', 'fast-slow-clock', 'pick-theorem-lattice', 'pick-theorem', 'queuing-tian-ji-strategy', 'queuing-strategy', 'tian-ji-horse-racing', 'modular-congruence-arithmetic', 'modular-congruence', 'chinese-remainder-theorem', 'kite-quadrilateral-geometry', 'kite-model', 'quadrilateral-diagonal-ratio'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion', 'swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem', 'profit-loss-discount', 'profit-and-loss', 'economic-profit-problem', 'repeated-meeting-motion', 'repeated-meeting', 'turnback-motion', 'addition-multiplication-principles', 'addition-multiplication-principle', 'combinatorics-principles', 'half-model-geometry', 'half-model', 'equal-area-transformation', 'mistake-correction-arithmetic', 'mistake-correction', 'careless-mistake-arithmetic', 'proportional-distribution-sharing', 'proportional-sharing', 'continuous-ratio-unification', 'logic-reasoning-truth-lie', 'logic-truth-lie', 'truth-and-lie-reasoning', 'vertical-cryptarithm-math-puzzle', 'vertical-cryptarithm', 'cryptarithm-puzzle', 'escalator-motion-problem', 'escalator-motion', 'escalator-problem', 'optimization-pancake-scheduling', 'pancake-optimization', 'pancake-problem', 'three-set-venn-diagram', 'three-set-venn', 'three-set-inclusion-exclusion', 'fast-slow-clock-problem', 'fast-slow-clock', 'pick-theorem-lattice', 'pick-theorem', 'queuing-tian-ji-strategy', 'queuing-strategy', 'tian-ji-horse-racing', 'modular-congruence-arithmetic', 'modular-congruence', 'chinese-remainder-theorem', 'kite-quadrilateral-geometry', 'kite-model', 'quadrilateral-diagonal-ratio', 'grid-shortest-path-counting', 'grid-shortest-path', 'street-grid-counting', 'circle-square-yin-yang-area', 'circle-square-area', 'leaf-flower-area', 'power-last-digit-periodicity', 'power-last-digit', 'last-digit-period', 'defining-new-operations', 'defined-operations', 'new-math-operations', 'water-tank-pipes-problem', 'water-pipe-problem', 'tank-pipes-problem'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />

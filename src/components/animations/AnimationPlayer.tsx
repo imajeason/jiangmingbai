@@ -66,6 +66,11 @@ import PickTheoremLab from './PickTheoremLab';
 import QueuingTianJiLab from './QueuingTianJiLab';
 import ModularCongruenceLab from './ModularCongruenceLab';
 import KiteGeometryLab from './KiteGeometryLab';
+import GridShortestPathLab from './GridShortestPathLab';
+import CircleSquareAreaLab from './CircleSquareAreaLab';
+import PowerLastDigitLab from './PowerLastDigitLab';
+import DefiningNewOperationsLab from './DefiningNewOperationsLab';
+import WaterTankPipesLab from './WaterTankPipesLab';
 
 interface AnimationPlayerProps {
   type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | 'sum-difference-multiple' | 'surplus-and-deficiency' | 'work-rate-problem' | 'newton-cow-pasture' | 'algebraic-equations-basics' | 'river-boat-motion' | 'train-bridge-crossing' | 'average-benchmark' | 'inclusion-exclusion-venn' | 'age-difference' | 'age-difference-problem' | 'periodic-patterns' | 'repeating-patterns-modulo' | 'circular-track' | 'circular-track-problem' | 'reverse-thinking' | 'reverse-thinking-reduction' | 'magic-square' | 'magic-square-number-array' | 'cube-coloring' | 'cube-coloring-cutting' | 'pigeonhole-principle' | 'arithmetic-progression' | 'arithmetic-progression-gauss' | 'irregular-perimeter' | 'irregular-perimeter-translation' | 'distributive-law' | 'distributive-law-area' | 'substitution-elimination' | 'substitution-elimination-method' | 'ratio-concentration' | 'ratio-concentration-problem' | 'clock-angle-pursuit' | 'clock-angle-problem' | 'clock-hands-pursuit' | 'butterfly-model' | 'butterfly-model-geometry' | 'trapezoid-butterfly-model' | 'counting-segments-handshakes' | 'handshake-counting-model' | 'counting-segments' | 'fraction-telescoping-sum' | 'telescoping-fractions' | 'fraction-telescoping' | 'bird-head-model' | 'bird-head-model-geometry' | 'shared-angle-model' | 'square-formation' | 'square-formation-problem' | 'matrix-square-formation' | 'prime-factorization-lcm-gcd' | 'prime-factorization-short-division' | 'prime-factorization' | 'divisibility-rules-math' | 'divisibility-rules' | 'divisibility-criterion' | 'swallowtail-model' | 'swallowtail-model-geometry' | 'swallowtail-theorem' | 'profit-loss-discount' | 'profit-and-loss' | 'economic-profit-problem' | 'repeated-meeting-motion' | 'repeated-meeting' | 'turnback-motion' | 'addition-multiplication-principles' | 'addition-multiplication-principle' | 'combinatorics-principles' | string;
@@ -262,6 +267,26 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
     case 'kite-model':
     case 'quadrilateral-diagonal-ratio':
       return <KiteGeometryLab />;
+    case 'grid-shortest-path-counting':
+    case 'grid-shortest-path':
+    case 'street-grid-counting':
+      return <GridShortestPathLab />;
+    case 'circle-square-yin-yang-area':
+    case 'circle-square-area':
+    case 'leaf-flower-area':
+      return <CircleSquareAreaLab />;
+    case 'power-last-digit-periodicity':
+    case 'power-last-digit':
+    case 'last-digit-period':
+      return <PowerLastDigitLab />;
+    case 'defining-new-operations':
+    case 'defined-operations':
+    case 'new-math-operations':
+      return <DefiningNewOperationsLab />;
+    case 'water-tank-pipes-problem':
+    case 'water-pipe-problem':
+    case 'tank-pipes-problem':
+      return <WaterTankPipesLab />;
 
 
 
