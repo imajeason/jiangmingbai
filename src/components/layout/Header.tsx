@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Compass, Sparkles, BookOpen, HeartHandshake, Search } from 'lucide-react';
+import { Compass, Sparkles, BookOpen, HeartHandshake, Search, FolderTree } from 'lucide-react';
 import { SearchTopicItem } from '@/types';
 import SearchModal from '@/components/search/SearchModal';
 import styles from '@/styles/layout.module.css';
@@ -31,6 +31,7 @@ export default function Header({ searchIndex = [] }: HeaderProps) {
 
   const navLinks = [
     { href: '/', label: '首页推荐', icon: Compass },
+    { href: '/explore', label: '知识大目录', icon: FolderTree },
     { href: '/xiaoxue', label: '小学专区', icon: BookOpen },
     { href: '/chuzhong', label: '初中专区', icon: BookOpen },
     { href: '/gaozhong', label: '高中专区', icon: BookOpen },
