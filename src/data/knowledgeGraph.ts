@@ -45,6 +45,8 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'trailing-zeros-factorial',
       'radiant-number-array-puzzle',
       'divisibility-by-7-11-13',
+      'chinese-remainder-theorem',
+      'repeating-decimal-to-fraction',
       'fraction-telescoping-sum',
     ],
   },
@@ -72,6 +74,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'butterfly-model-geometry',
       'swallowtail-model-geometry',
       'kite-quadrilateral-geometry',
+      'hourglass-pyramid-geometry',
       'circle-area',
       'circle-square-yin-yang-area',
       'cylinder-cone-volume',
@@ -136,6 +139,8 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'map-coloring-combinatorics',
       'river-crossing-puzzle',
       'snail-climbing-well',
+      'bash-game-strategy',
+      'counterfeit-coin-balance',
     ],
   },
   {
@@ -254,5 +259,16 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'pythagorean-theorem', to: 'zhao-shuang-string-figure', label: '勾股定理到赵爽弦图无字证明' },
   { from: 'reverse-thinking-reduction', to: 'snail-climbing-well', label: '逆向还原到蜗牛爬井临界预留' },
   { from: 'profit-loss-discount', to: 'tiered-pricing-taxi-fare', label: '商业应用到出租车阶梯分段' },
+
+  // 五大模型与数论、博弈进阶
+  { from: 'swallowtail-model-geometry', to: 'hourglass-pyramid-geometry', label: '几何五大模型之沙漏金字塔相似' },
+  { from: 'butterfly-model-geometry', to: 'hourglass-pyramid-geometry', label: '梯形对角线到对顶沙漏' },
+  { from: 'modular-congruence-arithmetic', to: 'chinese-remainder-theorem', label: '同余模运算到孙子定理韩信点兵' },
+  { from: 'fractions-basics', to: 'repeating-decimal-to-fraction', label: '分数认知到循环小数化分数' },
+  { from: 'repeating-decimal-to-fraction', to: 'fraction-telescoping-sum', label: '循环小数错位相消到裂项求和' },
+  { from: 'reverse-thinking-reduction', to: 'bash-game-strategy', label: '逆向倒推到抢30安全地标' },
+  { from: 'optimization-pancake-scheduling', to: 'bash-game-strategy', label: '运筹策略到巴什博弈周期余数' },
+  { from: 'optimization-pancake-scheduling', to: 'counterfeit-coin-balance', label: '最优规划到天平称假币三分法' },
+  { from: 'logic-reasoning-truth-lie', to: 'counterfeit-coin-balance', label: '逻辑分支到称重决策树' },
 ];
 
