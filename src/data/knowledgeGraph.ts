@@ -50,6 +50,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'euclidean-algorithm-gcd',
       'geometric-progression-sum',
       'fraction-telescoping-sum',
+      'pascal-yang-hui-triangle',
     ],
   },
   {
@@ -86,6 +87,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'pythagorean-theorem',
       'zhao-shuang-string-figure',
       'cavalieri-zu-geng-principle',
+      'cone-surface-shortest-path',
     ],
   },
   {
@@ -111,6 +113,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'hound-pursues-rabbit',
       'shuttle-bus-pickup-problem',
       'boat-drift-stream-reference',
+      'messenger-army-motion',
     ],
   },
   {
@@ -151,6 +154,8 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'worst-case-pigeonhole-balls',
       'stars-and-bars-combinatorics',
       'mini-sudoku-logic-grid',
+      'derangement-letter-envelope',
+      'water-pouring-measure-puzzle',
     ],
   },
   {
@@ -297,5 +302,16 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'triangle-area-parallelogram', to: 'cavalieri-zu-geng-principle', label: '等积变形到祖暅切片' },
   { from: 'magic-square-number-array', to: 'mini-sudoku-logic-grid', label: '九宫格数阵到数独四宫格逻辑排除' },
   { from: 'logic-reasoning-truth-lie', to: 'mini-sudoku-logic-grid', label: '逻辑推理到唯一数三维雷达' },
+
+  // 宝塔数阵、错位重排、曲面展开、传令兵与泊松分酒
+  { from: 'arithmetic-progression-gauss', to: 'pascal-yang-hui-triangle', label: '等差数列到杨辉三角斜线累加' },
+  { from: 'pascal-yang-hui-triangle', to: 'stars-and-bars-combinatorics', label: '杨辉二项式组合数到隔板分配' },
+  { from: 'addition-multiplication-principles', to: 'derangement-letter-envelope', label: '加乘分类到错位全错配递推' },
+  { from: 'cylinder-cone-volume', to: 'cone-surface-shortest-path', label: '圆锥立体到扇形展开最短路径' },
+  { from: 'pythagorean-theorem', to: 'cone-surface-shortest-path', label: '勾股定理到展开扇形弦长' },
+  { from: 'speed-meeting-chasing', to: 'messenger-army-motion', label: '相遇与追及到传令兵往返队伍' },
+  { from: 'boat-drift-stream-reference', to: 'messenger-army-motion', label: '水流参照系到队伍平移参照系' },
+  { from: 'euclidean-algorithm-gcd', to: 'water-pouring-measure-puzzle', label: '辗转相除法到泊松倒水分酒' },
+  { from: 'logic-reasoning-truth-lie', to: 'water-pouring-measure-puzzle', label: '逻辑分支到量杯状态图搜索' },
 ];
 

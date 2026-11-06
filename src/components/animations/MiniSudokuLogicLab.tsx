@@ -367,3 +367,4 @@ export default function MiniSudokuLogicLab() {
     </div>
   );
 }
+
