@@ -85,6 +85,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'cube-hole-drilling-surface-area',
       'pythagorean-theorem',
       'zhao-shuang-string-figure',
+      'cavalieri-zu-geng-principle',
     ],
   },
   {
@@ -109,6 +110,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'escalator-motion-problem',
       'hound-pursues-rabbit',
       'shuttle-bus-pickup-problem',
+      'boat-drift-stream-reference',
     ],
   },
   {
@@ -146,6 +148,9 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'snail-climbing-well',
       'bash-game-strategy',
       'counterfeit-coin-balance',
+      'worst-case-pigeonhole-balls',
+      'stars-and-bars-combinatorics',
+      'mini-sudoku-logic-grid',
     ],
   },
   {
@@ -283,5 +288,14 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'speed-meeting-chasing', to: 'hound-pursues-rabbit', label: '基础相遇追及到猎狗追兔步长步频' },
   { from: 'speed-meeting-chasing', to: 'shuttle-bus-pickup-problem', label: '复合行程到校车往返接送统筹' },
   { from: 'hound-pursues-rabbit', to: 'shuttle-bus-pickup-problem', label: '合成速度比例到人车同时到达对称性' },
+
+  // 高阶极值、水流参照系、组合隔板与祖暅数独
+  { from: 'pigeonhole-principle', to: 'worst-case-pigeonhole-balls', label: '抽屉原理到最不利保底摸球' },
+  { from: 'river-boat-motion', to: 'boat-drift-stream-reference', label: '流水行舟到水流参照系掉头追草帽' },
+  { from: 'addition-multiplication-principles', to: 'stars-and-bars-combinatorics', label: '加乘原理到相同元素分配隔板法' },
+  { from: 'cylinder-cone-volume', to: 'cavalieri-zu-geng-principle', label: '圆柱体积到祖暅原理幂势既同' },
+  { from: 'triangle-area-parallelogram', to: 'cavalieri-zu-geng-principle', label: '等积变形到祖暅切片' },
+  { from: 'magic-square-number-array', to: 'mini-sudoku-logic-grid', label: '九宫格数阵到数独四宫格逻辑排除' },
+  { from: 'logic-reasoning-truth-lie', to: 'mini-sudoku-logic-grid', label: '逻辑推理到唯一数三维雷达' },
 ];
 
