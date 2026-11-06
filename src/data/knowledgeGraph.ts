@@ -47,6 +47,8 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'divisibility-by-7-11-13',
       'chinese-remainder-theorem',
       'repeating-decimal-to-fraction',
+      'euclidean-algorithm-gcd',
+      'geometric-progression-sum',
       'fraction-telescoping-sum',
     ],
   },
@@ -78,6 +80,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'circle-area',
       'circle-square-yin-yang-area',
       'cylinder-cone-volume',
+      'submerged-volume-water-level',
       'cylinder-cutting-surface-area',
       'cube-hole-drilling-surface-area',
       'pythagorean-theorem',
@@ -104,6 +107,8 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'fast-slow-clock-problem',
       'repeated-meeting-motion',
       'escalator-motion-problem',
+      'hound-pursues-rabbit',
+      'shuttle-bus-pickup-problem',
     ],
   },
   {
@@ -270,5 +275,13 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'optimization-pancake-scheduling', to: 'bash-game-strategy', label: '运筹策略到巴什博弈周期余数' },
   { from: 'optimization-pancake-scheduling', to: 'counterfeit-coin-balance', label: '最优规划到天平称假币三分法' },
   { from: 'logic-reasoning-truth-lie', to: 'counterfeit-coin-balance', label: '逻辑分支到称重决策树' },
+
+  // 数论、几何与高阶行程运筹进阶
+  { from: 'prime-factorization-lcm-gcd', to: 'euclidean-algorithm-gcd', label: '短除法质因数到辗转相除法' },
+  { from: 'arithmetic-progression-gauss', to: 'geometric-progression-sum', label: '等差数列高斯求和到等比数列错位相减' },
+  { from: 'cylinder-cone-volume', to: 'submerged-volume-water-level', label: '圆柱体积到浸水与有效底面积' },
+  { from: 'speed-meeting-chasing', to: 'hound-pursues-rabbit', label: '基础相遇追及到猎狗追兔步长步频' },
+  { from: 'speed-meeting-chasing', to: 'shuttle-bus-pickup-problem', label: '复合行程到校车往返接送统筹' },
+  { from: 'hound-pursues-rabbit', to: 'shuttle-bus-pickup-problem', label: '合成速度比例到人车同时到达对称性' },
 ];
 
