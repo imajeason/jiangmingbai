@@ -113,3 +113,4 @@ $$T = \frac{2 \times t_{\text{追}} \times t_{\text{迎}}}{t_{\text{追}} + t_{\
 代入本题：
 $$T = \frac{2 \times 6 \times 3}{6 + 3} = \frac{36}{9} = \mathbf{4 \text{ 分钟}}！$$
 根本不需要设复杂未知数，只要套用黄金公式，不到 10 秒就能在考场上精准秒杀全场！
+
