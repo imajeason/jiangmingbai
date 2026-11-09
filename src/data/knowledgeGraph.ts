@@ -88,6 +88,8 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'zhao-shuang-string-figure',
       'cavalieri-zu-geng-principle',
       'cone-surface-shortest-path',
+      'boomerang-arrowhead-angle',
+      'three-view-cube-reconstruction',
     ],
   },
   {
@@ -114,6 +116,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'shuttle-bus-pickup-problem',
       'boat-drift-stream-reference',
       'messenger-army-motion',
+      'bus-dispatch-interval',
     ],
   },
   {
@@ -156,6 +159,8 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'mini-sudoku-logic-grid',
       'derangement-letter-envelope',
       'water-pouring-measure-puzzle',
+      'nim-game-binary-xor',
+      'ramsey-theory-party-problem',
     ],
   },
   {
@@ -313,5 +318,14 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'boat-drift-stream-reference', to: 'messenger-army-motion', label: '水流参照系到队伍平移参照系' },
   { from: 'euclidean-algorithm-gcd', to: 'water-pouring-measure-puzzle', label: '辗转相除法到泊松倒水分酒' },
   { from: 'logic-reasoning-truth-lie', to: 'water-pouring-measure-puzzle', label: '逻辑分支到量杯状态图搜索' },
+
+  // 飞镖折角、三视图积木、尼姆博弈、发车间隔与拉姆齐六人聚会
+  { from: 'triangle-area-parallelogram', to: 'boomerang-arrowhead-angle', label: '三角形内角和与外角定理到飞镖模型' },
+  { from: 'hidden-cubes-counting', to: 'three-view-cube-reconstruction', label: '数积木到三视图俯视地基推导最值' },
+  { from: 'bash-game-strategy', to: 'nim-game-binary-xor', label: '巴什单堆博弈到尼姆多堆二进制异或' },
+  { from: 'speed-meeting-chasing', to: 'bus-dispatch-interval', label: '基础相遇追及到车距守恒发车调和公式' },
+  { from: 'train-bridge-crossing', to: 'bus-dispatch-interval', label: '实物车长间距到公共汽车发车模型' },
+  { from: 'pigeonhole-principle', to: 'ramsey-theory-party-problem', label: '抽屉原理到六人聚会拉姆齐完全图' },
+  { from: 'counting-segments-handshakes', to: 'ramsey-theory-party-problem', label: '握手线段数到K6完全图边染色' },
 ];
 
