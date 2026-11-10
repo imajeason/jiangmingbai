@@ -106,6 +106,11 @@ import ThreeViewCubeLab from './ThreeViewCubeLab';
 import NimGameLab from './NimGameLab';
 import BusDispatchIntervalLab from './BusDispatchIntervalLab';
 import RamseyPartyLab from './RamseyPartyLab';
+import LiuHuiPiLab from './LiuHuiPiLab';
+import TrainsCrossingLab from './TrainsCrossingLab';
+import RollingCircleLab from './RollingCircleLab';
+import TowerOfHanoiLab from './TowerOfHanoiLab';
+import BinaryMagicCardsLab from './BinaryMagicCardsLab';
 
 interface AnimationPlayerProps {
   type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | 'sum-difference-multiple' | 'surplus-and-deficiency' | 'work-rate-problem' | 'newton-cow-pasture' | 'algebraic-equations-basics' | 'river-boat-motion' | 'train-bridge-crossing' | 'average-benchmark' | 'inclusion-exclusion-venn' | 'age-difference' | 'age-difference-problem' | 'periodic-patterns' | 'repeating-patterns-modulo' | 'circular-track' | 'circular-track-problem' | 'reverse-thinking' | 'reverse-thinking-reduction' | 'magic-square' | 'magic-square-number-array' | 'cube-coloring' | 'cube-coloring-cutting' | 'pigeonhole-principle' | 'arithmetic-progression' | 'arithmetic-progression-gauss' | 'irregular-perimeter' | 'irregular-perimeter-translation' | 'distributive-law' | 'distributive-law-area' | 'substitution-elimination' | 'substitution-elimination-method' | 'ratio-concentration' | 'ratio-concentration-problem' | 'clock-angle-pursuit' | 'clock-angle-problem' | 'clock-hands-pursuit' | 'butterfly-model' | 'butterfly-model-geometry' | 'trapezoid-butterfly-model' | 'counting-segments-handshakes' | 'handshake-counting-model' | 'counting-segments' | 'fraction-telescoping-sum' | 'telescoping-fractions' | 'fraction-telescoping' | 'bird-head-model' | 'bird-head-model-geometry' | 'shared-angle-model' | 'square-formation' | 'square-formation-problem' | 'matrix-square-formation' | 'prime-factorization-lcm-gcd' | 'prime-factorization-short-division' | 'prime-factorization' | 'divisibility-rules-math' | 'divisibility-rules' | 'divisibility-criterion' | 'swallowtail-model' | 'swallowtail-model-geometry' | 'swallowtail-theorem' | 'profit-loss-discount' | 'profit-and-loss' | 'economic-profit-problem' | 'repeated-meeting-motion' | 'repeated-meeting' | 'turnback-motion' | 'addition-multiplication-principles' | 'addition-multiplication-principle' | 'combinatorics-principles' | string;
@@ -462,6 +467,26 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
     case 'ramsey-party-problem':
     case 'ramsey-theory':
       return <RamseyPartyLab />;
+    case 'liu-hui-pi-cutting-circle':
+    case 'liu-hui-pi':
+    case 'cutting-circle-pi':
+      return <LiuHuiPiLab />;
+    case 'trains-crossing-each-other':
+    case 'trains-crossing':
+    case 'train-overtaking':
+      return <TrainsCrossingLab />;
+    case 'rolling-circle-swept-area':
+    case 'rolling-circle':
+    case 'rolling-coin-swept-area':
+      return <RollingCircleLab />;
+    case 'tower-of-hanoi-recursion':
+    case 'tower-of-hanoi':
+    case 'hanoi-tower':
+      return <TowerOfHanoiLab />;
+    case 'binary-magic-cards-puzzle':
+    case 'binary-magic-cards':
+    case 'magic-cards-puzzle':
+      return <BinaryMagicCardsLab />;
 
 
 

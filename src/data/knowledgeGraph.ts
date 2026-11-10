@@ -51,6 +51,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'geometric-progression-sum',
       'fraction-telescoping-sum',
       'pascal-yang-hui-triangle',
+      'binary-magic-cards-puzzle',
     ],
   },
   {
@@ -90,6 +91,8 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'cone-surface-shortest-path',
       'boomerang-arrowhead-angle',
       'three-view-cube-reconstruction',
+      'liu-hui-pi-cutting-circle',
+      'rolling-circle-swept-area',
     ],
   },
   {
@@ -117,6 +120,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'boat-drift-stream-reference',
       'messenger-army-motion',
       'bus-dispatch-interval',
+      'trains-crossing-each-other',
     ],
   },
   {
@@ -161,6 +165,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'water-pouring-measure-puzzle',
       'nim-game-binary-xor',
       'ramsey-theory-party-problem',
+      'tower-of-hanoi-recursion',
     ],
   },
   {
@@ -327,5 +332,16 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'train-bridge-crossing', to: 'bus-dispatch-interval', label: '实物车长间距到公共汽车发车模型' },
   { from: 'pigeonhole-principle', to: 'ramsey-theory-party-problem', label: '抽屉原理到六人聚会拉姆齐完全图' },
   { from: 'counting-segments-handshakes', to: 'ramsey-theory-party-problem', label: '握手线段数到K6完全图边染色' },
+
+  // 割圆术、双火车错车超车、硬币滚过多边形、汉诺塔与二进制卡片魔术
+  { from: 'circle-area', to: 'liu-hui-pi-cutting-circle', label: '圆面积到刘徽割圆术与祖冲之徽率' },
+  { from: 'pythagorean-theorem', to: 'liu-hui-pi-cutting-circle', label: '勾股定理到割圆边数翻倍推导' },
+  { from: 'train-bridge-crossing', to: 'trains-crossing-each-other', label: '火车过桥到双火车相向错车与同向超车' },
+  { from: 'speed-meeting-chasing', to: 'trains-crossing-each-other', label: '相遇追及到车长相对位移' },
+  { from: 'circle-area', to: 'rolling-circle-swept-area', label: '圆面积到硬币滚过多边形拐角拼圆' },
+  { from: 'geometric-progression-sum', to: 'tower-of-hanoi-recursion', label: '等比数列到汉诺塔2ⁿ-1指数递推' },
+  { from: 'logic-reasoning-truth-lie', to: 'tower-of-hanoi-recursion', label: '逻辑递归到三步分治模型' },
+  { from: 'addition-multiplication-principles', to: 'binary-magic-cards-puzzle', label: '位值计数到二进制卡片心算猜数' },
+  { from: 'nim-game-binary-xor', to: 'binary-magic-cards-puzzle', label: '二进制异或博弈到位权唯一分解' },
 ];
 
