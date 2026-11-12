@@ -52,6 +52,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'fraction-telescoping-sum',
       'pascal-yang-hui-triangle',
       'binary-magic-cards-puzzle',
+      'fibonacci-rabbit-sequence',
     ],
   },
   {
@@ -93,6 +94,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'three-view-cube-reconstruction',
       'liu-hui-pi-cutting-circle',
       'rolling-circle-swept-area',
+      'triangle-centroid-six-areas',
     ],
   },
   {
@@ -166,6 +168,9 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'nim-game-binary-xor',
       'ramsey-theory-party-problem',
       'tower-of-hanoi-recursion',
+      'catalan-number-combinatorics',
+      'wythoff-game-golden-ratio',
+      'logic-grid-deduction-puzzle',
     ],
   },
   {
@@ -343,5 +348,17 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'logic-reasoning-truth-lie', to: 'tower-of-hanoi-recursion', label: '逻辑递归到三步分治模型' },
   { from: 'addition-multiplication-principles', to: 'binary-magic-cards-puzzle', label: '位值计数到二进制卡片心算猜数' },
   { from: 'nim-game-binary-xor', to: 'binary-magic-cards-puzzle', label: '二进制异或博弈到位权唯一分解' },
+
+  // 斐波那契螺旋、重心六等分、卡特兰折线、威佐夫博弈与逻辑网格
+  { from: 'arithmetic-progression-gauss', to: 'fibonacci-rabbit-sequence', label: '等差数列递推到斐波那契相邻相加与黄金螺旋' },
+  { from: 'pascal-yang-hui-triangle', to: 'fibonacci-rabbit-sequence', label: '杨辉三角斜对角线求和到斐波那契数' },
+  { from: 'triangle-area-parallelogram', to: 'triangle-centroid-six-areas', label: '等底等高同积原理到三中线重心面积六等分' },
+  { from: 'butterfly-model-geometry', to: 'triangle-centroid-six-areas', label: '蝴蝶模型面积比到重心2:1线段比' },
+  { from: 'grid-shortest-path-counting', to: 'catalan-number-combinatorics', label: '网格最短路径到不越对角线卡特兰折线反折' },
+  { from: 'stars-and-bars-combinatorics', to: 'catalan-number-combinatorics', label: '组合计数到出栈序列与合法括号匹配' },
+  { from: 'nim-game-binary-xor', to: 'wythoff-game-golden-ratio', label: '尼姆博弈二进制异或到威佐夫两堆取子奇异局势' },
+  { from: 'fibonacci-rabbit-sequence', to: 'wythoff-game-golden-ratio', label: '黄金分割常数到威佐夫博弈贝蒂定理' },
+  { from: 'logic-reasoning-truth-lie', to: 'logic-grid-deduction-puzzle', label: '真假话逻辑判断到爱因斯坦谜题二维网格排除' },
+  { from: 'mini-sudoku-logic-grid', to: 'logic-grid-deduction-puzzle', label: '数独行列唯余法到多维交叉十字排他律' },
 ];
 

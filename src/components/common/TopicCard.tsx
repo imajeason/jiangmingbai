@@ -1926,8 +1926,107 @@ export default function TopicCard({ topic }: TopicCardProps) {
           </svg>
         )}
 
+        {/* 108. 斐波那契数列与黄金螺旋 */}
+        {['fibonacci-rabbit-sequence', 'fibonacci-sequence', 'fibonacci-spiral'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <rect x="25" y="10" width="110" height="80" rx="8" fill="#f5f3ff" stroke="#c4b5fd" strokeWidth="1" />
+            <rect x="75" y="45" width="12" height="12" fill="#818cf8" fillOpacity="0.25" stroke="#6366f1" strokeWidth="1" />
+            <rect x="75" y="33" width="12" height="12" fill="#a78bfa" fillOpacity="0.25" stroke="#8b5cf6" strokeWidth="1" />
+            <rect x="51" y="33" width="24" height="24" fill="#f472b6" fillOpacity="0.25" stroke="#ec4899" strokeWidth="1" />
+            <rect x="51" y="57" width="36" height="36" fill="#fbbf24" fillOpacity="0.25" stroke="#f59e0b" strokeWidth="1" />
+            <rect x="87" y="33" width="60" height="60" fill="#34d399" fillOpacity="0.25" stroke="#10b981" strokeWidth="1" />
+            <path d="M 75 57 A 12 12 0 0 1 87 45 A 12 12 0 0 1 75 33 A 24 24 0 0 1 51 57 A 36 36 0 0 1 87 93 A 60 60 0 0 1 147 33" fill="none" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" />
+            <text x="80" y="24" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#4f46e5">1, 1, 2, 3, 5, 8, 13... → 1.618</text>
+            <text x="80" y="94" textAnchor="middle" fontSize="6.5" fill="#6d28d9" fontWeight="800">斐波那契数列 · 黄金螺旋生长密码</text>
+          </svg>
+        )}
+
+        {/* 109. 三角形重心与六等分面积 */}
+        {['triangle-centroid-six-areas', 'triangle-centroid', 'centroid-six-areas'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <polygon points="80,18 35,76 125,76" fill="#eff6ff" stroke="#3b82f6" strokeWidth="1.5" />
+            {/* 三条中线 */}
+            <line x1="80" y1="18" x2="80" y2="76" stroke="#f43f5e" strokeWidth="1" strokeDasharray="2 2" />
+            <line x1="35" y1="76" x2="102.5" y2="47" stroke="#f43f5e" strokeWidth="1" strokeDasharray="2 2" />
+            <line x1="125" y1="76" x2="57.5" y2="47" stroke="#f43f5e" strokeWidth="1" strokeDasharray="2 2" />
+            {/* 重心 G */}
+            <circle cx="80" cy="56.6" r="3" fill="#fbbf24" stroke="#d97706" strokeWidth="1" />
+            <text x="80" y="52" textAnchor="middle" fontSize="6" fontWeight="bold" fill="#b45309">G重心</text>
+            <text x="56" y="65" textAnchor="middle" fontSize="6" fontWeight="bold" fill="#2563eb">1/6</text>
+            <text x="104" y="65" textAnchor="middle" fontSize="6" fontWeight="bold" fill="#2563eb">1/6</text>
+            <text x="80" y="88" textAnchor="middle" fontSize="6.5" fill="#1d4ed8" fontWeight="800">三中线交于重心 · 面积六等分 2:1</text>
+          </svg>
+        )}
+
+        {/* 110. 卡特兰数与折线反折 */}
+        {['catalan-number-combinatorics', 'catalan-number', 'catalan-numbers'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <rect x="25" y="10" width="110" height="80" rx="8" fill="#f8fafc" stroke="#cbd5e1" strokeWidth="1" />
+            {/* 网格线 */}
+            <line x1="50" y1="70" x2="110" y2="70" stroke="#e2e8f0" strokeWidth="1" />
+            <line x1="50" y1="50" x2="110" y2="50" stroke="#e2e8f0" strokeWidth="1" />
+            <line x1="50" y1="30" x2="110" y2="30" stroke="#e2e8f0" strokeWidth="1" />
+            <line x1="50" y1="70" x2="50" y2="30" stroke="#e2e8f0" strokeWidth="1" />
+            <line x1="70" y1="70" x2="70" y2="30" stroke="#e2e8f0" strokeWidth="1" />
+            <line x1="90" y1="70" x2="90" y2="30" stroke="#e2e8f0" strokeWidth="1" />
+            <line x1="110" y1="70" x2="110" y2="30" stroke="#e2e8f0" strokeWidth="1" />
+            {/* 对角线 y=x */}
+            <line x1="50" y1="70" x2="110" y2="30" stroke="#10b981" strokeWidth="1.2" strokeDasharray="3 2" />
+            {/* 反折折线 */}
+            <polyline points="50,70 70,70 70,50 90,50 90,30 110,30" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <text x="80" y="22" textAnchor="middle" fontSize="7.5" fontWeight="bold" fill="#059669">Cn = 1/(n+1) · C(2n, n)</text>
+            <text x="80" y="86" textAnchor="middle" fontSize="6.5" fill="#2563eb" fontWeight="800">卡特兰数 · 折线反折与括号匹配</text>
+          </svg>
+        )}
+
+        {/* 111. 威佐夫博弈与黄金分割常数 */}
+        {['wythoff-game-golden-ratio', 'wythoff-game', 'singular-position'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <rect x="25" y="10" width="110" height="80" rx="8" fill="#fdf4ff" stroke="#f0abfc" strokeWidth="1" />
+            {/* 两个石子堆 */}
+            <circle cx="58" cy="45" r="14" fill="#a855f7" fillOpacity="0.2" stroke="#9333ea" strokeWidth="1.5" />
+            <text x="58" y="49" textAnchor="middle" fontSize="11" fontWeight="black" fill="#7e22ce">6</text>
+            <circle cx="102" cy="45" r="14" fill="#f59e0b" fillOpacity="0.2" stroke="#d97706" strokeWidth="1.5" />
+            <text x="102" y="49" textAnchor="middle" fontSize="11" fontWeight="black" fill="#b45309">10</text>
+            <text x="80" y="24" textAnchor="middle" fontSize="7.5" fontWeight="bold" fill="#c026d3">奇异局势 (6, 10) 必败</text>
+            <text x="80" y="70" textAnchor="middle" fontSize="7" fontWeight="bold" fill="#4b5563">ak = ⌊k · 1.618⌋</text>
+            <text x="80" y="86" textAnchor="middle" fontSize="6.5" fill="#a21caf" fontWeight="800">威佐夫博弈 · 双堆取子与黄金奇异态</text>
+          </svg>
+        )}
+
+        {/* 112. 逻辑网格推理法 */}
+        {['logic-grid-deduction-puzzle', 'logic-grid-puzzle', 'einstein-puzzle'].includes(topic.animationType) && (
+          <svg viewBox="0 0 160 100" width="130" height="80">
+            <rect x="25" y="10" width="110" height="80" rx="8" fill="#f0fdf4" stroke="#86efac" strokeWidth="1" />
+            {/* 3x3 逻辑网格 */}
+            <rect x="52" y="24" width="18" height="15" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1" />
+            <text x="61" y="35" textAnchor="middle" fontSize="10" fontWeight="black" fill="#16a34a">✓</text>
+            <rect x="70" y="24" width="18" height="15" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1" />
+            <text x="79" y="35" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#dc2626">✗</text>
+            <rect x="88" y="24" width="18" height="15" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1" />
+            <text x="97" y="35" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#dc2626">✗</text>
+
+            <rect x="52" y="39" width="18" height="15" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1" />
+            <text x="61" y="50" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#dc2626">✗</text>
+            <rect x="70" y="39" width="18" height="15" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1" />
+            <text x="79" y="50" textAnchor="middle" fontSize="10" fontWeight="black" fill="#16a34a">✓</text>
+            <rect x="88" y="39" width="18" height="15" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1" />
+            <text x="97" y="50" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#dc2626">✗</text>
+
+            <rect x="52" y="54" width="18" height="15" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1" />
+            <text x="61" y="65" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#dc2626">✗</text>
+            <rect x="70" y="54" width="18" height="15" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1" />
+            <text x="79" y="65" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#dc2626">✗</text>
+            <rect x="88" y="54" width="18" height="15" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1" />
+            <text x="97" y="65" textAnchor="middle" fontSize="10" fontWeight="black" fill="#16a34a">✓</text>
+
+            <text x="80" y="20" textAnchor="middle" fontSize="7" fontWeight="bold" fill="#15803d">十字排他律 · 交叉传递</text>
+            <text x="80" y="86" textAnchor="middle" fontSize="6.5" fill="#166534" fontWeight="800">逻辑网格法 · 爱因斯坦谜题排除术</text>
+          </svg>
+        )}
+
         {/* 默认精致兜底（保证任何新增知识点都不会有空白卡片） */}
-        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion', 'swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem', 'profit-loss-discount', 'profit-and-loss', 'economic-profit-problem', 'repeated-meeting-motion', 'repeated-meeting', 'turnback-motion', 'addition-multiplication-principles', 'addition-multiplication-principle', 'combinatorics-principles', 'half-model-geometry', 'half-model', 'equal-area-transformation', 'mistake-correction-arithmetic', 'mistake-correction', 'careless-mistake-arithmetic', 'proportional-distribution-sharing', 'proportional-sharing', 'continuous-ratio-unification', 'logic-reasoning-truth-lie', 'logic-truth-lie', 'truth-and-lie-reasoning', 'vertical-cryptarithm-math-puzzle', 'vertical-cryptarithm', 'cryptarithm-puzzle', 'escalator-motion-problem', 'escalator-motion', 'escalator-problem', 'optimization-pancake-scheduling', 'pancake-optimization', 'pancake-problem', 'three-set-venn-diagram', 'three-set-venn', 'three-set-inclusion-exclusion', 'fast-slow-clock-problem', 'fast-slow-clock', 'pick-theorem-lattice', 'pick-theorem', 'queuing-tian-ji-strategy', 'queuing-strategy', 'tian-ji-horse-racing', 'modular-congruence-arithmetic', 'modular-congruence', 'chinese-remainder-theorem', 'chinese-remainder', 'han-xin-counting', 'kite-quadrilateral-geometry', 'kite-model', 'quadrilateral-diagonal-ratio', 'grid-shortest-path-counting', 'grid-shortest-path', 'street-grid-counting', 'circle-square-yin-yang-area', 'circle-square-area', 'leaf-flower-area', 'power-last-digit-periodicity', 'power-last-digit', 'last-digit-period', 'defining-new-operations', 'defined-operations', 'new-math-operations', 'water-tank-pipes-problem', 'water-pipe-problem', 'tank-pipes-problem', 'trailing-zeros-factorial', 'trailing-zeros', 'factorial-zeros', 'radiant-number-array-puzzle', 'radiant-number-array', 'number-array-puzzle', 'map-coloring-combinatorics', 'map-coloring', 'color-regions-puzzle', 'cylinder-cutting-surface-area', 'cylinder-cutting', 'cylinder-cross-section', 'river-crossing-puzzle', 'river-crossing', 'bridge-and-torch', 'snail-climbing-well', 'snail-well', 'frog-climbing-well', 'cube-hole-drilling-surface-area', 'cube-hole-drilling', 'cube-drilling', 'divisibility-by-7-11-13', 'divisibility-7-11-13', 'divisibility-rules-1001', 'zhao-shuang-string-figure', 'zhao-shuang', 'pythagorean-puzzle', 'tiered-pricing-taxi-fare', 'tiered-pricing', 'taxi-fare-problem', 'hourglass-pyramid-geometry', 'hourglass-pyramid', 'hourglass-model', 'repeating-decimal-to-fraction', 'repeating-decimals', 'decimals-to-fractions', 'bash-game-strategy', 'bash-game', 'take-away-stones', 'counterfeit-coin-balance', 'counterfeit-coin', 'balance-scale-fake-coin', 'euclidean-algorithm-gcd', 'euclidean-algorithm', 'euclidean-gcd', 'geometric-progression-sum', 'geometric-progression', 'geometric-series', 'submerged-volume-water-level', 'submerged-volume', 'water-level-rise', 'hound-pursues-rabbit', 'hound-rabbit-pursuit', 'dog-chases-rabbit', 'shuttle-bus-pickup-problem', 'shuttle-bus-pickup', 'bus-pickup-problem', 'worst-case-pigeonhole-balls', 'worst-case-pigeonhole', 'guaranteed-ball-draw', 'boat-drift-stream-reference', 'boat-drift-reference', 'stream-drift-hat', 'stars-and-bars-combinatorics', 'stars-and-bars', 'divider-method', 'cavalieri-zu-geng-principle', 'cavalieri-principle', 'zu-geng-principle', 'mini-sudoku-logic-grid', 'mini-sudoku', 'sudoku-logic-grid', 'pascal-yang-hui-triangle', 'yang-hui-triangle', 'pascal-triangle', 'derangement-letter-envelope', 'derangement-problem', 'bernoulli-letter-envelope', 'cone-surface-shortest-path', 'cone-surface-path', 'cone-ant-shortest-path', 'messenger-army-motion', 'messenger-army', 'courier-army-motion', 'water-pouring-measure-puzzle', 'poisson-wine-puzzle', 'water-pouring-puzzle', 'boomerang-arrowhead-angle', 'boomerang-angle', 'arrowhead-angle', 'three-view-cube-reconstruction', 'three-view-cube', 'three-views-cubes', 'nim-game-binary-xor', 'nim-game', 'nim-game-matches', 'bus-dispatch-interval', 'bus-interval-problem', 'bus-dispatch', 'ramsey-theory-party-problem', 'ramsey-party-problem', 'ramsey-theory', 'liu-hui-pi-cutting-circle', 'liu-hui-pi', 'cutting-circle-pi', 'trains-crossing-each-other', 'trains-crossing', 'train-overtaking', 'rolling-circle-swept-area', 'rolling-circle', 'rolling-coin-swept-area', 'tower-of-hanoi-recursion', 'tower-of-hanoi', 'hanoi-tower', 'binary-magic-cards-puzzle', 'binary-magic-cards', 'magic-cards-puzzle'].includes(topic.animationType) && (
+        {!['circle-area', 'pythagorean-theorem', 'buoyancy-archimedes', 'clock-reading', 'ten-frame', 'transfer-and-balance', 'line-up-ordering', 'front-back-left-right', 'compass-directions', 'multiplication-array', 'hidden-cubes-counting', 'chicken-rabbit-cage', 'triangle-area-parallelogram', 'perimeter-vs-area', 'cube-nets-folding', 'speed-meeting-chasing', 'cylinder-cone-volume', 'fractions-basics', 'tree-planting-intervals', 'sum-difference-multiple', 'surplus-and-deficiency', 'work-rate-problem', 'newton-cow-pasture', 'algebraic-equations-basics', 'river-boat-motion', 'train-bridge-crossing', 'average-benchmark', 'inclusion-exclusion-venn', 'inclusion-exclusion', 'age-difference', 'age-difference-problem', 'periodic-patterns', 'repeating-patterns-modulo', 'circular-track', 'circular-track-problem', 'reverse-thinking', 'reverse-thinking-reduction', 'magic-square', 'magic-square-number-array', 'cube-coloring', 'cube-coloring-cutting', 'pigeonhole-principle', 'arithmetic-progression', 'arithmetic-progression-gauss', 'irregular-perimeter', 'irregular-perimeter-translation', 'distributive-law', 'distributive-law-area', 'substitution-elimination', 'substitution-elimination-method', 'ratio-concentration', 'ratio-concentration-problem', 'clock-angle-pursuit', 'clock-angle-problem', 'clock-hands-pursuit', 'butterfly-model', 'butterfly-model-geometry', 'trapezoid-butterfly-model', 'counting-segments-handshakes', 'handshake-counting-model', 'counting-segments', 'fraction-telescoping-sum', 'telescoping-fractions', 'fraction-telescoping', 'bird-head-model', 'bird-head-model-geometry', 'shared-angle-model', 'square-formation', 'square-formation-problem', 'matrix-square-formation', 'prime-factorization-lcm-gcd', 'prime-factorization-short-division', 'prime-factorization', 'divisibility-rules-math', 'divisibility-rules', 'divisibility-criterion', 'swallowtail-model', 'swallowtail-model-geometry', 'swallowtail-theorem', 'profit-loss-discount', 'profit-and-loss', 'economic-profit-problem', 'repeated-meeting-motion', 'repeated-meeting', 'turnback-motion', 'addition-multiplication-principles', 'addition-multiplication-principle', 'combinatorics-principles', 'half-model-geometry', 'half-model', 'equal-area-transformation', 'mistake-correction-arithmetic', 'mistake-correction', 'careless-mistake-arithmetic', 'proportional-distribution-sharing', 'proportional-sharing', 'continuous-ratio-unification', 'logic-reasoning-truth-lie', 'logic-truth-lie', 'truth-and-lie-reasoning', 'vertical-cryptarithm-math-puzzle', 'vertical-cryptarithm', 'cryptarithm-puzzle', 'escalator-motion-problem', 'escalator-motion', 'escalator-problem', 'optimization-pancake-scheduling', 'pancake-optimization', 'pancake-problem', 'three-set-venn-diagram', 'three-set-venn', 'three-set-inclusion-exclusion', 'fast-slow-clock-problem', 'fast-slow-clock', 'pick-theorem-lattice', 'pick-theorem', 'queuing-tian-ji-strategy', 'queuing-strategy', 'tian-ji-horse-racing', 'modular-congruence-arithmetic', 'modular-congruence', 'chinese-remainder-theorem', 'chinese-remainder', 'han-xin-counting', 'kite-quadrilateral-geometry', 'kite-model', 'quadrilateral-diagonal-ratio', 'grid-shortest-path-counting', 'grid-shortest-path', 'street-grid-counting', 'circle-square-yin-yang-area', 'circle-square-area', 'leaf-flower-area', 'power-last-digit-periodicity', 'power-last-digit', 'last-digit-period', 'defining-new-operations', 'defined-operations', 'new-math-operations', 'water-tank-pipes-problem', 'water-pipe-problem', 'tank-pipes-problem', 'trailing-zeros-factorial', 'trailing-zeros', 'factorial-zeros', 'radiant-number-array-puzzle', 'radiant-number-array', 'number-array-puzzle', 'map-coloring-combinatorics', 'map-coloring', 'color-regions-puzzle', 'cylinder-cutting-surface-area', 'cylinder-cutting', 'cylinder-cross-section', 'river-crossing-puzzle', 'river-crossing', 'bridge-and-torch', 'snail-climbing-well', 'snail-well', 'frog-climbing-well', 'cube-hole-drilling-surface-area', 'cube-hole-drilling', 'cube-drilling', 'divisibility-by-7-11-13', 'divisibility-7-11-13', 'divisibility-rules-1001', 'zhao-shuang-string-figure', 'zhao-shuang', 'pythagorean-puzzle', 'tiered-pricing-taxi-fare', 'tiered-pricing', 'taxi-fare-problem', 'hourglass-pyramid-geometry', 'hourglass-pyramid', 'hourglass-model', 'repeating-decimal-to-fraction', 'repeating-decimals', 'decimals-to-fractions', 'bash-game-strategy', 'bash-game', 'take-away-stones', 'counterfeit-coin-balance', 'counterfeit-coin', 'balance-scale-fake-coin', 'euclidean-algorithm-gcd', 'euclidean-algorithm', 'euclidean-gcd', 'geometric-progression-sum', 'geometric-progression', 'geometric-series', 'submerged-volume-water-level', 'submerged-volume', 'water-level-rise', 'hound-pursues-rabbit', 'hound-rabbit-pursuit', 'dog-chases-rabbit', 'shuttle-bus-pickup-problem', 'shuttle-bus-pickup', 'bus-pickup-problem', 'worst-case-pigeonhole-balls', 'worst-case-pigeonhole', 'guaranteed-ball-draw', 'boat-drift-stream-reference', 'boat-drift-reference', 'stream-drift-hat', 'stars-and-bars-combinatorics', 'stars-and-bars', 'divider-method', 'cavalieri-zu-geng-principle', 'cavalieri-principle', 'zu-geng-principle', 'mini-sudoku-logic-grid', 'mini-sudoku', 'sudoku-logic-grid', 'pascal-yang-hui-triangle', 'yang-hui-triangle', 'pascal-triangle', 'derangement-letter-envelope', 'derangement-problem', 'bernoulli-letter-envelope', 'cone-surface-shortest-path', 'cone-surface-path', 'cone-ant-shortest-path', 'messenger-army-motion', 'messenger-army', 'courier-army-motion', 'water-pouring-measure-puzzle', 'poisson-wine-puzzle', 'water-pouring-puzzle', 'boomerang-arrowhead-angle', 'boomerang-angle', 'arrowhead-angle', 'three-view-cube-reconstruction', 'three-view-cube', 'three-views-cubes', 'nim-game-binary-xor', 'nim-game', 'nim-game-matches', 'bus-dispatch-interval', 'bus-interval-problem', 'bus-dispatch', 'ramsey-theory-party-problem', 'ramsey-party-problem', 'ramsey-theory', 'liu-hui-pi-cutting-circle', 'liu-hui-pi', 'cutting-circle-pi', 'trains-crossing-each-other', 'trains-crossing', 'train-overtaking', 'rolling-circle-swept-area', 'rolling-circle', 'rolling-coin-swept-area', 'tower-of-hanoi-recursion', 'tower-of-hanoi', 'hanoi-tower', 'binary-magic-cards-puzzle', 'binary-magic-cards', 'magic-cards-puzzle', 'fibonacci-rabbit-sequence', 'fibonacci-sequence', 'fibonacci-spiral', 'triangle-centroid-six-areas', 'triangle-centroid', 'centroid-six-areas', 'catalan-number-combinatorics', 'catalan-number', 'catalan-numbers', 'wythoff-game-golden-ratio', 'wythoff-game', 'singular-position', 'logic-grid-deduction-puzzle', 'logic-grid-puzzle', 'einstein-puzzle'].includes(topic.animationType) && (
           <svg viewBox="0 0 160 100" width="130" height="80">
             <rect x="25" y="20" width="110" height="60" rx="8" fill="#f0f9ff" stroke="#bae6fd" strokeWidth="1.5" />
             <circle cx="80" cy="46" r="16" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="1.5" />

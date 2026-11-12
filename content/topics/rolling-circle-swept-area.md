@@ -103,3 +103,4 @@ $$S_{\text{拐角总和}} = \pi \times (2 \times 1)^2 = 4\pi \approx 12.56 \text
      $$L_{\text{圆心}} = C_{\text{周长}} + 2\pi r = 20 + 2\pi \times 1 = 20 + 2\pi \approx \mathbf{26.28 \text{ 厘米}}！$$
 
 只要记住“直边为带，拐角拼圆”，任何关于圆滚过多边形的竞赛大题，都可以在草稿纸上瞬间写出答案！
+
