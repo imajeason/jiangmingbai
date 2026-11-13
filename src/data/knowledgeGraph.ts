@@ -53,6 +53,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'pascal-yang-hui-triangle',
       'binary-magic-cards-puzzle',
       'fibonacci-rabbit-sequence',
+      'magic-hexagon-puzzle',
     ],
   },
   {
@@ -95,6 +96,8 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'liu-hui-pi-cutting-circle',
       'rolling-circle-swept-area',
       'triangle-centroid-six-areas',
+      'euler-formula-polyhedron',
+      'fermat-point-triangle',
     ],
   },
   {
@@ -171,6 +174,8 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'catalan-number-combinatorics',
       'wythoff-game-golden-ratio',
       'logic-grid-deduction-puzzle',
+      'josephus-problem-elimination',
+      'frog-jumping-probability',
     ],
   },
   {
@@ -360,5 +365,17 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'fibonacci-rabbit-sequence', to: 'wythoff-game-golden-ratio', label: '黄金分割常数到威佐夫博弈贝蒂定理' },
   { from: 'logic-reasoning-truth-lie', to: 'logic-grid-deduction-puzzle', label: '真假话逻辑判断到爱因斯坦谜题二维网格排除' },
   { from: 'mini-sudoku-logic-grid', to: 'logic-grid-deduction-puzzle', label: '数独行列唯余法到多维交叉十字排他律' },
+
+  // 欧拉示性数、费马点、约瑟夫环、幻六角形与青蛙跳荷叶
+  { from: 'cube-nets-folding', to: 'euler-formula-polyhedron', label: '折纸展开图与立体顶点棱面守恒' },
+  { from: 'pick-theorem-lattice', to: 'euler-formula-polyhedron', label: '格点皮克定理到多面体欧拉示性数恒等式' },
+  { from: 'triangle-centroid-six-areas', to: 'fermat-point-triangle', label: '重心三中线交汇到费马点120°最短网络' },
+  { from: 'pythagorean-theorem', to: 'fermat-point-triangle', label: '几何极值到旋转60°折线化直最短管线' },
+  { from: 'periodic-patterns', to: 'josephus-problem-elimination', label: '周期循环报数到约瑟夫环递归淘汰' },
+  { from: 'binary-magic-cards-puzzle', to: 'josephus-problem-elimination', label: '二进制位权到约瑟夫环循环左移' },
+  { from: 'magic-square-number-array', to: 'magic-hexagon-puzzle', label: '九宫格数阵到三向阿恩斯幻六角形' },
+  { from: 'arithmetic-progression-gauss', to: 'magic-hexagon-puzzle', label: '高斯求和到蜂巢190除以5得38' },
+  { from: 'average-benchmark', to: 'frog-jumping-probability', label: '平均基准数到马尔可夫期望方程' },
+  { from: 'catalan-number-combinatorics', to: 'frog-jumping-probability', label: '网格反射漫步到青蛙荷叶随机游走抛物线' },
 ];
 
