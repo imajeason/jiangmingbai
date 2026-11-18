@@ -54,6 +54,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'binary-magic-cards-puzzle',
       'fibonacci-rabbit-sequence',
       'magic-hexagon-puzzle',
+      'collatz-conjecture-3n1',
     ],
   },
   {
@@ -98,6 +99,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'triangle-centroid-six-areas',
       'euler-formula-polyhedron',
       'fermat-point-triangle',
+      'golden-rectangle-spiral-cut',
     ],
   },
   {
@@ -176,6 +178,8 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'logic-grid-deduction-puzzle',
       'josephus-problem-elimination',
       'frog-jumping-probability',
+      'bridges-of-konigsberg-euler-path',
+      'chessboard-tromino-tiling',
     ],
   },
   {
@@ -198,6 +202,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'profit-loss-discount',
       'tiered-pricing-taxi-fare',
       'buoyancy-archimedes',
+      'farey-sequence-mediant',
     ],
   },
 ];
@@ -377,5 +382,13 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'arithmetic-progression-gauss', to: 'magic-hexagon-puzzle', label: '高斯求和到蜂巢190除以5得38' },
   { from: 'average-benchmark', to: 'frog-jumping-probability', label: '平均基准数到马尔可夫期望方程' },
   { from: 'catalan-number-combinatorics', to: 'frog-jumping-probability', label: '网格反射漫步到青蛙荷叶随机游走抛物线' },
+
+  // 法里数列、冰雹猜想、黄金矩形切、哥尼斯堡七桥与残缺棋盘
+  { from: 'fraction-telescoping-sum', to: 'farey-sequence-mediant', label: '分数裂项到法里数列相邻交叉相乘差为1' },
+  { from: 'periodic-patterns', to: 'collatz-conjecture-3n1', label: '周期规律到考拉兹3n+1死循环4-2-1黑洞' },
+  { from: 'fibonacci-rabbit-sequence', to: 'golden-rectangle-spiral-cut', label: '黄金螺旋到黄金矩形自相似连环切' },
+  { from: 'euler-formula-polyhedron', to: 'bridges-of-konigsberg-euler-path', label: '拓扑欧拉公式到哥尼斯堡七桥一笔画定理' },
+  { from: 'multiplication-array', to: 'chessboard-tromino-tiling', label: '点阵方格到残缺棋盘L型三格骨牌覆盖' },
+  { from: 'tower-of-hanoi-recursion', to: 'chessboard-tromino-tiling', label: '汉诺塔分治递归到中心L骨牌四象限分解' },
 ];
 
