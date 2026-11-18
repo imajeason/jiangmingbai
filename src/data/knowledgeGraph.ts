@@ -55,6 +55,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'fibonacci-rabbit-sequence',
       'magic-hexagon-puzzle',
       'collatz-conjecture-3n1',
+      'euclidean-extended-bezout',
     ],
   },
   {
@@ -100,6 +101,9 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'euler-formula-polyhedron',
       'fermat-point-triangle',
       'golden-rectangle-spiral-cut',
+      'sierpinski-triangle-fractal',
+      'manhattan-taxicab-geometry',
+      'pascals-hexagon-conic',
     ],
   },
   {
@@ -180,6 +184,7 @@ export const MODULE_CATEGORIES: ModuleCategory[] = [
       'frog-jumping-probability',
       'bridges-of-konigsberg-euler-path',
       'chessboard-tromino-tiling',
+      'twelve-coins-balance-puzzle',
     ],
   },
   {
@@ -390,5 +395,13 @@ export const TOPOLOGY_EDGES: GraphEdge[] = [
   { from: 'euler-formula-polyhedron', to: 'bridges-of-konigsberg-euler-path', label: '拓扑欧拉公式到哥尼斯堡七桥一笔画定理' },
   { from: 'multiplication-array', to: 'chessboard-tromino-tiling', label: '点阵方格到残缺棋盘L型三格骨牌覆盖' },
   { from: 'tower-of-hanoi-recursion', to: 'chessboard-tromino-tiling', label: '汉诺塔分治递归到中心L骨牌四象限分解' },
+
+  // 谢尔宾斯基三角形、十二枚金币、裴蜀定理、曼哈顿几何与帕斯卡六边形
+  { from: 'pascal-yang-hui-triangle', to: 'sierpinski-triangle-fractal', label: '杨辉三角奇偶染色到谢尔宾斯基分形三角形' },
+  { from: 'geometric-progression-sum', to: 'sierpinski-triangle-fractal', label: '等比数列到分形面积趋零与周长发散' },
+  { from: 'counterfeit-coin-balance', to: 'twelve-coins-balance-puzzle', label: '已知轻假币到十二枚未知轻重假币三进制信息论' },
+  { from: 'euclidean-algorithm-gcd', to: 'euclidean-extended-bezout', label: '辗转相除法正推求gcd到逆向回代裴蜀定理' },
+  { from: 'grid-shortest-path-counting', to: 'manhattan-taxicab-geometry', label: '网格路径到曼哈顿距离与出租车菱形圆' },
+  { from: 'butterfly-model-geometry', to: 'pascals-hexagon-conic', label: '蝴蝶模型交叉线到圆内接六边形帕斯卡线共线' },
 ];
 

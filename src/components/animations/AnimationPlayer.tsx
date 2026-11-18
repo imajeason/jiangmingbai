@@ -126,6 +126,11 @@ import CollatzConjectureLab from './CollatzConjectureLab';
 import GoldenRectangleCutLab from './GoldenRectangleCutLab';
 import KonigsbergBridgesLab from './KonigsbergBridgesLab';
 import ChessboardTilingLab from './ChessboardTilingLab';
+import SierpinskiTriangleLab from './SierpinskiTriangleLab';
+import TwelveCoinsBalanceLab from './TwelveCoinsBalanceLab';
+import ExtendedEuclidLab from './ExtendedEuclidLab';
+import TaxicabGeometryLab from './TaxicabGeometryLab';
+import PascalHexagonLab from './PascalHexagonLab';
 
 interface AnimationPlayerProps {
   type: 'circle-area' | 'pythagorean-theorem' | 'buoyancy-archimedes' | 'clock-reading' | 'ten-frame' | 'transfer-and-balance' | 'line-up-ordering' | 'front-back-left-right' | 'compass-directions' | 'multiplication-array' | 'hidden-cubes-counting' | 'chicken-rabbit-cage' | 'triangle-area-parallelogram' | 'perimeter-vs-area' | 'cube-nets-folding' | 'speed-meeting-chasing' | 'cylinder-cone-volume' | 'fractions-basics' | 'tree-planting-intervals' | 'sum-difference-multiple' | 'surplus-and-deficiency' | 'work-rate-problem' | 'newton-cow-pasture' | 'algebraic-equations-basics' | 'river-boat-motion' | 'train-bridge-crossing' | 'average-benchmark' | 'inclusion-exclusion-venn' | 'age-difference' | 'age-difference-problem' | 'periodic-patterns' | 'repeating-patterns-modulo' | 'circular-track' | 'circular-track-problem' | 'reverse-thinking' | 'reverse-thinking-reduction' | 'magic-square' | 'magic-square-number-array' | 'cube-coloring' | 'cube-coloring-cutting' | 'pigeonhole-principle' | 'arithmetic-progression' | 'arithmetic-progression-gauss' | 'irregular-perimeter' | 'irregular-perimeter-translation' | 'distributive-law' | 'distributive-law-area' | 'substitution-elimination' | 'substitution-elimination-method' | 'ratio-concentration' | 'ratio-concentration-problem' | 'clock-angle-pursuit' | 'clock-angle-problem' | 'clock-hands-pursuit' | 'butterfly-model' | 'butterfly-model-geometry' | 'trapezoid-butterfly-model' | 'counting-segments-handshakes' | 'handshake-counting-model' | 'counting-segments' | 'fraction-telescoping-sum' | 'telescoping-fractions' | 'fraction-telescoping' | 'bird-head-model' | 'bird-head-model-geometry' | 'shared-angle-model' | 'square-formation' | 'square-formation-problem' | 'matrix-square-formation' | 'prime-factorization-lcm-gcd' | 'prime-factorization-short-division' | 'prime-factorization' | 'divisibility-rules-math' | 'divisibility-rules' | 'divisibility-criterion' | 'swallowtail-model' | 'swallowtail-model-geometry' | 'swallowtail-theorem' | 'profit-loss-discount' | 'profit-and-loss' | 'economic-profit-problem' | 'repeated-meeting-motion' | 'repeated-meeting' | 'turnback-motion' | 'addition-multiplication-principles' | 'addition-multiplication-principle' | 'combinatorics-principles' | string;
@@ -562,6 +567,26 @@ export default function AnimationPlayer({ type }: AnimationPlayerProps) {
     case 'defective-chessboard-tiling':
     case 'chessboard-tiling':
       return <ChessboardTilingLab />;
+    case 'sierpinski-triangle-fractal':
+    case 'sierpinski-triangle':
+    case 'sierpinski-fractal':
+      return <SierpinskiTriangleLab />;
+    case 'twelve-coins-balance-puzzle':
+    case 'twelve-coins-balance':
+    case 'twelve-coins-puzzle':
+      return <TwelveCoinsBalanceLab />;
+    case 'euclidean-extended-bezout':
+    case 'extended-euclid':
+    case 'bezout-identity':
+      return <ExtendedEuclidLab />;
+    case 'manhattan-taxicab-geometry':
+    case 'taxicab-geometry':
+    case 'manhattan-distance':
+      return <TaxicabGeometryLab />;
+    case 'pascals-hexagon-conic':
+    case 'pascals-hexagon':
+    case 'pascal-mystic-hexagram':
+      return <PascalHexagonLab />;
 
 
 
